@@ -4,37 +4,32 @@ public class Question {
 	
 	private String id;
 	private String questions;
-	private int iDifficulty;
+	private int difficulty;
 	private String[] answers;
-	private int iSolution;
-	
-	//TODO: Category muss hinzugefügt werden
-//Category gibt es noch nicht -> private Category category;
+	private int solution;
+	private Category category;
 
-	public String getID() {
+	public String GetID() {
 		return this.id;
 	}
 	
-	public String getQuestion() {
+	public String GetQuestion() {
 		return this.questions;
 	}
 	
-	public int getDifficulty() {
-		return this.iDifficulty;
+	public int GetDifficulty() {
+		return this.difficulty;
 	}
 	
-	public String[] getAnswers() {
+	public String[] GetAnswers() {
 		return this.answers;
 	}
 	
-	public int getSolution() {
-		return this.iSolution;
+	public int GetSolution() {
+		return this.solution;
 	}
-	
-	// TODO: Category muss hinzugefügt werden
-	/*
-	public Category getCategory() {
+
+	public Category GetCategory() {
 		return this.category;
 	}
-	*/
 }
