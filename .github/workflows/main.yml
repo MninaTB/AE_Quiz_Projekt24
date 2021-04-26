@@ -22,13 +22,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # installiere abhaeningkeiten
+      - name: Installiere benoetigte Abhaenigkeiten 
+        run: make dependencies 
+
       # Pruefe ob Projekt kompilierbar ist           
       - name: Pruefe ob Projekt kompilierbar ist
         run: make build         
-
-      # TODO: installiere abhaeningkeiten
-      # - name: Installiere benoetigte Abhaenigkeiten 
-      #   run: make dependencies 
 
       # TODO: Fuehre Unittests des Projekts aus
       # - name: Fuehre Unit tests des Projekts aus
