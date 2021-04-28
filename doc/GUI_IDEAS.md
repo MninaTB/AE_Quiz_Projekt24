@@ -2,10 +2,11 @@
 Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren GUIs dokumentieren.
 
 ## Wie viele und welche Screens werden benötigt?
-- **Start-Screen** - Ein einfacher Screen mit Game-Title und einem Start-Button und einem Exit-Button
-- **Game-Screen** - Ein komplexer Screen, der das eigentliche Spiel präsentiert
+1. **Start-Screen** - Ein einfacher Screen mit Game-Title und einem Start-Button und einem Exit-Button
+2. **Game-Screen** - Ein komplexer Screen, der das eigentliche Spiel präsentiert
+3. **End-Screen** - Ein einfacher Screen, der das Ergebnis und den Punktestand anzeigt mit einem Again-Button und einem Exit-Button
 
-## Start-Screen
+## 1. Start-Screen
 ### Funktionen des Screens
 - Das Spiel starten
 - Das Spiel schließen
@@ -18,7 +19,7 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 ### Zeichnung
 ![StartGUI Bild](StartGUI.png)
 
-## Game-Screen
+## 2. Game-Screen
 ### Funktionen des Screens
 - Zurück zum Start-Screen gehen
 - Das Spiel schließen
@@ -32,11 +33,27 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 - **Exit-Button** - Ein Button, der das Spiel schließt
 - **Question-Label** - Die aktuelle Frage
 - **Level-Labels** - Liste aller Level und das aktuelle Level zeigt
-- **Answer-Buttons** - Die 4 Antworten-Buttons(1 richtig, 3 falsch)
-- **Joker-Button** - Ein Button, der 2 falsche Antworten entfernt
+- **Answer-Buttons** - Die 4 Antworten-Buttons (1 richtig, 3 falsch)
+- **Joker-Button** - Ein Button, der 2 falsche Antworten entfernt (Optional)
 
 ### Zeichnung
 ![GameGUI Bild](GameGUI.png)
+
+## 3. End-Screen
+### Funktionen des Screens
+- Das Ergebnis anzeigen
+- Den Punktestand anzeigen
+- Das Spiel (erneut) starten
+- Das Spiel schließen
+
+### Komponenten
+- **Result-Label** - Das Ergebnis des Spiels, ob Gewonnen oder Verloren
+- **Score-Label** - Die Anzahl der richtigen Antworten
+- **Again-Button** - Ein Button, der zum Game-Screen führt
+- **Exit-Button** - Ein Button, der das Spiel schließt
+
+### Zeichnung
+![EndGUI Bild](EndGUI.png)
 
 ## Zeichnung bearbeiten
 Mit den .drawio-Files hat man die Möglichkeit die Zeichnungen(.png-Files) weiter zu bearbeiten im ![Browser](https://app.diagrams.net/?src=about) oder sich ![hier](https://github.com/jgraph/drawio-desktop/releases/tag/v14.5.1) die Anwendung zu downloaden.
@@ -44,5 +61,7 @@ Mit den .drawio-Files hat man die Möglichkeit die Zeichnungen(.png-Files) weite
 ### Files
 - `EditableStartGUI.drawio`
 - `EditableGameGUI.drawio`
+- `EditableEndGUI.drawio`
 - `StartGUI.png`
 - `GameGUI.png`
+- `EndGUI.png`
