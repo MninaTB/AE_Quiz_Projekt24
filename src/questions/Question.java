@@ -3,13 +3,19 @@ package questions;
 public class Question implements Cloneable {
 
 	private int id;
-	private String questions;
+	private String question;
 	private int difficulty;
 	private String[] answers;
 	private int solution;
 	private Category category;
 
-	public Question() {
+	public Question(int id, String q, int d, String[] aw, int s, Category c) {
+		this.id = id;
+		this.question = q;
+		this.difficulty = d;
+		this.answers = aw;
+		this.solution = s;
+		this.category = c;
 	}
 
 	public int GetID() {
@@ -17,7 +23,7 @@ public class Question implements Cloneable {
 	}
 
 	public String GetQuestion() {
-		return this.questions;
+		return this.question;
 	}
 
 	public int GetDifficulty() {

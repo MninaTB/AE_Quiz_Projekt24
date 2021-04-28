@@ -22,6 +22,10 @@ public class QuestionParser implements QuestionStore {
 	public QuestionParser() {
 		this.questions = new ArrayList<Question>();
 	}
+	
+	public QuestionParser(ArrayList<Question> q) {
+		this.questions = q;
+	}
 
 	public void Load(InputStreamReader sr) {
 		Gson gson = new Gson();
