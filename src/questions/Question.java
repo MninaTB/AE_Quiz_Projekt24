@@ -1,15 +1,17 @@
 package questions;
 
+import java.util.ArrayList;
+
 public class Question implements Cloneable {
 
 	private int id;
 	private String question;
 	private int difficulty;
-	private String[] answers;
+	private ArrayList<String> answers;
 	private int solution;
 	private Category category;
 
-	public Question(int id, String q, int d, String[] aw, int s, Category c) {
+	public Question(int id, String q, int d, ArrayList<String> aw, int s, Category c) {
 		this.id = id;
 		this.question = q;
 		this.difficulty = d;
@@ -30,7 +32,7 @@ public class Question implements Cloneable {
 		return this.difficulty;
 	}
 
-	public String[] GetAnswers() {
+	public ArrayList<String> GetAnswers() {
 		return this.answers;
 	}
 

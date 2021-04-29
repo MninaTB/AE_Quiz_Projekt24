@@ -27,13 +27,12 @@ public class QuestionParser implements QuestionStore {
 		this.questions = q;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void Load(InputStreamReader sr) {
 		Gson gson = new Gson();
 		String json = new BufferedReader(sr)
 				   .lines().collect(Collectors.joining("\n"));
-		@SuppressWarnings("unchecked")
-		ArrayList<Question> questions = gson.fromJson(json, this.questions.getClass());
-		this.questions = questions;
+		this.questions = gson.fromJson(json, this.questions.getClass());
 	}
 
 	@SuppressWarnings("unchecked")

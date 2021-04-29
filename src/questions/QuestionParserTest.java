@@ -73,6 +73,7 @@ class QuestionParserTest {
 	/**
 	 * Test method for {@link questions.QuestionParser#GetAllQuestions()}.
 	 */
+	@SuppressWarnings("serial")
 	@Test
 	final void testGetAllQuestions() {
 		ArrayList<Question> questions = new ArrayList<Question>();
@@ -89,6 +90,7 @@ class QuestionParserTest {
 	/**
 	 * Test method for {@link questions.QuestionParser#GetQuestionByID(int)}.
 	 */
+	@SuppressWarnings("serial")
 	@Test
 	final void testGetQuestionByID() {
 		ArrayList<Question> questions = new ArrayList<Question>();
@@ -106,6 +108,7 @@ class QuestionParserTest {
 	 * Test method for
 	 * {@link questions.QuestionParser#GetQuestionByDifficulty(int)}.
 	 */
+	@SuppressWarnings("serial")
 	@Test
 	final void testGetQuestionByDifficulty() {
 		final int targetDifficulty = 200;
@@ -129,6 +132,7 @@ class QuestionParserTest {
 	 * Test method for
 	 * {@link questions.QuestionParser#GetQuestionsByCategory(questions.Category)}.
 	 */
+	@SuppressWarnings("serial")
 	@Test
 	final void testGetQuestionsByCategory() {
 		final Category targetCategory = Category.CATEGORY_FUN;
@@ -152,6 +156,7 @@ class QuestionParserTest {
 	 * Test method for
 	 * {@link questions.QuestionParser#CreateQuestion(questions.Question)}.
 	 */
+	@SuppressWarnings("serial")
 	@Test
 	final void testCreateQuestion() {
 		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
@@ -166,6 +171,7 @@ class QuestionParserTest {
 	/**
 	 * Test method for {@link questions.QuestionParser#DeleteQuestion(int)}.
 	 */
+	@SuppressWarnings("serial")
 	@Test
 	final void testDeleteQuestion() {
 		final int targetID = 1;
