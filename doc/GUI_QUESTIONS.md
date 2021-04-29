@@ -22,6 +22,7 @@ keine weitere Kategorie kann hinzugefügt werden.
 - **Wenn dem so wäre** könnte man das schöne mit Buttons realisieren,
 die auch das Ampelsystem nutzen würden, also Rot für nicht-ausgewählte Kategorien und Grün für die ausgewählte Kategorie.  
 - **Wenn dem nicht so wäre** würde ich das mit einer ComboBox realisieren, wo sich die farbliche Gestaltung als schwierig erweisen würde.
+
 Ich persönlich würde die fixe Anzahl mit Buttons bevorzugen.
 
 ### Was wäre euch lieber oder habt ihr noch andere Ideen?
