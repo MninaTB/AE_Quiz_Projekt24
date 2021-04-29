@@ -5,11 +5,17 @@ package questions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.AfterAll;
@@ -24,13 +30,11 @@ import org.junit.jupiter.api.Test;
  */
 class QuestionParserTest {
 
-	/**
-	 * Test method for
-	 * {@link questions.QuestionParser#Load(java.io.InputStreamReader)}.
-	 */
-	@Test
-	final void testLoad() {
-		final String text = "[\n"
+	String text;
+	
+	@BeforeEach
+	void setUp() throws Exception {
+    	this.text = "[\n"
 				+ "  {\n"
 				+ "    \"id\": 1,\n"
 				+ "    \"question\": \"wie alt\",\n"
@@ -59,7 +63,15 @@ class QuestionParserTest {
 				+ "  }\n"
 				+ "]\n"
 				+ "";
-		InputStream input = new ByteArrayInputStream(text.getBytes());
+    }
+    
+	/**
+	 * Test method for
+	 * {@link questions.QuestionParser#Load(java.io.InputStreamReader)}.
+	 */
+	@Test
+	final void testLoad() {
+		InputStream input = new ByteArrayInputStream(this.text.getBytes());
 		QuestionParser q = new QuestionParser();
 		try {
 			InputStreamReader s = new InputStreamReader(input);
@@ -68,6 +80,32 @@ class QuestionParserTest {
 			fail(e);
 		}
 		assertEquals(q.GetAllQuestions().size(), 2);
+	}
+	
+	/**
+	 * Test method for
+	 * {@link questions.QuestionParser#Save(java.io.OutputStreamWriter)}.
+	 * @throws  
+	 */
+	@SuppressWarnings("serial")
+	@Test
+	final void testSave() {
+		ArrayList<Question> questions = new ArrayList<Question>();
+		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
+		questions.add(new Question(1, "wie alt", 5, aw, 3, Category.CATEGORY_FUN));
+		questions.add(new Question(2, "wie toll", 3, aw, 3, Category.CATEGORY_FUN));
+		QuestionParser q = new QuestionParser(questions);
+        OutputStream buf = new ByteArrayOutputStream();
+        OutputStreamWriter w = new OutputStreamWriter(buf);
+		q.Save(w);
+		try {
+			w.flush();
+			buf.flush();
+		} catch (IOException e) {
+			fail("could not flush data");
+		}
+		// NOTE: remove all whitespaces and non-visible characters (e.g., tab, \n).
+		assertEquals(this.text.replaceAll("\\s+",""), buf.toString().replaceAll("\\s+",""));
 	}
 
 	/**

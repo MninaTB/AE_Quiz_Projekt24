@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
@@ -33,6 +34,11 @@ public class QuestionParser implements QuestionStore {
 		String json = new BufferedReader(sr)
 				   .lines().collect(Collectors.joining("\n"));
 		this.questions = gson.fromJson(json, this.questions.getClass());
+	}
+	
+	public void Save(OutputStreamWriter w) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		gson.toJson(this.questions, w);
 	}
 
 	@SuppressWarnings("unchecked")
