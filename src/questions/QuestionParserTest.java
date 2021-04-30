@@ -144,11 +144,11 @@ class QuestionParserTest {
 
 	/**
 	 * Test method for
-	 * {@link questions.QuestionParser#GetQuestionByDifficulty(int)}.
+	 * {@link questions.QuestionParser#GetQuestionsByDifficulty(int)}.
 	 */
 	@SuppressWarnings("serial")
 	@Test
-	final void testGetQuestionByDifficulty() {
+	final void testGetQuestionsByDifficulty() {
 		final int targetDifficulty = 200;
 		ArrayList<Question> questions = new ArrayList<Question>();
 		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
@@ -158,7 +158,7 @@ class QuestionParserTest {
 		questions.add(new Question(3, "was", 100, aw, 2, Category.CATEGORY_FUN));
 		QuestionParser q = new QuestionParser(questions);
 		
-		Question queried = q.GetQuestionByDifficulty(targetDifficulty).get(0);
+		Question queried = q.GetQuestionsByDifficulty(targetDifficulty).get(0);
 		assertEquals(question.GetID(), queried.GetID());
 		assertEquals(question.GetQuestion(), queried.GetQuestion());
 		assertEquals(question.GetDifficulty(), queried.GetDifficulty());

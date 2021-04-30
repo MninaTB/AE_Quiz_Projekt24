@@ -58,7 +58,7 @@ public class QuestionParser implements QuestionStore {
 	}
 
 	@Override
-	public ArrayList<Question> GetQuestionByDifficulty(int difficulty) {
+	public ArrayList<Question> GetQuestionsByDifficulty(int difficulty) {
 		ArrayList<Question> questions = new ArrayList<Question>();
 		for (Question q : this.questions) {
 			if (q.GetDifficulty() == difficulty) {
