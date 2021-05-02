@@ -20,7 +20,7 @@ public class Main {
 		File file = new File(filename);
 		try {
 			InputStreamReader sr = new InputStreamReader(new FileInputStream(file));
-			q.Load(sr);
+			q.load(sr);
 		} catch (FileNotFoundException e) {
 			System.out.printf("could not load: %s\n", filename);
 		}

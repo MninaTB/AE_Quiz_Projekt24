@@ -67,7 +67,7 @@ class QuestionParserTest {
     
 	/**
 	 * Test method for
-	 * {@link questions.QuestionParser#Load(java.io.InputStreamReader)}.
+	 * {@link questions.QuestionParser#load(java.io.InputStreamReader)}.
 	 */
 	@Test
 	final void testLoad() {
@@ -75,16 +75,16 @@ class QuestionParserTest {
 		QuestionParser q = new QuestionParser();
 		try {
 			InputStreamReader s = new InputStreamReader(input);
-			q.Load(s);
+			q.load(s);
 		} catch (Exception e) {
 			fail(e);
 		}
-		assertEquals(q.GetAllQuestions().size(), 2);
+		assertEquals(q.getAllQuestions().size(), 2);
 	}
 	
 	/**
 	 * Test method for
-	 * {@link questions.QuestionParser#Save(java.io.OutputStreamWriter)}.
+	 * {@link questions.QuestionParser#save(java.io.OutputStreamWriter)}.
 	 * @throws  
 	 */
 	@SuppressWarnings("serial")
@@ -97,7 +97,7 @@ class QuestionParserTest {
 		QuestionParser q = new QuestionParser(questions);
         OutputStream buf = new ByteArrayOutputStream();
         OutputStreamWriter w = new OutputStreamWriter(buf);
-		q.Save(w);
+		q.save(w);
 		try {
 			w.flush();
 			buf.flush();
@@ -109,7 +109,7 @@ class QuestionParserTest {
 	}
 
 	/**
-	 * Test method for {@link questions.QuestionParser#GetAllQuestions()}.
+	 * Test method for {@link questions.QuestionParser#getAllQuestions()}.
 	 */
 	@SuppressWarnings("serial")
 	@Test
@@ -120,13 +120,13 @@ class QuestionParserTest {
 		questions.add(new Question(2, "wo", 100, aw, 2, Category.CATEGORY_FUN));
 		questions.add(new Question(3, "was", 100, aw, 2, Category.CATEGORY_FUN));
 		QuestionParser q = new QuestionParser(questions);
-		ArrayList<Question> nq = q.GetAllQuestions();
+		ArrayList<Question> nq = q.getAllQuestions();
 		
 		assertEquals(questions,nq);
 	}
 
 	/**
-	 * Test method for {@link questions.QuestionParser#GetQuestionByID(int)}.
+	 * Test method for {@link questions.QuestionParser#getByID(int)}.
 	 */
 	@SuppressWarnings("serial")
 	@Test
@@ -139,12 +139,12 @@ class QuestionParserTest {
 		questions.add(new Question(3, "was", 100, aw, 2, Category.CATEGORY_FUN));
 		QuestionParser q = new QuestionParser(questions);
 		
-		assertEquals(question,q.GetQuestionByID(question.GetID()));
+		assertEquals(question,q.getByID(question.getID()));
 	}
 
 	/**
 	 * Test method for
-	 * {@link questions.QuestionParser#GetQuestionsByDifficulty(int)}.
+	 * {@link questions.QuestionParser#getByDifficulty(int)}.
 	 */
 	@SuppressWarnings("serial")
 	@Test
@@ -158,17 +158,17 @@ class QuestionParserTest {
 		questions.add(new Question(3, "was", 100, aw, 2, Category.CATEGORY_FUN));
 		QuestionParser q = new QuestionParser(questions);
 		
-		Question queried = q.GetQuestionsByDifficulty(targetDifficulty).get(0);
-		assertEquals(question.GetID(), queried.GetID());
-		assertEquals(question.GetQuestion(), queried.GetQuestion());
-		assertEquals(question.GetDifficulty(), queried.GetDifficulty());
-		assertEquals(question.GetSolution(), queried.GetSolution());
-		assertEquals(question.GetCategory(), queried.GetCategory());
+		Question queried = q.getByDifficulty(targetDifficulty).get(0);
+		assertEquals(question.getID(), queried.getID());
+		assertEquals(question.getQuestion(), queried.getQuestion());
+		assertEquals(question.getDifficulty(), queried.getDifficulty());
+		assertEquals(question.getSolution(), queried.getSolution());
+		assertEquals(question.getCategory(), queried.getCategory());
 	}
 
 	/**
 	 * Test method for
-	 * {@link questions.QuestionParser#GetQuestionsByCategory(questions.Category)}.
+	 * {@link questions.QuestionParser#getByCategory(questions.Category)}.
 	 */
 	@SuppressWarnings("serial")
 	@Test
@@ -182,17 +182,17 @@ class QuestionParserTest {
 		questions.add(new Question(3, "was", 100, aw, 2, Category.CATEGORY_UNKNOWN));
 		QuestionParser q = new QuestionParser(questions);
 		
-		Question queried = q.GetQuestionsByCategory(targetCategory).get(0);
-		assertEquals(question.GetID(), queried.GetID());
-		assertEquals(question.GetQuestion(), queried.GetQuestion());
-		assertEquals(question.GetDifficulty(), queried.GetDifficulty());
-		assertEquals(question.GetSolution(), queried.GetSolution());
-		assertEquals(question.GetCategory(), queried.GetCategory());
+		Question queried = q.getByCategory(targetCategory).get(0);
+		assertEquals(question.getID(), queried.getID());
+		assertEquals(question.getQuestion(), queried.getQuestion());
+		assertEquals(question.getDifficulty(), queried.getDifficulty());
+		assertEquals(question.getSolution(), queried.getSolution());
+		assertEquals(question.getCategory(), queried.getCategory());
 	}
 
 	/**
 	 * Test method for
-	 * {@link questions.QuestionParser#CreateQuestion(questions.Question)}.
+	 * {@link questions.QuestionParser#create(questions.Question)}.
 	 */
 	@SuppressWarnings("serial")
 	@Test
@@ -201,13 +201,13 @@ class QuestionParserTest {
 		Question q1 = new Question(1, "wo", 100, aw, 2, Category.CATEGORY_FUN);
 		Question q2 = new Question(2, "wer", 100, aw, 2, Category.CATEGORY_FUN);
 		QuestionParser q = new QuestionParser();
-		q.CreateQuestion(q1);
-		q.CreateQuestion(q2);
-		assertEquals(q.GetAllQuestions().size(), 2);
+		q.create(q1);
+		q.create(q2);
+		assertEquals(q.getAllQuestions().size(), 2);
 	}
 
 	/**
-	 * Test method for {@link questions.QuestionParser#DeleteQuestion(int)}.
+	 * Test method for {@link questions.QuestionParser#delete(int)}.
 	 */
 	@SuppressWarnings("serial")
 	@Test
@@ -218,7 +218,7 @@ class QuestionParserTest {
 		questions.add(new Question(targetID, "wie", 100, aw, 2, Category.CATEGORY_FUN));
 		questions.add(new Question(2, "was", 100, aw, 2, Category.CATEGORY_FUN));
 		QuestionParser q = new QuestionParser(questions);
-		q.DeleteQuestion(targetID);
-		assertEquals(q.GetAllQuestions().size(), 1);
+		q.delete(targetID);
+		assertEquals(q.getAllQuestions().size(), 1);
 	}
 }
