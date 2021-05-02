@@ -6,7 +6,7 @@ Ein Git Branch repräsentiert eine unabhängige Entwicklungslinie. Neue Commits 
 
 ## Wie erzeuge ich einen Branch?
 Mit dem Befehl `git branch` können wir Branches erstellen, auflisten, umbenennen und löschen.
-Mit ``git branch -d <name>`` können wir einen Branch erzeugen und in den spitzen Klammern benennen.
+Mit ``git checkout -b <name>`` können wir einen Branch erzeugen und in den spitzen Klammern benennen.
 
 
 ## Welche Branches gibt es bereits und auf welchem Branch befinde ich mich zurzeit?
@@ -60,7 +60,7 @@ Beispiel:
 
 Nun geht man auf die Github Seite wählt die Reviewer aus die diese Änderungen prüfen sollen, trägt sich selbst als assigne ein und wählt das passende label aus. 
 
-![pullrequest bild](pull_request.png)
+![pullrequest bild](assets/pull_request.png)
 
 
 ## Kurzer Leitfaden

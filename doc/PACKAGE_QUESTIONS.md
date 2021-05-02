@@ -30,4 +30,4 @@ Beispiel:
 
 
 ## UML
-![UML questions package](package_questions_uml.png)
+![UML questions package](assets/package_questions_uml.png)
