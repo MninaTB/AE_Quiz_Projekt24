@@ -4,56 +4,56 @@ namespace questions {
         - String id
         - String question
         - int difficulty 
-        - String[] answers 
+        - ArrayList<String> answers 
         - int solution
         - Category category
 
-        + GetID() int
-        + GetQuestion() String
-        + GetDifficulty() int
-        + GetAnswers() String[]
-        + GetSolution() int
-        + GetCategory() Category
+        + int getID() int
+        + String getQuestion() String
+        + int getDifficulty() int
+        + ArrayList<String> getAnswers()
+        + int getSolution()
+        + Category getCategory()
 
     }
     class QuestionDB << (S,Aquamarine) >> {
-        - connection sql.Conn
-        - questions Question[]
+        - sql.Conn connection
+        - ArrayList<Question> questions
 
         + QuestionDB() 
-        + Connect(String address) 
-        + GetQuestionByID(int id) Question
-        + GetQuestionsByDifficulty(int d) Question[]
-        + GetQuestionsByCategory(Category c) 
-        + GetAllQuestions() Question[]
-        + CreateQuestion(Question q) 
-        + UpdateQuestion(Question q) 
-        + DeleteQuestion(int id) 
+        + void connect(String address) 
+        + Question getByID(int id)
+        + ArrayList<Question> getByDifficulty(int d)
+        + ArrayList<Question> getByCategory(Category c) 
+        + ArrayList<Question> getAll()
+        + void create(Question q) 
+        + void update(Question q) 
+        + void delete(int id) 
 
     }
     class QuestionParser << (S,Aquamarine) >> {
         - questions Question[]
 
         + QuestionParser() 
-        + LoadFromFile(String filename) 
-        + WriteQuestions(String filename) 
-        + GetQuestionByID(int id) Question
-        + GetQuestionsByDifficulty(int d) Question[]
-        + GetQuestionsByCategory(Category c) 
-        + GetAllQuestions() Question[]
-        + CreateQuestion(Question q) 
-        + UpdateQuestion(Question q) 
-        + DeleteQuestion(int id) 
+        + void load(InputStreamReader sr) 
+        + void write(OutputStreamWriter w) 
+        + Question getByID(int id)
+        + ArrayList<Question> getByDifficulty(int d)
+        + ArrayList<Question> getByCategory(Category c) 
+        + ArrayList<Question> getAll()
+        + void create(Question q) 
+        + void update(Question q) 
+        + void delete(int id) 
 
     }
     interface QuestionStore  {
-        + GetAllQuestions() Question[]
-        + GetQuestionByID(int id) Question
-        + GetQuestionsByDifficulty(int d) Question[]
-        + GetQuestionsByCategory(Category c) 
-        + CreateQuestion(Question q) 
-        + UpdateQuestion(Question q) 
-        + DeleteQuestion(int id) 
+        + ArrayList<Question> getAll()
+        + Question getByID(int id)
+        + ArrayList<Questoin> getByDifficulty(int d)
+        + ArrayList<Question> getByCategory(Category c) 
+        + void create(Question q) 
+        + void update(Question q) 
+        + void delete(int id) 
 
     }
     class questions.Category << (T, #FF7700) >>  {
