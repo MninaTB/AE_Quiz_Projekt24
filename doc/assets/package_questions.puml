@@ -1,0 +1,67 @@
+@startuml
+namespace questions {
+    class Question << (S,Aquamarine) >> {
+        - String id
+        - String question
+        - int difficulty 
+        - ArrayList<String> answers 
+        - int solution
+        - Category category
+
+        + int getID() int
+        + String getQuestion() String
+        + int getDifficulty() int
+        + ArrayList<String> getAnswers()
+        + int getSolution()
+        + Category getCategory()
+
+    }
+    class QuestionDB << (S,Aquamarine) >> {
+        - sql.Conn connection
+        - ArrayList<Question> questions
+
+        + QuestionDB() 
+        + void connect(String address) 
+        + Question getByID(int id)
+        + ArrayList<Question> getByDifficulty(int d)
+        + ArrayList<Question> getByCategory(Category c) 
+        + ArrayList<Question> getAll()
+        + void create(Question q) 
+        + void update(Question q) 
+        + void delete(int id) 
+
+    }
+    class QuestionParser << (S,Aquamarine) >> {
+        - questions Question[]
+
+        + QuestionParser() 
+        + void load(InputStreamReader sr) 
+        + void write(OutputStreamWriter w) 
+        + Question getByID(int id)
+        + ArrayList<Question> getByDifficulty(int d)
+        + ArrayList<Question> getByCategory(Category c) 
+        + ArrayList<Question> getAll()
+        + void create(Question q) 
+        + void update(Question q) 
+        + void delete(int id) 
+
+    }
+    interface QuestionStore  {
+        + ArrayList<Question> getAll()
+        + Question getByID(int id)
+        + ArrayList<Questoin> getByDifficulty(int d)
+        + ArrayList<Question> getByCategory(Category c) 
+        + void create(Question q) 
+        + void update(Question q) 
+        + void delete(int id) 
+
+    }
+    class questions.Category << (T, #FF7700) >>  {
+    }
+}
+
+"questions.QuestionStore" <|-- "questions.QuestionDB"
+"questions.QuestionStore" <|-- "questions.QuestionParser"
+
+"__builtin__.string" #.. "questions.Category"
+@enduml

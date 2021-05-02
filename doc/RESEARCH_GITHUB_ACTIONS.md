@@ -28,4 +28,4 @@ Der Build Schritt überprüft das Kompilieren des Programms. Im nächsten Schrit
 ## Resultat
 Der Vorteil dieses Ablaufs besteht daraus, dass automatisiert beim Erstellen eines Pull Requests um beim Mergen auf den Masterbranch geprüft wird, ob das Programm kompiliert werden kann und die bestehenden Tests erfolgreich durchlaufen werden können. Der Entwickler erhält am Ende ein Feedback für seinen Commit ob alle Tests positiv abgeschlossen wurden. Das Feedback findet in Form eines grünen Häckchens statt:
 
-![CI-Feedback](ci_feedback.png)
+![CI-Feedback](assets/ci_feedback.png)

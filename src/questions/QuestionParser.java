@@ -29,28 +29,28 @@ public class QuestionParser implements QuestionStore {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void Load(InputStreamReader sr) {
+	public void load(InputStreamReader sr) {
 		Gson gson = new Gson();
 		String json = new BufferedReader(sr)
 				   .lines().collect(Collectors.joining("\n"));
 		this.questions = gson.fromJson(json, this.questions.getClass());
 	}
 	
-	public void Save(OutputStreamWriter w) {
+	public void save(OutputStreamWriter w) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		gson.toJson(this.questions, w);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public ArrayList<Question> GetAllQuestions() {
+	public ArrayList<Question> getAllQuestions() {
 		return (ArrayList<Question>) this.questions.clone();
 	}
 
 	@Override
-	public Question GetQuestionByID(int id) {
+	public Question getByID(int id) {
 		for (Question q : this.questions) {
-			if (q.GetID() == id) {
+			if (q.getID() == id) {
 				return q;
 			}
 		}
@@ -58,10 +58,10 @@ public class QuestionParser implements QuestionStore {
 	}
 
 	@Override
-	public ArrayList<Question> GetQuestionsByDifficulty(int difficulty) {
+	public ArrayList<Question> getByDifficulty(int difficulty) {
 		ArrayList<Question> questions = new ArrayList<Question>();
 		for (Question q : this.questions) {
-			if (q.GetDifficulty() == difficulty) {
+			if (q.getDifficulty() == difficulty) {
 				try {
 					questions.add((Question) q.clone()); // ;
 				} catch (CloneNotSupportedException e) {
@@ -72,10 +72,10 @@ public class QuestionParser implements QuestionStore {
 	}
 
 	@Override
-	public ArrayList<Question> GetQuestionsByCategory(Category c) {
+	public ArrayList<Question> getByCategory(Category c) {
 		ArrayList<Question> questions = new ArrayList<Question>();
 		for (Question q : this.questions) {
-			if (q.GetCategory() == c) {
+			if (q.getCategory() == c) {
 				try {
 					questions.add((Question) q.clone());
 				} catch (CloneNotSupportedException e) {
@@ -86,7 +86,7 @@ public class QuestionParser implements QuestionStore {
 	}
 
 	@Override
-	public void CreateQuestion(Question q) {
+	public void create(Question q) {
 		try {
 			this.questions.add((Question) q.clone());
 		} catch (CloneNotSupportedException e) {
@@ -95,9 +95,9 @@ public class QuestionParser implements QuestionStore {
 	}
 
 	@Override
-	public void UpdateQuestion(Question qu) {
+	public void update(Question qu) {
 		for (int i = 0; i < this.questions.size(); i++) {
-			if (this.questions.get(i).GetID() == qu.GetID()) {
+			if (this.questions.get(i).getID() == qu.getID()) {
 				Question newQuestion;
 				try {
 					newQuestion = (Question) qu.clone();
@@ -112,9 +112,9 @@ public class QuestionParser implements QuestionStore {
 	}
 
 	@Override
-	public void DeleteQuestion(int id) {
+	public void delete(int id) {
 		for (Question q : this.questions) {
-			if (q.GetID() == id) {
+			if (q.getID() == id) {
 				this.questions.remove(q);
 				return;
 			}

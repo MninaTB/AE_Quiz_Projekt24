@@ -20,27 +20,27 @@ public class Question implements Cloneable {
 		this.category = c;
 	}
 
-	public int GetID() {
+	public int getID() {
 		return this.id;
 	}
 
-	public String GetQuestion() {
+	public String getQuestion() {
 		return this.question;
 	}
 
-	public int GetDifficulty() {
+	public int getDifficulty() {
 		return this.difficulty;
 	}
 
-	public ArrayList<String> GetAnswers() {
+	public ArrayList<String> getAnswers() {
 		return this.answers;
 	}
 
-	public int GetSolution() {
+	public int getSolution() {
 		return this.solution;
 	}
 
-	public Category GetCategory() {
+	public Category getCategory() {
 		return this.category;
 	}
 
