@@ -10,11 +10,11 @@ Dadurch wurde die restliche Schriftfarbe schlecht lesbar, diese habe ich dann mi
 (Bei den Beispielen **bitte** den schwarzen Bereich mit dem rotem Pfeil **nicht beachten!**)
 
 ### Beispiel Nr. 1: Levels
-![Color Levels](ColorLevels.png)
+![Color Levels](assets/ColorLevels.png)
 ### Beispiel Nr. 2: GameTitle
-![Color GameTitle](ColorGameTitle.png)
+![Color GameTitle](assets/ColorGameTitle.png)
 ### Beispiel Nr. 3: QuestionAnswersField
-![Color QuestionAnswersField](ColorQuestionAnswersField.png)
+![Color QuestionAnswersField](assets/ColorQuestionAnswersField.png)
 
 ## 2. Frage
 Haben wir eine fixe Anzahl an Kategorien? Also z.B. 3 Kategorien: WGP, AE, ITS und das bleibt so für immer,
@@ -28,7 +28,7 @@ Ich persönlich würde die fixe Anzahl mit Buttons bevorzugen.
 ### Was wäre euch lieber oder habt ihr noch andere Ideen?
 
 ### Beispiel: Wenn dem so wäre ...
-![Color Categories](ColorCategories.png)
+![Color Categories](assets/ColorCategories.png)
 
 ## 3. Frage
 Es gab scheinbar ein Missverständnis meinerseits, ich dachte ein Level wäre eine Frage, aber ein Level sind 10 Fragen.
@@ -38,7 +38,7 @@ Ich würde das auf 5 Level (50 Fragen) reduzieren womit ich mir auch direkt Plat
 ### Was haltet ihr davon?
 
 ### Beispiel: CategoriesLevelsField
-![Color CategoriesLevelsField](ColorCategoriesLevelsField.png)
+![Color CategoriesLevelsField](assets/ColorCategoriesLevelsField.png)
 
 ## 4. Frage
 Wegen den bisher noch nicht vorhanden Edit-Screens muss ich noch kreativ sein, aber die 1. Frage müsste ich dazu beantwortet haben.

@@ -60,7 +60,7 @@ Beispiel:
 
 Nun geht man auf die Github Seite wählt die Reviewer aus die diese Änderungen prüfen sollen, trägt sich selbst als assigne ein und wählt das passende label aus. 
 
-![pullrequest bild](pull_request.png)
+![pullrequest bild](assets/pull_request.png)
 
 
 ## Kurzer Leitfaden

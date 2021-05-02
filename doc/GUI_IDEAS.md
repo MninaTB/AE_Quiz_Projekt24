@@ -17,7 +17,7 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 - **Exit-Button** - Ein Button, der das Spiel schließt
 
 ### Zeichnung
-![StartGUI Bild](StartGUI.png)
+![StartGUI Bild](assets/StartGUI.png)
 
 ## 2. Game-Screen
 ### Funktionen des Screens
@@ -37,7 +37,7 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 - **Joker-Button** - Ein Button, der 2 falsche Antworten entfernt (Optional)
 
 ### Zeichnung
-![GameGUI Bild](GameGUI.png)
+![GameGUI Bild](assets/GameGUI.png)
 
 ## 3. End-Screen
 ### Funktionen des Screens
@@ -53,15 +53,15 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 - **Exit-Button** - Ein Button, der das Spiel schließt
 
 ### Zeichnung
-![EndGUI Bild](EndGUI.png)
+![EndGUI Bild](assets/EndGUI.png)
 
 ## Zeichnung bearbeiten
 Mit den .drawio-Files hat man die Möglichkeit die Zeichnungen(.png-Files) weiter zu bearbeiten im ![Browser](https://app.diagrams.net/?src=about) oder sich ![hier](https://github.com/jgraph/drawio-desktop/releases/tag/v14.5.1) die Anwendung zu downloaden.
 
 ### Files
-- `EditableStartGUI.drawio`
-- `EditableGameGUI.drawio`
-- `EditableEndGUI.drawio`
-- `StartGUI.png`
-- `GameGUI.png`
-- `EndGUI.png`
+- `assets/EditableStartGUI.drawio`
+- `assets/EditableGameGUI.drawio`
+- `assets/EditableEndGUI.drawio`
+- `assets/StartGUI.png`
+- `assets/GameGUI.png`
+- `assets/EndGUI.png`
