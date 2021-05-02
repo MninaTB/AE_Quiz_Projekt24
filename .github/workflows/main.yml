@@ -30,7 +30,7 @@ jobs:
       - name: Pruefe ob Projekt kompilierbar ist
         run: make build         
 
-      # TODO: Fuehre Unittests des Projekts aus
-      # - name: Fuehre Unit tests des Projekts aus
-      #   run: make test
+      # Fuehre Unittests des Projekts aus
+      - name: Fuehre Unit tests des Projekts aus
+        run: make test
 
