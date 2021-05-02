@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "question": "wie alt",
+    "difficulty": 5,
+    "answers": [
+      "a1",
+      "a2",
+      "a3",
+      "a4"
+    ],
+    "solution": 3,
+    "category": "CATEGORY_FUN"
+  },
+  {
+    "id": 2,
+    "question": "wie toll",
+    "difficulty": 3,
+    "answers": [
+      "a1",
+      "a2",
+      "a3",
+      "a4"
+    ],
+    "solution": 3,
+    "category": "CATEGORY_FUN"
+  }
+]

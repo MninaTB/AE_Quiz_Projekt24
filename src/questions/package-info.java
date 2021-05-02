@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author nina
- *
- */
-package questions;
