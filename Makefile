@@ -37,6 +37,12 @@ test: # starte java tests
 doc:
 	CLASSPATH=$(JAR_GSON) javadoc -taglet org.jdrupes.taglets.plantUml.Taglet -tagletpath $(JAR_PLANTUMLDOCLET):$(JAR_PLANTUML) $(SOURCES)
 
+db_up:
+	docker-compose up -d
+
+db_down:
+	docker-compose down
+
 clean:
 	rm -rf bin/*
 	rm -rf $(shell find . -type f -name '*.jar*')
