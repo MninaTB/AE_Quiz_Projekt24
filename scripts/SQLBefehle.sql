@@ -28,4 +28,5 @@ ALTER TABLE Fragen
 ADD MailFromUser VARCHAR(255);
 
 -- The SELECT statement is used to select data from a database.
+-- Example
 SELECT ID, QUESTIONS FROM Fragen;
