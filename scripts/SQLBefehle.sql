@@ -9,8 +9,14 @@ id INT NOT NULL,
 question VARCHAR(255) NOT NULL,
 difficulty INT NOT NULL,
 answers varchar(255) NOT NULL,
-FOREIGN KEY (answers) REFERENCES Answers(answers_other_table),
+FOREIGN KEY (answers) REFERENCES Answers(answers_answerTable),
 solution INT NOT NULL,
 category VARCHAR NOT NULL,
 PRIMARY KEY(id)
+)
+
+
+-- Creates new Table with Answers
+CREATE TABLE Answers(
+answers_answerTable varchar(255) NOT NULL,
 )
