@@ -13,6 +13,9 @@ import org.junit.jupiter.api.Test;
 import questions.Question;
 import questions.Category;
 
+/**
+ * Klasse zum testen des Spiels mit der Datenbank
+ */
 class StateBuilderTest {
 
 	@BeforeAll

@@ -2,6 +2,9 @@ package questions;
 
 import java.util.ArrayList;
 
+/**
+ * Interface welches benutzt wird für die Implementation von den Methoden aus QuestionParser
+ */
 public interface QuestionStore {
 	public ArrayList<Question> getAllQuestions();
 	public Question getByID(int id);

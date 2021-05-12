@@ -6,6 +6,9 @@ import questions.Category;
 import questions.Question;
 import questions.QuestionStore;
 
+/**
+ * Klasse wird benoetigt um eine Datenbank zu simulieren in spaeteren verlaeufen
+ */
 public class MockQuestionStoreTest implements QuestionStore{
 
 	private ArrayList<Question> db;

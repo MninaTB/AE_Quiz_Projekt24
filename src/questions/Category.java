@@ -1,5 +1,10 @@
 package questions;
 
+/**
+ * Enum "Category" für die verschiedenen Kategorien
+ * welche wir für die Fragen benutzen wollen
+ * 
+ */
 public enum Category {
 	CATEGORY_UNKNOWN("unknown"),
 	CATEGORY_FUN("fun");

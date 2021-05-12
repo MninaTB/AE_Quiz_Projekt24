@@ -13,6 +13,11 @@ import javax.swing.*;
 
 import questions.QuestionParser;
 
+/**
+ * Klasse / Methode wo alles zusammen laeuft
+ * Methode erstellt das GUI und sucht nach der Datei "question.json"
+ * 
+ */
 public class Main {
 	public static void main(String[] args) {
 		String filename = "questions.json";

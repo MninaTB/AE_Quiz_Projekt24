@@ -13,6 +13,9 @@ import org.junit.jupiter.api.Test;
 import questions.Category;
 import questions.Question;
 
+/**
+ * Klasse zum testen des Spiels
+ */
 class StateTest {
 
 	@BeforeAll
