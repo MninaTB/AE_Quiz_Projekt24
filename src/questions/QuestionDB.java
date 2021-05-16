@@ -1,3 +1,7 @@
+/**
+ * @author Rogér
+ */
+
 package questions;
 package de.vogella.mysql.first;
 
@@ -9,45 +13,17 @@ import com.google.gson.*;
 
 public class QuestionDB implements QuestionStore {
 
-	private ArrayList<Question> questions;
-	private dbTable = null;
+	private String dbTable = null;
 	Connection conn = null;
-
+/*
 	public QuestionDB() {
 
-		this.questions = new ArrayList<Question>();
-		initDatabaseConnection();
-	}
-	
-	public QuestionDB(ArrayList<Question> q) {
-		
-		this.questions = q;
-		initDatabaseConnection();
-	}
-
-	public void initDatabaseConnection() {
-
-		try (FileInputStream f = new FileInputStream("db.config")) {
-		
-			// load the properties file
-			Properties prop = new Properties();
-			prop.load(f);
-
-			// set database table
-			this.dbTable = prop.getProperty("dbTable");
-		
-			// create a connection to the database
-			this.conn = DriverManager.getConnection(
-				prop.getProperty("url"), 
-				prop.getProperty("user"), 
-				prop.getProperty("password")
-			);
-		
-		} 
-		catch (IOException e) {
-		
-			System.out.println(e.getMessage());
-		} 
+		// create a connection to the database
+		this.conn = DriverManager.getConnection(
+			"jdbc:odbc:mysql",
+			"root",
+			""
+		);
 	}
 
 	protected void finalize() {  
@@ -61,25 +37,29 @@ public class QuestionDB implements QuestionStore {
 	
 			System.out.println(ex.getMessage());
 		}
-	} 
+	} */
 
 	@Override
 	public Question getByID(int id) {
 
 		ResultSet result;
 		String query = "SELECT * FROM " + this.dbTable + " WHERE Id = " + id + " LIMIT 1";
-		Statement statement = this.conn.createStatement(query);
-		result = statement.execute();
+		PreparedStatement preparedStmt = this.conn.prepareStatement(query);
+		preparedStmt.execute();
+		
+		// Temp
+		ArrayList<String> aw = new ArrayList<String>();
+		Category category = null;
 
 		while (result.next()) {
 
 			Question question = new Question(
-				result.getString("id"),
+				result.getInt("id"),
 				result.getString("question"),
-				result.getString("difficulty"),
-				result.getString("answers"),
-				result.getString("solution"),
-				result.getString("category"),
+				result.getInt("difficulty"),
+				aw,
+				result.getInt("solution"),
+				category
 			);
 			return question;
 		}
@@ -92,18 +72,22 @@ public class QuestionDB implements QuestionStore {
 		ResultSet result;
 		ArrayList<Question> questions = new ArrayList<Question>();
 		String query = "SELECT * FROM " + this.dbTable + " WHERE difficulty = " + difficulty;
-		Statement statement = this.conn.createStatement(query);
-		result = statement.execute();
+		PreparedStatement preparedStmt = this.conn.prepareStatement(query);
+		preparedStmt.execute();
+		
+		// Temp
+		ArrayList<String> aw = new ArrayList<String>();
+		Category category = null;
 
 		while (result.next()) {
 
 			Question question = new Question(
-				result.getString("id"),
+				result.getInt("id"),
 				result.getString("question"),
-				result.getString("difficulty"),
-				result.getString("answers"),
-				result.getString("solution"),
-				result.getString("category"),
+				result.getInt("difficulty"),
+				aw,
+				result.getInt("solution"),
+				category
 			);
 			questions.add((Question) question);
 		}
@@ -111,23 +95,27 @@ public class QuestionDB implements QuestionStore {
 	}
 
 	@Override
-	public ArrayList<Question> getByCategory(int category) {
+	public ArrayList<Question> getByCategory(Category c) {
 
 		ResultSet result;
 		ArrayList<Question> questions = new ArrayList<Question>();
 		String query = "SELECT * FROM " + this.dbTable + " WHERE category = " + category;
-		Statement statement = this.conn.createStatement(query);
-		result = statement.execute();
+		PreparedStatement preparedStmt = this.conn.prepareStatement(query);
+		preparedStmt.execute();
+		
+		// Temp
+		ArrayList<String> aw = new ArrayList<String>();
+		Category category = null;
 
 		while (result.next()) {
 
 			Question question = new Question(
-				result.getString("id"),
+				result.getInt("id"),
 				result.getString("question"),
-				result.getString("difficulty"),
-				result.getString("answers"),
-				result.getString("solution"),
-				result.getString("category"),
+				result.getInt("difficulty"),
+				aw,
+				result.getInt("solution"),
+				category
 			);
 			questions.add((Question) question);
 		}
@@ -140,17 +128,22 @@ public class QuestionDB implements QuestionStore {
 		ResultSet result;
 		ArrayList<Question> questions = new ArrayList<Question>();
 		String query = "SELECT * FROM " + this.dbTable;
-		Statement statement = this.conn.createStatement(query);
-		result = statement.execute();
+		PreparedStatement preparedStmt = this.conn.prepareStatement(query);
+		preparedStmt.execute();
+		
+		// Temp
+		ArrayList<String> aw = new ArrayList<String>();
+		Category category = null;
 
 		while (result.next()) {
 
 			Question question = new Question(
+				result.getInt("id"),
 				result.getString("question"),
-				result.getString("difficulty"),
-				result.getString("answers"),
-				result.getString("solution"),
-				result.getString("category"),
+				result.getInt("difficulty"),
+				aw,
+				result.getInt("solution"),
+				category
 			);
 			questions.add((Question) question);
 		}
@@ -159,47 +152,80 @@ public class QuestionDB implements QuestionStore {
 
 	@Override
 	public void create(Question q) {
-
-		String query = "insert into " + this.dbTable + " (question, difficulty, answers, solution, category)"
-        		+ " values (?, ?, ?, ?, ?)";		
-
-		PreparedStatement preparedStat = this.conn.prepareStatement(query);
-		preparedStmt.setString(1, q.get(0));
-		preparedStmt.setInt(2, q.get(1);
-		preparedStmt.setString(3, q.get(2));
-		preparedStmt.setInt(4, q.get(3));
-		preparedStmt.setInt(5, q.get(4));
+		
+		// Fragen mit answer Tabelle abgleichen
+		
+		// ID rausziehen
+		int category_id = 0;
+		
+		// Fragen mit category Tabelle abgleichen
+		
+		// ID rausziehen
+		int answer_id = 0;
+		
+		// Insert query bauen
+		String query = "INSERT INTO " + this.dbTable + " (question, difficulty, answer_id, solution, category_id)"
+        		+ " values (?, ?, ?, ?, ?)";
+		
+		// create the mysql insert preparedstatement
+		PreparedStatement preparedStmt = this.conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+		preparedStmt.setString(1, q.getQuestion());
+		preparedStmt.setInt(2, q.getDifficulty());
+		preparedStmt.setInt(3, answer_id);
+		preparedStmt.setInt(4, q.getSolution());
+		preparedStmt.setInt(5, category_id);
 		preparedStmt.execute();
+
+		ResultSet result = preparedStmt.getGeneratedKeys();
+		int insertedId = 0;
+
+		if (result.next()) {
+
+			insertedId = result.getInt(1);
+			q.setID(insertedId);
+		}
 	}
 
 	@Override
 	public void update(Question q) {
+		
+		// Fragen mit answer Tabelle abgleichen
+		
+		// ID rausziehen
+		int category_id = 0;
+		
+		// Fragen mit category Tabelle abgleichen
+		
+		// ID rausziehen
+		int answer_id = 0;
 
-		String query = "update " + this.dbTable + " set " 
+		String query = "UPDATE " + this.dbTable + " SET " 
 				+ "question = ? " 
 				+ "difficulty = ? " 
-				+ "answers = ? " 
+				+ "answer_id = ? " 
 				+ "solution = ? " 
-				+ "category = ? "
-				+ "where id = ?";
+				+ "category_id = ? "
+				+ "WHERE id = ?";
 		
-		// create the mysql insert preparedstatement
-		PreparedStatement preparedStat = this.conn.prepareStatement(query);
-		preparedStmt.setString(1, q.get(0));
-		preparedStmt.setInt(2, q.get(1);
-		preparedStmt.setString(3, q.get(2));
-		preparedStmt.setInt(4, q.get(3));
-		preparedStmt.setInt(5, q.get(4));
+		// create the mysql update preparedstatement
+		PreparedStatement preparedStmt = this.conn.prepareStatement(query);
+		preparedStmt.setString(1, q.getQuestion());
+		preparedStmt.setInt(2, q.getDifficulty());
+		preparedStmt.setInt(3, answer_id);
+		preparedStmt.setInt(4, q.getSolution());
+		preparedStmt.setInt(5, category_id);
+		preparedStmt.setInt(5, q.getID());
+		preparedStmt.execute();
 		preparedStmt.execute();
 	}
 
 	@Override
 	public void delete(int id) {
 
-		String query = "delete from " + this.dbTable + " where id = ?";
+		String query = "DELETE FROM " + this.dbTable + " WHERE id = ?";
 		
-		// create the mysql insert preparedstatement
-		PreparedStatement preparedStat = this.conn.prepareStatement(query);
+		// create the mysql delete preparedstatement
+		PreparedStatement preparedStmt = this.conn.prepareStatement(query);
 		preparedStmt.setInt(1, id);
 		preparedStmt.execute();
 	}

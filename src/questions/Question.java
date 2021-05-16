@@ -24,16 +24,32 @@ public class Question implements Cloneable {
 		return this.id;
 	}
 
+	public void setID(int id) {		
+		this.id = id;
+	}
+
 	public String getQuestion() {
 		return this.question;
+	}
+
+	public void setQuestion(String question) {		
+		this.question = question;
 	}
 
 	public int getDifficulty() {
 		return this.difficulty;
 	}
 
+	public void setDifficulty(int difficulty) {
+		this.difficulty = difficulty;
+	}
+
 	public ArrayList<String> getAnswers() {
 		return this.answers;
+	}
+
+	public void setAnswers(ArrayList<String> answers) {
+		this.answers = answers;
 	}
 
 	public int getSolution() {
@@ -42,6 +58,10 @@ public class Question implements Cloneable {
 
 	public Category getCategory() {
 		return this.category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public Object clone() throws CloneNotSupportedException {
