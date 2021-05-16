@@ -2,7 +2,7 @@ package questions;
 
 /**
  * Enum "Category" für die verschiedenen Kategorien
- * welche wir für die Fragen benutzen wollen
+ * welche wir fuer die Fragen benutzen wollen
  * 
  */
 public enum Category {

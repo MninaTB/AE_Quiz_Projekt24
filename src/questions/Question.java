@@ -27,7 +27,7 @@ public class Question implements Cloneable {
 	}
 
 	/**
-	 * Gibt die ID zurück
+	 * Gibt die ID zurueck
 	 * @return id (int)
 	 */
 	public int getID() {
@@ -35,7 +35,7 @@ public class Question implements Cloneable {
 	}
 	
 	/**
-	 * Gibt die Question als String zurück
+	 * Gibt die Question als String zurueck
 	 * @return question (String)
 	 */
 	public String getQuestion() {
@@ -51,7 +51,7 @@ public class Question implements Cloneable {
 	}
 
 	/**
-	 * Gibt die Antworten in einer ArrayList zurück
+	 * Gibt die Antworten in einer ArrayList zurueck
 	 * @return answers
 	 */
 	public ArrayList<String> getAnswers() {
@@ -59,7 +59,7 @@ public class Question implements Cloneable {
 	}
 
 	/**
-	 * Gibt die Loesungne zurueck
+	 * Gibt die Loesungen zurueck
 	 * @return solution
 	 */
 	public int getSolution() {

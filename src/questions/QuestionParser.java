@@ -29,7 +29,7 @@ public class QuestionParser implements QuestionStore {
 	}
 	
 	/**
-	 * Konstruktor mit Parameter zur Übergabe beim initialisieren
+	 * Konstruktor mit Parameter zur Uebergabe beim initialisieren
 	 * @param q
 	 */
 	public QuestionParser(ArrayList<Question> q) {

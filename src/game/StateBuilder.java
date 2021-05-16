@@ -12,7 +12,7 @@ public class StateBuilder {
 	private QuestionStore store;
 	
 	/**
-	 * Konstruktor mit einem Parameter, welcher an die Variable "store" übergeben wird
+	 * Konstruktor mit einem Parameter, welcher an die Variable "store" uebergeben wird
 	 * @param s
 	 */
 	public StateBuilder(QuestionStore s) {

@@ -14,7 +14,7 @@ public class State {
 	private int levelfk = 10;
 
 	/**
-	 * Konstruktor mit zwei übergabe Parametern
+	 * Konstruktor mit zwei uebergabe Parametern
 	 * @param questions
 	 * @param levelfk
 	 */
