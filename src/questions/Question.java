@@ -42,26 +42,47 @@ public class Question implements Cloneable {
 		return this.question;
 	}
 	
-	/**
-	 * Gibt den Schwierigkeitsgrad zurueck
-	 * @return difficulty
-	 */
-	public int getDifficulty() {
+
+	public void setID(int id) {		
+		this.id = id;
+	}
+
+	public String getQuestion() {
+		return this.question;
+	}
+
+	public void setQuestion(String question) {		
+		this.question = question;
+	}
+
+  /**
+   * Gibt den Schwierigkeitsgrad zurueck
+   * @return difficulty
+   */
+  public int getDifficulty() {
 		return this.difficulty;
 	}
 
-	/**
-	 * Gibt die Antworten in einer ArrayList zurueck
-	 * @return answers
-	 */
+	public void setDifficulty(int difficulty) {
+		this.difficulty = difficulty;
+	}
+
+  /**
+   * Gibt die Antworten in einer ArrayList zurueck
+   * @return answers
+   */
 	public ArrayList<String> getAnswers() {
 		return this.answers;
 	}
 
-	/**
-	 * Gibt die Loesungen zurueck
-	 * @return solution
-	 */
+	public void setAnswers(ArrayList<String> answers) {
+		this.answers = answers;
+	}
+
+    /**
+     * Gibt die Loesungen zurueck
+     * @return solution
+     */
 	public int getSolution() {
 		return this.solution;
 	}
@@ -74,9 +95,13 @@ public class Question implements Cloneable {
 		return this.category;
 	}
 
-	/**
-	 * Methode zum Klonen des Objekts
-	 */
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+ /**
+  * Methode zum Klonen des Objekts
+  */
 	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
 	}
