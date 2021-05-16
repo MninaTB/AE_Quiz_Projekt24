@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * fuer den Zugriff von anderen Klassen
  * 
  */
+
 public class Question implements Cloneable {
 
 	private int id;

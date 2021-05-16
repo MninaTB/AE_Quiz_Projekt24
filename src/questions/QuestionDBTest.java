@@ -7,7 +7,6 @@ package questions;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

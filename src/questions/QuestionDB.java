@@ -11,6 +11,7 @@ public class QuestionDB implements QuestionStore {
 
 	private String dbTable = null;
 	Connection conn = null;
+	
 /*
 	public QuestionDB() {
 
