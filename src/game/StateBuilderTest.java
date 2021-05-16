@@ -81,7 +81,35 @@ class StateBuilderTest {
 			got++;
 		}
 		assertEquals(expect, got);
-		
 	}
+	
+	@SuppressWarnings("serial")
+	@Test
+	final void testVerify() {
+		ArrayList<Question> questions = new ArrayList<Question>();
+		MockQuestionStoreTest mockDB = new MockQuestionStoreTest(questions);
+		StateBuilder sb = new StateBuilder(mockDB);
+		
+		assertFalse(sb.verify(new ArrayList<Category>(), 2, 2));
+	
+		Question q1 = new Question(1, "wer", 1, null, 0, Category.CATEGORY_FUN);
+		Question q2 = new Question(2, "wie", 1, null, 0, Category.CATEGORY_FUN);
+		Question q3 = new Question(3, "wo", 2, null, 0, Category.CATEGORY_FUN);
+		Question q4 = new Question(4, "warum", 3, null, 0, Category.CATEGORY_FUN);
+		Question q5 = new Question(5, "was", 4, null, 0, Category.CATEGORY_FUN);
+		questions.add(q1);
+		questions.add(q2);
+		questions.add(q3);
+		questions.add(q4);
+		questions.add(q5);
+        mockDB = new MockQuestionStoreTest(questions);
+		sb = new StateBuilder(mockDB);
+		int expect = 1;
+		
+		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, 1));
+		
+		expect = 3;
+		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect));
+	}	
 
 }
