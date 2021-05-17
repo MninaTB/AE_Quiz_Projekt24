@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Diese Klasse ist nur fuer die Fragen im Quiz.
- * Hier haben wir einen Konstruktor und außerdem verschiedene Getter-Methoden
+ * Hier haben wir einen Konstruktor und ausserdem verschiedene Getter-Methoden
  * fuer den Zugriff von anderen Klassen
  * 
  */
