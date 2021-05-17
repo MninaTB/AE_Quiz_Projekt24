@@ -11,12 +11,13 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
+import gui.MainGUI;
 import questions.QuestionParser;
 
 public class Main {
 	public static void main(String[] args) {
 		String filename = "questions.json";
-		var q = new QuestionParser();
+		QuestionParser q = new QuestionParser();
 		File file = new File(filename);
 		try {
 			InputStreamReader sr = new InputStreamReader(new FileInputStream(file));
@@ -25,16 +26,6 @@ public class Main {
 			System.out.printf("could not load: %s\n", filename);
 		}
 
-		JFrame f = new JFrame("Fenster");
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JPanel contentPanel = new JPanel();
-		contentPanel.setLayout(new FlowLayout());
-
-		f.setTitle("Ein GUI");
-		f.setSize(250, 250);
-		f.setVisible(true);
-
-		f.getContentPane().add(BorderLayout.CENTER, contentPanel);
+		MainGUI mainGUI = new MainGUI();
 	}
 }

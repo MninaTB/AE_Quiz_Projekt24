@@ -7,8 +7,8 @@ import javax.swing.BorderFactory;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainGUI {
 	private JFrame frame;
@@ -16,20 +16,16 @@ public class MainGUI {
 	private StartGUI startGUI;
 	//private GameGUI gameGUI;
 	//private OptionsGUI optionsGUI;
-	//private ResultGUI resultGUI;
-	
-	public static void main(String[] args) {
-		new MainGUI();
-	}
+	private ResultGUI resultGUI;
 	
 	public MainGUI() {
 		this.frame = new JFrame();
-		this.frameContentPane = new JPanel();
+		this.frameContentPane = new JPanel(new BorderLayout());
 		this.frame.add(this.frameContentPane);
 		this.startGUI = new StartGUI();
 		//this.gameGUI = new GameGUI();
 		//this.optionsGUI = new OptionsGUI();
-		//this.resultGUI = new ResultGUI();
+		this.resultGUI = new ResultGUI();
 		
 		createAndShowGUI();
 	}
@@ -47,8 +43,6 @@ public class MainGUI {
 		this.frame.setLocationRelativeTo(null);
 		this.frame.setVisible(true);
 		
-		this.frameContentPane.setLayout(new BorderLayout());
-		
 		Border frameBorder = BorderFactory.createLineBorder(Color.CYAN, 5);
 		this.frameContentPane.setBorder(frameBorder);
 		
@@ -59,6 +53,7 @@ public class MainGUI {
 	private void setActionEvents() {
 		setStartEvent();
 		setOptionsEvent();
+		setHomeEvent();
 		setExitEvent();
 	}
 	
@@ -80,8 +75,23 @@ public class MainGUI {
 		});
 	}
 	
+	private void setHomeEvent() {
+		this.resultGUI.getHomeButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				home();
+			}
+		});
+	}
+	
 	private void setExitEvent() {
 		this.startGUI.getExitButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				exit();
+			}
+		});
+		this.resultGUI.getExitButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				exit();
@@ -94,21 +104,25 @@ public class MainGUI {
 		//this.frameContentPane.add(this.gameGUI);
 		this.frameContentPane.revalidate();
 		this.frameContentPane.repaint();
-		//Button-Test Ausgabe
-		System.out.println("GameGUI");
 	}
 	
 	private void options() {
 		this.frameContentPane.removeAll();
+		//Temporaer ResultGUI auf OptionsButton gelegt zum Testen
+		this.frameContentPane.add(this.resultGUI);
 		//this.frameContentPane.add(this.optionsGUI);
 		this.frameContentPane.revalidate();
 		this.frameContentPane.repaint();
-		//Button-Test Ausgabe
-		System.out.println("OptionsGUI");
+	}
+	
+	private void home() {
+		this.frameContentPane.removeAll();
+		this.frameContentPane.add(this.startGUI, BorderLayout.SOUTH);
+		this.frameContentPane.revalidate();
+		this.frameContentPane.repaint();
 	}
 	
 	private void exit() {
 		System.exit(0);
 	}
 }
-

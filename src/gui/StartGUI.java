@@ -1,17 +1,16 @@
 package gui;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.GridLayout;
 
 public class StartGUI extends JPanel {
-	//Wird vorgeschrieben, warum weiﬂ ich nicht
+	//Wird vorgeschrieben, warum weiss ich nicht
 	private static final long serialVersionUID = -8938412778342920536L;
 	
 	private JLabel titleLabel;
@@ -29,8 +28,6 @@ public class StartGUI extends JPanel {
 	}
 	
 	private void createStartGUI() {
-		this.setLayout(new GridLayout(4, 1));
-		
 		setFonts();
 		setFontColor();
 		setComponentsTransparent();
@@ -74,6 +71,7 @@ public class StartGUI extends JPanel {
 	}
 	
 	private void addComponents() {
+		this.setLayout(new GridLayout(4, 1));
 		this.add(this.titleLabel);
 		this.add(this.startButton);
 		this.add(this.optionsButton);
@@ -81,15 +79,14 @@ public class StartGUI extends JPanel {
 	}
 	
 	public JButton getStartButton() {
-		return startButton;
+		return this.startButton;
 	}
 	
 	public JButton getOptionsButton() {
-		return optionsButton;
+		return this.optionsButton;
 	}
 	
 	public JButton getExitButton() {
-		return exitButton;
+		return this.exitButton;
 	}
 }
-
