@@ -117,7 +117,7 @@ public class QuestionParser implements QuestionStore {
 	}
 
 	/**
-	 * Erstellt eine neue Frage für das Quiz
+	 * Erstellt eine neue Frage fuer das Quiz
 	 * @param q
 	 */
 	@Override
