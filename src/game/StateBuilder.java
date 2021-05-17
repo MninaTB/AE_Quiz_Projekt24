@@ -10,16 +10,33 @@ import questions.Category;
 
 public class StateBuilder {
 	private QuestionStore store;
-
+	
+	/**
+	 * Konstruktor mit einem Parameter, welcher an die Variable store uebergeben wird
+	 * @param s
+	 */
 	public StateBuilder(QuestionStore s) {
 		this.store = s;
 	}
 
+	/*
+	 * Berechnet im wie vielten Level man ist und erhoeht somit den
+	 * Schwierigkeitsgrad
+	 * 
+	 * @return neue State
+	 */
 	public State newState(ArrayList<Category> cs, int levelfk, int levelMax) throws MissingQuestionsException {
 		ArrayList<Question> allQuestions = this.fetchAndSortbyDifficulty(cs);
 		return new State(this.limitQuestions(allQuestions, levelfk, levelMax), levelfk);
 	}
 
+	/**
+	 * Prueft ob genug Fragen in den Kategorien vorhanden sind um das Spiel starten zu koennen
+	 * @param cs
+	 * @param levelfk
+	 * @param levelMax
+	 * @return true (wenn moeglich), false (wenn nicht moeglich)
+	 */
 	public boolean verify(ArrayList<Category> cs, int levelfk, int levelMax) {
 		ArrayList<Question> allQuestions = this.fetchAndSortbyDifficulty(cs);
 		try {

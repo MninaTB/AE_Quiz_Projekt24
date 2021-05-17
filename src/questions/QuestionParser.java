@@ -20,14 +20,26 @@ public class QuestionParser implements QuestionStore {
 
 	private ArrayList<Question> questions;
 
+	/**
+	 * Standard Konstruktor
+	 * hier wird die ArrayList initialisiert
+	 */
 	public QuestionParser() {
 		this.questions = new ArrayList<Question>();
 	}
 	
+	/**
+	 * Konstruktor mit Parameter zur Uebergabe beim initialisieren
+	 * @param q
+	 */
 	public QuestionParser(ArrayList<Question> q) {
 		this.questions = q;
 	}
 
+	/**
+	 * Laedt die Fragen aus einem json File in das Array "questions"
+	 * @param sr
+	 */
 	@SuppressWarnings("unchecked")
 	public void load(InputStreamReader sr) {
 		Gson gson = new Gson();
@@ -36,17 +48,28 @@ public class QuestionParser implements QuestionStore {
 		this.questions = gson.fromJson(json, this.questions.getClass());
 	}
 	
+	/**
+	 * Speichert die neuen Fragen in die ArrayList von questions
+	 * @param w
+	 */
 	public void save(OutputStreamWriter w) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		gson.toJson(this.questions, w);
 	}
 
+	/**
+	 * Gibt alle Fragen in einer ArrayList zurueck
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<Question> getAllQuestions() {
 		return (ArrayList<Question>) this.questions.clone();
 	}
 
+	/**
+	 * Gibt eine Frage zurueck mit Angabe einer ID
+	 * @param id
+	 */
 	@Override
 	public Question getByID(int id) {
 		for (Question q : this.questions) {
@@ -57,6 +80,10 @@ public class QuestionParser implements QuestionStore {
 		return null;
 	}
 
+	/**
+	 * Gibt eine oder mehrere Fragen zurueck mit Angabe des Schwierigkeitsgrades
+	 * @param difficulty
+	 */
 	@Override
 	public ArrayList<Question> getByDifficulty(int difficulty) {
 		ArrayList<Question> questions = new ArrayList<Question>();
@@ -71,6 +98,10 @@ public class QuestionParser implements QuestionStore {
 		return questions;
 	}
 
+	/**
+	 * Gibt Fragen zurueck mit Angabe der Kategorie
+	 * @param c
+	 */
 	@Override
 	public ArrayList<Question> getByCategory(Category c) {
 		ArrayList<Question> questions = new ArrayList<Question>();
@@ -85,6 +116,10 @@ public class QuestionParser implements QuestionStore {
 		return questions;
 	}
 
+	/**
+	 * Erstellt eine neue Frage fuer das Quiz
+	 * @param q
+	 */
 	@Override
 	public void create(Question q) {
 		try {
@@ -94,6 +129,10 @@ public class QuestionParser implements QuestionStore {
 		}
 	}
 
+	/**
+	 * Updated das Quiz mit den neuen Fragen
+	 * @param qu
+	 */
 	@Override
 	public void update(Question qu) {
 		for (int i = 0; i < this.questions.size(); i++) {
@@ -111,6 +150,10 @@ public class QuestionParser implements QuestionStore {
 		}
 	}
 
+	/**
+	 * Loescht die Fragen mit der dazugehoerigen ID
+	 * @param id
+	 */
 	@Override
 	public void delete(int id) {
 		for (Question q : this.questions) {

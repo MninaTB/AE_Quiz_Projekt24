@@ -25,8 +25,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author nina
- *
+ * Klasse zum Testen der verschiedenen Methoden
  */
 class QuestionParserTest {
 

@@ -4,11 +4,20 @@ import java.util.ArrayList;
 
 import questions.Question;
 
+/**
+ * 
+ *
+ */
 public class State {
 	private ArrayList<Question> questions;
 	private int iter;
 	private int levelfk = 10;
 
+	/**
+	 * Konstruktor mit zwei uebergabe Parametern
+	 * @param questions
+	 * @param levelfk
+	 */
 	public State(ArrayList<Question> questions, int levelfk) {
 		this.questions = questions;
 		this.iter = 0;
@@ -17,6 +26,10 @@ public class State {
 		}
 	}
 
+	/**
+	 * Wenn eine Question beantwortet wurde, dann gehe zur naechsten
+	 * @return q
+	 */
 	public Question next() {
 		if (this.questions.size() == this.iter) {
 			return null;
@@ -26,6 +39,10 @@ public class State {
 		return q;
 	}
 
+	/**
+	 * Methode sagt aus in welchem Level man momentan ist
+	 * @return
+	 */
 	public int getLevel() {
 		return 1 + this.iter / this.levelfk;
 	}
