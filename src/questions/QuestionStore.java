@@ -3,7 +3,7 @@ package questions;
 import java.util.ArrayList;
 
 /**
- * Interface welches benutzt wird für die Implementation von den Methoden aus QuestionParser
+ * Interface welches benutzt wird fuer die Implementation von den Methoden aus QuestionParser
  */
 public interface QuestionStore {
 	public ArrayList<Question> getAllQuestions();

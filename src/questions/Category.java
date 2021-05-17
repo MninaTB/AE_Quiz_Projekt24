@@ -1,7 +1,7 @@
 package questions;
 
 /**
- * Enum "Category" für die verschiedenen Kategorien
+ * Enum "Category" fuer die verschiedenen Kategorien
  * welche wir fuer die Fragen benutzen wollen
  * 
  */

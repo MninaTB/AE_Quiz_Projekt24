@@ -3,9 +3,9 @@ package questions;
 import java.util.ArrayList;
 
 /**
- * Diese Klasse ist nur für die Fragen im Quiz.
+ * Diese Klasse ist nur fuer die Fragen im Quiz.
  * Hier haben wir einen Konstruktor und außerdem verschiedene Getter-Methoden
- * für den Zugriff von anderen Klassen
+ * fuer den Zugriff von anderen Klassen
  * 
  */
 public class Question implements Cloneable {
