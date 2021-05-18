@@ -34,20 +34,15 @@ public class Question implements Cloneable {
 	public int getID() {
 		return this.id;
 	}
+
+	public void setID(int id) {		
+		this.id = id;
+	}
 	
 	/**
 	 * Gibt die Question als String zurueck
 	 * @return question (String)
 	 */
-	public String getQuestion() {
-		return this.question;
-	}
-	
-
-	public void setID(int id) {		
-		this.id = id;
-	}
-
 	public String getQuestion() {
 		return this.question;
 	}
@@ -86,6 +81,10 @@ public class Question implements Cloneable {
      */
 	public int getSolution() {
 		return this.solution;
+	}
+
+	public void setSolution(int solution) {		
+		this.solution = solution;
 	}
 	
 	/**
