@@ -14,7 +14,7 @@ public class MainGUI {
 	private JFrame frame;
 	private JPanel frameContentPane;
 	private StartGUI startGUI;
-	//private GameGUI gameGUI;
+	private GameGUI gameGUI;
 	//private OptionsGUI optionsGUI;
 	private ResultGUI resultGUI;
 	
@@ -23,7 +23,7 @@ public class MainGUI {
 		this.frameContentPane = new JPanel(new BorderLayout());
 		this.frame.add(this.frameContentPane);
 		this.startGUI = new StartGUI();
-		//this.gameGUI = new GameGUI();
+		this.gameGUI = new GameGUI();
 		//this.optionsGUI = new OptionsGUI();
 		this.resultGUI = new ResultGUI();
 		
@@ -39,7 +39,7 @@ public class MainGUI {
 	private void setDefaultFrame() {
 		this.frame.setSize(1280, 720);
 		this.frame.setResizable(false);
-		//this.frame.setUndecorated(true);
+		this.frame.setUndecorated(true);
 		this.frame.setLocationRelativeTo(null);
 		this.frame.setVisible(true);
 		
@@ -76,6 +76,12 @@ public class MainGUI {
 	}
 	
 	private void setHomeEvent() {
+		this.gameGUI.getHomeButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				home();
+			}
+		});
 		this.resultGUI.getHomeButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -91,6 +97,12 @@ public class MainGUI {
 				exit();
 			}
 		});
+		this.gameGUI.getExitButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				exit();
+			}
+		});
 		this.resultGUI.getExitButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -101,7 +113,7 @@ public class MainGUI {
 	
 	private void start() {
 		this.frameContentPane.removeAll();
-		//this.frameContentPane.add(this.gameGUI);
+		this.frameContentPane.add(this.gameGUI);
 		this.frameContentPane.revalidate();
 		this.frameContentPane.repaint();
 	}

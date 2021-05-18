@@ -51,7 +51,7 @@ public class ResultGUI extends JPanel {
 	
 	private void createResultGUI() {
 		setFonts();
-		setFontColor();
+		setFontColors();
 		setComponentsTransparent();
 		addComponents();
 	}
@@ -76,7 +76,7 @@ public class ResultGUI extends JPanel {
 		this.exitButton.setFont(buttonFont);
 	}
 	
-	private void setFontColor() {
+	private void setFontColors() {
 		this.resultLabel.setForeground(Color.RED);
 		this.levelLeftLabel.setForeground(Color.CYAN);
 		this.levelRightLabel.setForeground(Color.CYAN);

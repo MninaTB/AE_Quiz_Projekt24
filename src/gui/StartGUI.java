@@ -29,7 +29,7 @@ public class StartGUI extends JPanel {
 	
 	private void createStartGUI() {
 		setFonts();
-		setFontColor();
+		setFontColors();
 		setComponentsTransparent();
 		addComponents();
 	}
@@ -44,7 +44,7 @@ public class StartGUI extends JPanel {
 		this.exitButton.setFont(buttonFont);
 	}
 	
-	private void setFontColor() {
+	private void setFontColors() {
 		this.titleLabel.setForeground(Color.CYAN);
 		this.startButton.setForeground(Color.CYAN);
 		this.optionsButton.setForeground(Color.CYAN);
