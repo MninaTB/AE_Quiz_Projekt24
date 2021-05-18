@@ -4,12 +4,10 @@
 
 package questions;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 
 class QuestionDBTest {	
 
@@ -17,28 +15,19 @@ class QuestionDBTest {
 	private Question Question2;
 	private QuestionDB QuestionDB;
 
-	@BeforeAll
-	public void setUp() throws Exception {
-				
+	@Test
+	final void testCreate() {
+		
 		this.QuestionDB = new QuestionDB();		
-
+		
 		// Question 1
 		ArrayList<String> aw = new ArrayList<String>();
 		Category category = null;
 		
 		this.Question1 = new Question(0, "Question 1", 1, aw, 3, category);
-
+		
 		// Question 2
 		this.Question2 = new Question(0, "Question 2", 5, aw, 7, category);
-	}
-/*
-	void tearDown() throws Exception {
-
-		this.QuestionDB.finalize();
-	}	*/
-
-	@Test
-	final void testCreate() {
 
 		// Create question 1
 		this.QuestionDB.create(this.Question1);
