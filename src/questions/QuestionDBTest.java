@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 class QuestionDBTest {	
 
@@ -17,7 +18,7 @@ class QuestionDBTest {
 	private QuestionDB QuestionDB;
 
 	@BeforeAll
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 				
 		this.QuestionDB = new QuestionDB();		
 
