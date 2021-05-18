@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import questions.Question;
+import model.Question;
 import questions.QuestionStore;
-import questions.Category;
+import model.Category;
 
 public class StateBuilder {
 	private QuestionStore store;

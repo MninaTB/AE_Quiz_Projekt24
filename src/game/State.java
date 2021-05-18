@@ -2,7 +2,7 @@ package game;
 
 import java.util.ArrayList;
 
-import questions.Question;
+import model.Question;
 
 /**
  * 

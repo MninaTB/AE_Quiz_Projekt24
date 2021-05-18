@@ -1,4 +1,4 @@
-package questions;
+package model;
 
 /**
  * Enum "Category" fuer die verschiedenen Kategorien

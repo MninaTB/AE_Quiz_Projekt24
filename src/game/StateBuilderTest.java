@@ -10,8 +10,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import questions.Question;
-import questions.Category;
+import model.Question;
+import model.Category;
 
 /**
  * Klasse zum testen des Spiels mit der Datenbank

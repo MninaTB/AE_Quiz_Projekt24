@@ -2,8 +2,8 @@ package game;
 
 import java.util.ArrayList;
 
-import questions.Category;
-import questions.Question;
+import model.Category;
+import model.Question;
 import questions.QuestionStore;
 
 /**

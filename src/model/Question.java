@@ -1,4 +1,4 @@
-package questions;
+package model;
 
 import java.util.ArrayList;
 
