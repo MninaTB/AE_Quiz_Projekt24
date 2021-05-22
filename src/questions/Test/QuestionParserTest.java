@@ -95,11 +95,9 @@ class QuestionParserTest {
 	/**
 	 * Test method for {@link questions.QuestionParser#getAllQuestions()}.
 	 */
-	@SuppressWarnings("serial")
 	@Test
 	final void testGetAllQuestions() {
 		ArrayList<Question> questions = new ArrayList<Question>();
-		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
 		questions.add(new Question(1, "wie", 100, 1, 2, 1));
 		questions.add(new Question(2, "wo", 100, 1, 2, 1));
 		questions.add(new Question(3, "was", 100, 1, 2, 1));

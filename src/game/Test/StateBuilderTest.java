@@ -15,7 +15,6 @@ import game.MockQuestionStoreTest;
 import game.State;
 import game.StateBuilder;
 import questions.Question;
-import questions.Category;
 
 /**
  * Klasse zum testen des Spiels mit der Datenbank

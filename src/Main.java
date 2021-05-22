@@ -1,14 +1,8 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-
 import javax.swing.*;
 
 import questions.QuestionParser;

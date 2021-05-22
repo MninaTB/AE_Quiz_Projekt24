@@ -1,7 +1,5 @@
 package questions;
 
-import java.util.ArrayList;
-
 /**
  * Diese Klasse ist nur fuer die Fragen im Quiz.
  * Hier haben wir einen Konstruktor und ausserdem verschiedene Getter-Methoden

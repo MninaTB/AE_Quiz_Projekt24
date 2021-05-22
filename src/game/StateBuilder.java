@@ -6,7 +6,6 @@ import java.util.Comparator;
 
 import questions.Question;
 import questions.QuestionStore;
-import questions.Category;
 
 public class StateBuilder {
 	private QuestionStore store;
