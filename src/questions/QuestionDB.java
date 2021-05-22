@@ -9,32 +9,48 @@ import java.util.ArrayList;
 
 public class QuestionDB implements QuestionStore {
 
-	private String dbTable = null;
-	Connection conn = null;
+	private Connection connection = null;
+	private PreparedStatement preparedStatement = null;
+	private ResultSet resultSet = null;
 	
-/*
-	public QuestionDB() {
 
-		// create a connection to the database
-		this.conn = DriverManager.getConnection(
-			"jdbc:odbc:mysql",
-			"root",
-			""
-		);
+	public QuestionDB(Connection connection) {
+
+		this.setConnection(connection);
 	}
 
-	protected void finalize() {  
+	public Connection getConnection() {
+		return connection;
+	}
 
-		try {
-		
-			if (this.conn != null)
-				this.conn.close();
-		}
-		catch (SQLException ex) {
+	private void setConnection(Connection connection) {
+		this.connection = connection;
+	}
 	
-			System.out.println(ex.getMessage());
-		}
-	} */
+	/*
+	public Statement getStatement() {
+		return statement;
+	}
+	
+	public void setStatement(Statement statement) {
+		this.statement = statement;
+	}
+	
+	public PreparedStatement getPreparedStatement() {
+		return preparedStatement;
+	}
+	
+	public void setPreparedStatement(PreparedStatement preparedStatement) {
+		this.preparedStatement = preparedStatement;
+	}
+	
+	public ResultSet getResultSet() {
+		return resultSet;
+	}
+	
+	public void setResultSet(ResultSet resultSet) {
+		this.resultSet = resultSet;
+	}*/
 
 	
 	@Override
@@ -42,24 +58,19 @@ public class QuestionDB implements QuestionStore {
 
 		try {
 
-			String query = "SELECT * FROM " + this.dbTable + " WHERE Id = " + id + " LIMIT 1";
-			PreparedStatement preparedStmt;
-			preparedStmt = this.conn.prepareStatement(query);
-			ResultSet result = preparedStmt.executeQuery();
+			String query = "SELECT * FROM questions WHERE Id = " + id + " LIMIT 1";
+			preparedStatement = connection.prepareStatement(query);			
+			resultSet = preparedStatement.executeQuery();
 			
-			// Temp
-			ArrayList<String> aw = new ArrayList<String>();
-			Category category = null;
-
-			while (result.next()) {
+			while (resultSet.next()) {
 
 				Question question = new Question(
-					result.getInt("id"),
-					result.getString("question"),
-					result.getInt("difficulty"),
-					aw,
-					result.getInt("solution"),
-					category
+					resultSet.getInt("id"),
+					resultSet.getString("question"),
+					resultSet.getInt("difficulty"),
+					resultSet.getInt("answer_id"),
+					resultSet.getInt("solution"),
+					resultSet.getInt("category_id")
 				);
 				return question;
 			}
@@ -77,23 +88,20 @@ public class QuestionDB implements QuestionStore {
 		try {
 			
 			ArrayList<Question> questions = new ArrayList<Question>();
-			String query = "SELECT * FROM " + this.dbTable + " WHERE difficulty = " + difficulty;
-			PreparedStatement preparedStmt = this.conn.prepareStatement(query);
-			ResultSet result = preparedStmt.executeQuery();
 			
-			// Temp
-			ArrayList<String> aw = new ArrayList<String>();
-			Category category = null;
+			String query = "SELECT * FROM questions WHERE difficulty = " + difficulty;
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
 
-			while (result.next()) {
+			while (resultSet.next()) {
 
 				Question question = new Question(
-					result.getInt("id"),
-					result.getString("question"),
-					result.getInt("difficulty"),
-					aw,
-					result.getInt("solution"),
-					category
+					resultSet.getInt("id"),
+					resultSet.getString("question"),
+					resultSet.getInt("difficulty"),
+					resultSet.getInt("answer_id"),
+					resultSet.getInt("solution"),
+					resultSet.getInt("category_id")
 				);
 				questions.add((Question) question);
 			}
@@ -112,23 +120,19 @@ public class QuestionDB implements QuestionStore {
 		try {
 
 			ArrayList<Question> questions = new ArrayList<Question>();
-			String query = "SELECT * FROM " + this.dbTable + " WHERE category = " + c;
-			PreparedStatement preparedStmt = this.conn.prepareStatement(query);
-			ResultSet result = preparedStmt.executeQuery();
-			
-			// Temp
-			ArrayList<String> aw = new ArrayList<String>();
-			Category category = null;
+			String query = "SELECT * FROM questions WHERE category = " + c;
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
 
-			while (result.next()) {
+			while (resultSet.next()) {
 
 				Question question = new Question(
-					result.getInt("id"),
-					result.getString("question"),
-					result.getInt("difficulty"),
-					aw,
-					result.getInt("solution"),
-					category
+					resultSet.getInt("id"),
+					resultSet.getString("question"),
+					resultSet.getInt("difficulty"),
+					resultSet.getInt("answer_id"),
+					resultSet.getInt("solution"),
+					resultSet.getInt("category_id")
 				);
 				questions.add((Question) question);
 			}
@@ -147,23 +151,19 @@ public class QuestionDB implements QuestionStore {
 		try {
 
 			ArrayList<Question> questions = new ArrayList<Question>();
-			String query = "SELECT * FROM " + this.dbTable;
-			PreparedStatement preparedStmt = this.conn.prepareStatement(query);
-			ResultSet result = preparedStmt.executeQuery();
+			String query = "SELECT * FROM questions";
+			preparedStatement = connection.prepareStatement(query);			
+			resultSet = preparedStatement.executeQuery();
 			
-			// Temp
-			ArrayList<String> aw = new ArrayList<String>();
-			Category category = null;
-
-			while (result.next()) {
+			while (resultSet.next()) {
 
 				Question question = new Question(
-					result.getInt("id"),
-					result.getString("question"),
-					result.getInt("difficulty"),
-					aw,
-					result.getInt("solution"),
-					category
+					resultSet.getInt("id"),
+					resultSet.getString("question"),
+					resultSet.getInt("difficulty"),
+					resultSet.getInt("answer_id"),
+					resultSet.getInt("solution"),
+					resultSet.getInt("category_id")
 				);
 				questions.add((Question) question);
 			}
@@ -181,35 +181,24 @@ public class QuestionDB implements QuestionStore {
 
 		try {
 			
-			// Fragen mit answer Tabelle abgleichen
-			
-			// ID rausziehen
-			int category_id = 0;
-			
-			// Fragen mit category Tabelle abgleichen
-			
-			// ID rausziehen
-			int answer_id = 0;
-			
-			// Insert query bauen
-			String query = "INSERT INTO " + this.dbTable + " (question, difficulty, answer_id, solution, category_id)"
+			// Insert query
+			String query = "INSERT INTO questions (question, difficulty, answer_id, solution, category_id)"
 	        		+ " values (?, ?, ?, ?, ?)";
 			
-			// create the mysql insert preparedstatement
-			PreparedStatement preparedStmt = this.conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-			preparedStmt.setString(1, q.getQuestion());
-			preparedStmt.setInt(2, q.getDifficulty());
-			preparedStmt.setInt(3, answer_id);
-			preparedStmt.setInt(4, q.getSolution());
-			preparedStmt.setInt(5, category_id);
-			preparedStmt.execute();
+			preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, q.getQuestion());
+			preparedStatement.setInt(2, q.getDifficulty());
+			preparedStatement.setInt(3, q.getAnswerId());
+			preparedStatement.setInt(4, q.getSolution());
+			preparedStatement.setInt(5, q.getCategoryId());
+			preparedStatement.execute();
 
-			ResultSet result = preparedStmt.getGeneratedKeys();
+			resultSet = preparedStatement.getGeneratedKeys();
 			int insertedId = 0;
 
-			if (result.next()) {
+			if (resultSet.next()) {
 
-				insertedId = result.getInt(1);
+				insertedId = resultSet.getInt(1);
 				q.setID(insertedId);
 			}
 		}
@@ -223,35 +212,24 @@ public class QuestionDB implements QuestionStore {
 	public void update(Question q) {
 
 		try {
-			
-			// Fragen mit answer Tabelle abgleichen
-			
-			// ID rausziehen
-			int category_id = 0;
-			
-			// Fragen mit category Tabelle abgleichen
-			
-			// ID rausziehen
-			int answer_id = 0;
 
-			String query = "UPDATE " + this.dbTable + " SET " 
+			String query = "UPDATE questions SET " 
 					+ "question = ? " 
 					+ "difficulty = ? " 
 					+ "answer_id = ? " 
 					+ "solution = ? " 
 					+ "category_id = ? "
 					+ "WHERE id = ?";
-			
-			// create the mysql update preparedstatement
-			PreparedStatement preparedStmt = this.conn.prepareStatement(query);
-			preparedStmt.setString(1, q.getQuestion());
-			preparedStmt.setInt(2, q.getDifficulty());
-			preparedStmt.setInt(3, answer_id);
-			preparedStmt.setInt(4, q.getSolution());
-			preparedStmt.setInt(5, category_id);
-			preparedStmt.setInt(5, q.getID());
-			preparedStmt.execute();
-			preparedStmt.execute();
+
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, q.getQuestion());
+			preparedStatement.setInt(2, q.getDifficulty());
+			preparedStatement.setInt(3, q.getAnswerId());
+			preparedStatement.setInt(4, q.getSolution());
+			preparedStatement.setInt(5, q.getCategoryId());
+			preparedStatement.setInt(5, q.getID());
+			preparedStatement.execute();
+			preparedStatement.execute();
 		}
 		catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -264,10 +242,9 @@ public class QuestionDB implements QuestionStore {
 
 		try {
 
-			String query = "DELETE FROM " + this.dbTable + " WHERE id = ?";
-			
-			// create the mysql delete preparedstatement
-			PreparedStatement preparedStmt = this.conn.prepareStatement(query);
+			String query = "DELETE FROM questions WHERE id = ?";
+
+			PreparedStatement preparedStmt = connection.prepareStatement(query);
 			preparedStmt.setInt(1, id);
 			preparedStmt.execute();
 		}

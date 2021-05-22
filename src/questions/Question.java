@@ -14,17 +14,17 @@ public class Question implements Cloneable {
 	private int id;
 	private String question;
 	private int difficulty;
-	private ArrayList<String> answers;
+	private int answer_id;
 	private int solution;
-	private Category category;
+	private int category_id;
 
-	public Question(int id, String q, int d, ArrayList<String> aw, int s, Category c) {
+	public Question(int id, String q, int d, int aw, int s, int c) {
 		this.id = id;
 		this.question = q;
 		this.difficulty = d;
-		this.answers = aw;
+		this.answer_id = aw;
 		this.solution = s;
-		this.category = c;
+		this.category_id = c;
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class Question implements Cloneable {
 	 * @return id (int)
 	 */
 	public int getID() {
-		return this.id;
+		return id;
 	}
 
 	public void setID(int id) {		
@@ -44,7 +44,7 @@ public class Question implements Cloneable {
 	 * @return question (String)
 	 */
 	public String getQuestion() {
-		return this.question;
+		return question;
 	}
 
 	public void setQuestion(String question) {		
@@ -56,7 +56,7 @@ public class Question implements Cloneable {
    * @return difficulty
    */
   public int getDifficulty() {
-		return this.difficulty;
+		return difficulty;
 	}
 
 	public void setDifficulty(int difficulty) {
@@ -67,12 +67,12 @@ public class Question implements Cloneable {
    * Gibt die Antworten in einer ArrayList zurueck
    * @return answers
    */
-	public ArrayList<String> getAnswers() {
-		return this.answers;
+	public int getAnswerId() {
+		return answer_id;
 	}
 
-	public void setAnswers(ArrayList<String> answers) {
-		this.answers = answers;
+	public void setAnswerId(int answer_id) {
+		this.answer_id = answer_id;
 	}
 
     /**
@@ -80,7 +80,7 @@ public class Question implements Cloneable {
      * @return solution
      */
 	public int getSolution() {
-		return this.solution;
+		return solution;
 	}
 
 	public void setSolution(int solution) {		
@@ -91,12 +91,12 @@ public class Question implements Cloneable {
 	 * Gibt die Kategorien zurueck
 	 * @return category
 	 */
-	public Category getCategory() {
-		return this.category;
+	public int getCategoryId() {
+		return category_id;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCategory(int category_id) {
+		this.category_id = category_id;
 	}
 
  /**

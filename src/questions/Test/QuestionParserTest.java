@@ -1,7 +1,7 @@
 /**
  * 
  */
-package questions;
+package questions.Test;
 
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -17,6 +17,8 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import questions.QuestionParser;
 
 /**
  * Klasse zum Testen der verschiedenen Methoden
@@ -84,9 +86,8 @@ class QuestionParserTest {
 	@Test
 	final void testSave() {
 		ArrayList<Question> questions = new ArrayList<Question>();
-		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
-		questions.add(new Question(1, "wie alt", 5, aw, 3, Category.CATEGORY_FUN));
-		questions.add(new Question(2, "wie toll", 3, aw, 3, Category.CATEGORY_FUN));
+		questions.add(new Question(1, "wie alt", 5, 1, 3, 1));
+		questions.add(new Question(2, "wie toll", 3, 1, 3, 1);
 		QuestionParser q = new QuestionParser(questions);
         OutputStream buf = new ByteArrayOutputStream();
         OutputStreamWriter w = new OutputStreamWriter(buf);
@@ -109,9 +110,9 @@ class QuestionParserTest {
 	final void testGetAllQuestions() {
 		ArrayList<Question> questions = new ArrayList<Question>();
 		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
-		questions.add(new Question(1, "wie", 100, aw, 2, Category.CATEGORY_FUN));
-		questions.add(new Question(2, "wo", 100, aw, 2, Category.CATEGORY_FUN));
-		questions.add(new Question(3, "was", 100, aw, 2, Category.CATEGORY_FUN));
+		questions.add(new Question(1, "wie", 100, 1, 2, 1));
+		questions.add(new Question(2, "wo", 100, 1, 2, 1));
+		questions.add(new Question(3, "was", 100, 1, 2, 1));
 		QuestionParser q = new QuestionParser(questions);
 		ArrayList<Question> nq = q.getAllQuestions();
 		
@@ -125,11 +126,10 @@ class QuestionParserTest {
 	@Test
 	final void testGetQuestionByID() {
 		ArrayList<Question> questions = new ArrayList<Question>();
-		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
-		Question question = new Question(2, "wo", 100, aw, 2, Category.CATEGORY_FUN);
-		questions.add(new Question(1, "wie", 100, aw, 2, Category.CATEGORY_FUN));
+		Question question = new Question(2, "wo", 100, 1, 2, 1);
+		questions.add(new Question(1, "wie", 100, 1, 2, 1));
 		questions.add(question);
-		questions.add(new Question(3, "was", 100, aw, 2, Category.CATEGORY_FUN));
+		questions.add(new Question(3, "was", 100, 1, 2, 1));
 		QuestionParser q = new QuestionParser(questions);
 		
 		assertEquals(question,q.getByID(question.getID()));
@@ -144,11 +144,10 @@ class QuestionParserTest {
 	final void testGetQuestionsByDifficulty() {
 		final int targetDifficulty = 200;
 		ArrayList<Question> questions = new ArrayList<Question>();
-		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
-		Question question = new Question(2, "wo", targetDifficulty, aw, 2, Category.CATEGORY_FUN);
-		questions.add(new Question(1, "wie", 100, aw, 2, Category.CATEGORY_FUN));
+		Question question = new Question(2, "wo", targetDifficulty, 1, 2, 1);
+		questions.add(new Question(1, "wie", 100, 1, 2, 1));
 		questions.add(question);
-		questions.add(new Question(3, "was", 100, aw, 2, Category.CATEGORY_FUN));
+		questions.add(new Question(3, "was", 100, 1, 2, 1));
 		QuestionParser q = new QuestionParser(questions);
 		
 		Question queried = q.getByDifficulty(targetDifficulty).get(0);
@@ -156,7 +155,7 @@ class QuestionParserTest {
 		assertEquals(question.getQuestion(), queried.getQuestion());
 		assertEquals(question.getDifficulty(), queried.getDifficulty());
 		assertEquals(question.getSolution(), queried.getSolution());
-		assertEquals(question.getCategory(), queried.getCategory());
+		assertEquals(question.getCategoryId(), queried.getCategoryId());
 	}
 
 	/**
@@ -166,13 +165,13 @@ class QuestionParserTest {
 	@SuppressWarnings("serial")
 	@Test
 	final void testGetQuestionsByCategory() {
-		final Category targetCategory = Category.CATEGORY_FUN;
+		final Category targetCategory = 1;
 		ArrayList<Question> questions = new ArrayList<Question>();
 		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
-		Question question = new Question(2, "wo", 100, aw, 2, Category.CATEGORY_FUN);
-		questions.add(new Question(1, "wie", 100, aw, 2, Category.CATEGORY_UNKNOWN));
+		Question question = new Question(2, "wo", 100, 1, 2, 1);
+		questions.add(new Question(1, "wie", 100, 1, 2, 1));
 		questions.add(question);
-		questions.add(new Question(3, "was", 100, aw, 2, Category.CATEGORY_UNKNOWN));
+		questions.add(new Question(3, "was", 100, 1, 2, 1));
 		QuestionParser q = new QuestionParser(questions);
 		
 		Question queried = q.getByCategory(targetCategory).get(0);
@@ -180,7 +179,7 @@ class QuestionParserTest {
 		assertEquals(question.getQuestion(), queried.getQuestion());
 		assertEquals(question.getDifficulty(), queried.getDifficulty());
 		assertEquals(question.getSolution(), queried.getSolution());
-		assertEquals(question.getCategory(), queried.getCategory());
+		assertEquals(question.getCategoryId(), queried.getCategoryId());
 	}
 
 	/**
@@ -191,8 +190,8 @@ class QuestionParserTest {
 	@Test
 	final void testCreateQuestion() {
 		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
-		Question q1 = new Question(1, "wo", 100, aw, 2, Category.CATEGORY_FUN);
-		Question q2 = new Question(2, "wer", 100, aw, 2, Category.CATEGORY_FUN);
+		Question q1 = new Question(1, "wo", 100, 1, 2, 1);
+		Question q2 = new Question(2, "wer", 100, 1, 2, 1);
 		QuestionParser q = new QuestionParser();
 		q.create(q1);
 		q.create(q2);
@@ -208,8 +207,8 @@ class QuestionParserTest {
 		final int targetID = 1;
 		ArrayList<Question> questions = new ArrayList<Question>();
 		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
-		questions.add(new Question(targetID, "wie", 100, aw, 2, Category.CATEGORY_FUN));
-		questions.add(new Question(2, "was", 100, aw, 2, Category.CATEGORY_FUN));
+		questions.add(new Question(targetID, "wie", 100, 1, 2, 1));
+		questions.add(new Question(2, "was", 100, 1, 2, 1));
 		QuestionParser q = new QuestionParser(questions);
 		q.delete(targetID);
 		assertEquals(q.getAllQuestions().size(), 1);
