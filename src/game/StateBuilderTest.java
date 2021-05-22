@@ -61,9 +61,9 @@ class StateBuilderTest {
         mockDB = new MockQuestionStoreTest(questions);
 		sb = new StateBuilder(mockDB);
 		State s = null;
-		int expect = 0;
+		int expect = 1;
 		try {
-			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 1);
+			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, 1, expect);
 		} catch (Exception e) {
 			fail(e);
 		}
@@ -75,7 +75,7 @@ class StateBuilderTest {
 		
 		expect = 3;
 		try {
-			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 1);
+			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, 1, expect);
 		} catch (Exception e) {
 			fail(e);
 		}
