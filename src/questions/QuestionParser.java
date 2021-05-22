@@ -1,16 +1,8 @@
 package questions;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -103,10 +95,10 @@ public class QuestionParser implements QuestionStore {
 	 * @param c
 	 */
 	@Override
-	public ArrayList<Question> getByCategory(Category c) {
+	public ArrayList<Question> getByCategory(int c) {
 		ArrayList<Question> questions = new ArrayList<Question>();
 		for (Question q : this.questions) {
-			if (q.getCategory() == c) {
+			if (q.getCategoryId() == c) {
 				try {
 					questions.add((Question) q.clone());
 				} catch (CloneNotSupportedException e) {

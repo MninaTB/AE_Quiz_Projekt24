@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import questions.Question;
 import questions.QuestionParser;
 
 /**
@@ -82,12 +83,11 @@ class QuestionParserTest {
 	 * {@link questions.QuestionParser#save(java.io.OutputStreamWriter)}.
 	 * @throws  
 	 */
-	@SuppressWarnings("serial")
 	@Test
 	final void testSave() {
 		ArrayList<Question> questions = new ArrayList<Question>();
 		questions.add(new Question(1, "wie alt", 5, 1, 3, 1));
-		questions.add(new Question(2, "wie toll", 3, 1, 3, 1);
+		questions.add(new Question(2, "wie toll", 3, 1, 3, 1));
 		QuestionParser q = new QuestionParser(questions);
         OutputStream buf = new ByteArrayOutputStream();
         OutputStreamWriter w = new OutputStreamWriter(buf);
@@ -122,7 +122,6 @@ class QuestionParserTest {
 	/**
 	 * Test method for {@link questions.QuestionParser#getByID(int)}.
 	 */
-	@SuppressWarnings("serial")
 	@Test
 	final void testGetQuestionByID() {
 		ArrayList<Question> questions = new ArrayList<Question>();
@@ -139,7 +138,6 @@ class QuestionParserTest {
 	 * Test method for
 	 * {@link questions.QuestionParser#getByDifficulty(int)}.
 	 */
-	@SuppressWarnings("serial")
 	@Test
 	final void testGetQuestionsByDifficulty() {
 		final int targetDifficulty = 200;
@@ -162,12 +160,10 @@ class QuestionParserTest {
 	 * Test method for
 	 * {@link questions.QuestionParser#getByCategory(questions.Category)}.
 	 */
-	@SuppressWarnings("serial")
 	@Test
 	final void testGetQuestionsByCategory() {
-		final Category targetCategory = 1;
+		final int targetCategory = 1;
 		ArrayList<Question> questions = new ArrayList<Question>();
-		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
 		Question question = new Question(2, "wo", 100, 1, 2, 1);
 		questions.add(new Question(1, "wie", 100, 1, 2, 1));
 		questions.add(question);
@@ -186,10 +182,8 @@ class QuestionParserTest {
 	 * Test method for
 	 * {@link questions.QuestionParser#create(questions.Question)}.
 	 */
-	@SuppressWarnings("serial")
 	@Test
 	final void testCreateQuestion() {
-		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
 		Question q1 = new Question(1, "wo", 100, 1, 2, 1);
 		Question q2 = new Question(2, "wer", 100, 1, 2, 1);
 		QuestionParser q = new QuestionParser();
@@ -201,12 +195,10 @@ class QuestionParserTest {
 	/**
 	 * Test method for {@link questions.QuestionParser#delete(int)}.
 	 */
-	@SuppressWarnings("serial")
 	@Test
 	final void testDeleteQuestion() {
 		final int targetID = 1;
 		ArrayList<Question> questions = new ArrayList<Question>();
-		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
 		questions.add(new Question(targetID, "wie", 100, 1, 2, 1));
 		questions.add(new Question(2, "was", 100, 1, 2, 1));
 		QuestionParser q = new QuestionParser(questions);

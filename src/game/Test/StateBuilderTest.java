@@ -1,4 +1,4 @@
-package game;
+package game.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,6 +10,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import game.MissingQuestionsException;
+import game.MockQuestionStoreTest;
+import game.State;
+import game.StateBuilder;
 import questions.Question;
 import questions.Category;
 
@@ -41,18 +45,18 @@ class StateBuilderTest {
 		MockQuestionStoreTest mockDB = new MockQuestionStoreTest(questions);
 		StateBuilder sb = new StateBuilder(mockDB);
 		try {
-			sb.newState(new ArrayList<Category>(), 2, 2);
+			sb.newState(new ArrayList<Integer>(), 2, 2);
 		} catch (MissingQuestionsException e) {
 			assertTrue(true);
 		} catch (Exception e) {
 			fail(e);
 		}
 		
-		Question q1 = new Question(1, "wer", 1, null, 0, Category.CATEGORY_FUN);
-		Question q2 = new Question(2, "wie", 1, null, 0, Category.CATEGORY_FUN);
-		Question q3 = new Question(3, "wo", 2, null, 0, Category.CATEGORY_FUN);
-		Question q4 = new Question(4, "warum", 3, null, 0, Category.CATEGORY_FUN);
-		Question q5 = new Question(5, "was", 4, null, 0, Category.CATEGORY_FUN);
+		Question q1 = new Question(1, "wer", 1, 1, 0, 1);
+		Question q2 = new Question(2, "wie", 1, 1, 0, 1);
+		Question q3 = new Question(3, "wo", 2, 1, 0, 1);
+		Question q4 = new Question(4, "warum", 3, 1, 0, 1);
+		Question q5 = new Question(5, "was", 4, 1, 0, 1);
 		questions.add(q1);
 		questions.add(q2);
 		questions.add(q3);
@@ -63,7 +67,7 @@ class StateBuilderTest {
 		State s = null;
 		int expect = 1;
 		try {
-			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect);
+			s = sb.newState(new ArrayList<Integer>() {{add(1);}}, 1, expect);
 		} catch (Exception e) {
 			fail(e);
 		}
@@ -75,7 +79,7 @@ class StateBuilderTest {
 		
 		expect = 3;
 		try {
-			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect);
+			s = sb.newState(new ArrayList<Integer>() {{add(1);}}, 1, expect);
 		} catch (Exception e) {
 			fail(e);
 		}
@@ -93,13 +97,13 @@ class StateBuilderTest {
 		MockQuestionStoreTest mockDB = new MockQuestionStoreTest(questions);
 		StateBuilder sb = new StateBuilder(mockDB);
 		
-		assertFalse(sb.verify(new ArrayList<Category>(), 2, 2));
+		assertFalse(sb.verify(new ArrayList<Integer>(), 2, 2));
 	
-		Question q1 = new Question(1, "wer", 1, null, 0, Category.CATEGORY_FUN);
-		Question q2 = new Question(2, "wie", 1, null, 0, Category.CATEGORY_FUN);
-		Question q3 = new Question(3, "wo", 2, null, 0, Category.CATEGORY_FUN);
-		Question q4 = new Question(4, "warum", 3, null, 0, Category.CATEGORY_FUN);
-		Question q5 = new Question(5, "was", 4, null, 0, Category.CATEGORY_FUN);
+		Question q1 = new Question(1, "wer", 1, 1, 0, 1);
+		Question q2 = new Question(2, "wie", 1, 1, 0, 1);
+		Question q3 = new Question(3, "wo", 2, 1, 0, 1);
+		Question q4 = new Question(4, "warum", 3, 1, 0, 1);
+		Question q5 = new Question(5, "was", 4, 1, 0, 1);
 		questions.add(q1);
 		questions.add(q2);
 		questions.add(q3);
@@ -109,10 +113,10 @@ class StateBuilderTest {
 		sb = new StateBuilder(mockDB);
 		int expect = 1;
 		
-		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, 1));
+		assertTrue(sb.verify(new ArrayList<Integer>() {{add(1);}}, 1, 1));
 		
 		expect = 3;
-		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect));
+		assertTrue(sb.verify(new ArrayList<Integer>() {{add(1);}}, 1, expect));
 	}	
 
 }

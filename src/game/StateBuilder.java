@@ -25,7 +25,7 @@ public class StateBuilder {
 	 * 
 	 * @return neue State
 	 */
-	public State newState(ArrayList<Category> cs, int levelfk, int levelMax) throws MissingQuestionsException {
+	public State newState(ArrayList<Integer> cs, int levelfk, int levelMax) throws MissingQuestionsException {
 		ArrayList<Question> allQuestions = this.fetchAndSortbyDifficulty(cs);
 		return new State(this.limitQuestions(allQuestions, levelfk, levelMax), levelfk);
 	}
@@ -37,7 +37,7 @@ public class StateBuilder {
 	 * @param levelMax
 	 * @return true (wenn moeglich), false (wenn nicht moeglich)
 	 */
-	public boolean verify(ArrayList<Category> cs, int levelfk, int levelMax) {
+	public boolean verify(ArrayList<Integer> cs, int levelfk, int levelMax) {
 		ArrayList<Question> allQuestions = this.fetchAndSortbyDifficulty(cs);
 		try {
 			this.limitQuestions(allQuestions, levelfk, levelMax);
@@ -48,10 +48,10 @@ public class StateBuilder {
 		return true;
 	}
 
-	private ArrayList<Question> fetchAndSortbyDifficulty(ArrayList<Category> cs) {
+	private ArrayList<Question> fetchAndSortbyDifficulty(ArrayList<Integer> cs) {
 		ArrayList<Question> allQuestions = new ArrayList<Question>();
 		// Get all Questions from the given Categories
-		for (Category c : cs) {
+		for (int c : cs) {
 			ArrayList<Question> q = this.store.getByCategory(c);
 			allQuestions.addAll(q);
 		}

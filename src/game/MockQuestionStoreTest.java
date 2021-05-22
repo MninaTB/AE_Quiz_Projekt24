@@ -2,7 +2,6 @@ package game;
 
 import java.util.ArrayList;
 
-import questions.Category;
 import questions.Question;
 import questions.QuestionStore;
 
@@ -36,10 +35,10 @@ public class MockQuestionStoreTest implements QuestionStore{
 	}
 
 	@Override
-	public ArrayList<Question> getByCategory(Category c) {
+	public ArrayList<Question> getByCategory(int c) {
 		ArrayList<Question> result = new ArrayList<Question>();
 		for (Question q : this.db) {
-			if (c == q.getCategory()) {
+			if (c == q.getCategoryId()) {
 				result.add(q);
 			}
 		}

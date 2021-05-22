@@ -115,12 +115,12 @@ public class QuestionDB implements QuestionStore {
 	}
 
 	@Override
-	public ArrayList<Question> getByCategory(Category c) {
+	public ArrayList<Question> getByCategory(int c) {
 
 		try {
 
 			ArrayList<Question> questions = new ArrayList<Question>();
-			String query = "SELECT * FROM questions WHERE category = " + c;
+			String query = "SELECT * FROM questions WHERE category_id = " + c;
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
