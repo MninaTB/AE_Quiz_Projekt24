@@ -93,7 +93,7 @@ class StateBuilderTest {
 		MockQuestionStoreTest mockDB = new MockQuestionStoreTest(questions);
 		StateBuilder sb = new StateBuilder(mockDB);
 		
-		assertFalse(sb.verify(new ArrayList<Category>(), 2, 2));
+		assertFalse(sb.verify(new ArrayList<Category>(), 2, 2, 1));
 	
 		Question q1 = new Question(1, "wer", 1, null, 0, Category.CATEGORY_FUN);
 		Question q2 = new Question(2, "wie", 1, null, 0, Category.CATEGORY_FUN);
