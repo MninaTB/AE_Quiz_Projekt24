@@ -35,27 +35,17 @@ class QuestionParserTest {
 				+ "    \"id\": 1,\n"
 				+ "    \"question\": \"wie alt\",\n"
 				+ "    \"difficulty\": 5,\n"
-				+ "    \"answers\": [\n"
-				+ "      \"a1\",\n"
-				+ "      \"a2\",\n"
-				+ "      \"a3\",\n"
-				+ "      \"a4\"\n"
-				+ "    ],\n"
+				+ "    \"answer_id\": 1,\n"
 				+ "    \"solution\": 3,\n"
-				+ "    \"category\": \"CATEGORY_FUN\"\n"
+				+ "    \"category_id\": 1\n"
 				+ "  },\n"
 				+ "  {\n"
 				+ "    \"id\": 2,\n"
 				+ "    \"question\": \"wie toll\",\n"
 				+ "    \"difficulty\": 3,\n"
-				+ "    \"answers\": [\n"
-				+ "      \"a1\",\n"
-				+ "      \"a2\",\n"
-				+ "      \"a3\",\n"
-				+ "      \"a4\"\n"
-				+ "    ],\n"
+				+ "    \"answer_id\": 1,\n"
 				+ "    \"solution\": 3,\n"
-				+ "    \"category\": \"CATEGORY_FUN\"\n"
+				+ "    \"category_id\": 1\n"
 				+ "  }\n"
 				+ "]\n"
 				+ "";
@@ -164,7 +154,7 @@ class QuestionParserTest {
 	final void testGetQuestionsByCategory() {
 		final int targetCategory = 1;
 		ArrayList<Question> questions = new ArrayList<Question>();
-		Question question = new Question(2, "wo", 100, 1, 2, 1);
+		Question question = new Question(1, "wie", 100, 1, 2, 1);
 		questions.add(new Question(1, "wie", 100, 1, 2, 1));
 		questions.add(question);
 		questions.add(new Question(3, "was", 100, 1, 2, 1));
