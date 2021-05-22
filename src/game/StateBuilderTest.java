@@ -61,7 +61,7 @@ class StateBuilderTest {
         mockDB = new MockQuestionStoreTest(questions);
 		sb = new StateBuilder(mockDB);
 		State s = null;
-		int expect = 1;
+		int expect = 0;
 		try {
 			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 1);
 		} catch (Exception e) {
