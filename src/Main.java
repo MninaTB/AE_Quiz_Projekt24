@@ -1,21 +1,19 @@
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
+import controller.Screen;
 import questions.QuestionParser;
+import ui.Registry;
+import ui.Router;
 
 /**
- * Klasse / Methode wo alles zusammen laeuft
- * Methode erstellt das GUI und sucht nach der Datei "question.json"
+ * Klasse / Methode wo alles zusammen laeuft Methode erstellt das GUI und sucht
+ * nach der Datei "question.json"
  * 
  */
 public class Main {
@@ -31,15 +29,27 @@ public class Main {
 		}
 
 		JFrame f = new JFrame("Fenster");
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JPanel contentPanel = new JPanel();
-		contentPanel.setLayout(new FlowLayout());
+		Registry reg = new Registry();
+		Router router = new Router(f, reg);
+		reg.init(router.getSwitcher());
 
-		f.setTitle("Ein GUI");
-		f.setSize(250, 250);
-		f.setVisible(true);
+		Runnable spawner = new Runnable() {
+			public void run() {
+				f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				f.setTitle("Ein GUI");
+				f.setSize(800, 600);
+				f.setVisible(true);
+				// NOTE: vielleicht muessen wir das laden vom screen mit dem starten
+				// des routers synchronisieren.
+				System.out.println("Init screen!");
+				router.setStartScreen(Screen.SCREEN_WELCOME);
+			}
+		};
 
-		f.getContentPane().add(BorderLayout.CENTER, contentPanel);
+		SwingUtilities.invokeLater(spawner);
+		System.out.println("Run router!");
+		router.Run();
+		System.out.println("Bye!");
 	}
 }
