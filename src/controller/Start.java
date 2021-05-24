@@ -18,11 +18,8 @@ public class Start implements Controller {
 	Switcher switcher;
 	view.Start view;
 
-	JPanel panel;
-
 	public Start(Switcher s) {
 		this.switcher = s;
-		this.panel = new JPanel();
 		this.init();
 	}
 
@@ -30,7 +27,7 @@ public class Start implements Controller {
 	 * Initialisiert das Start view element
 	 */
 	public void init() {
-		this.view = new view.Start(this.panel);
+		this.view = new view.Start();
 		this.view.getFirst().setText("Start");
 		this.view.getFirst().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -58,6 +55,6 @@ public class Start implements Controller {
 	 * @return JPanel
 	 */
 	public JPanel toJPanel() {
-		return this.panel;
+		return this.view.getContent();
 	}
 }

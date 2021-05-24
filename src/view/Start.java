@@ -22,10 +22,9 @@ public class Start {
 
 	/**
 	 * Konstrukor zum erzeugen eines Start views.
-	 * @param jp
 	 */
-	public Start(JPanel jp) {
-		this.content = jp;
+	public Start() {
+		this.content = new JPanel();
 		this.initComponents();
 		this.initLayout();
 	}
@@ -73,5 +72,9 @@ public class Start {
 	 */
 	public JButton getThird() {
 		return this.third;
+	}
+	
+	public JPanel getContent() {
+		return this.content;
 	}
 }

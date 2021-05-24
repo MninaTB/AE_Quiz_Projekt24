@@ -53,7 +53,25 @@ public class Router {
 			System.out.print("Load screen: ");
 			System.out.println(this.next.toString());
 			this.frame.removeAll();
-			this.frame.add(this.registry.get(this.next));
+			var next = this.registry.get(this.next);
+			/**
+			 * @debug begin
+			 */
+			System.out.print("Components in Panel: ");
+			System.out.println(next.getComponentCount());
+			/**
+			 * @debug end
+			 */
+			this.frame.add(next);
+			/**
+			 * @debug begin
+			 */
+			System.out.print("Components in Frame: ");
+			System.out.println(this.frame.getComponentCount());
+			/**
+			 * @debug end
+			 */
+			this.frame.setVisible(true);
 			this.frame.revalidate();
 			this.frame.repaint();
 		}
