@@ -2,6 +2,9 @@ package questions;
 
 import java.util.ArrayList;
 
+import model.Question;
+import model.Category;
+
 /**
  * Interface welches benutzt wird fuer die Implementation von den Methoden aus QuestionParser
  */
