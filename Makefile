@@ -6,11 +6,9 @@ TEST_FILES:= $(shell find $(SOURCEDIR) -type f -iname '*Test.java' -and -name '*
 
 VERSION_JUNIT=1.7.1
 VERSION_GSON=2.6.2
-VERSION_PLANTUML=1.2021.5
 
 JAR_JUNIT=junit-platform-console-standalone-$(VERSION_JUNIT).jar
 JAR_GSON=gson-$(VERSION_GSON).jar
-JAR_PLANTUML=plantuml.$(VERSION_PLANTUML).jar
 JAR_PLANTUMLDOCLET=plantUmlDoclet.jar
 
 .PHONY: build dependencies test doc clean
@@ -24,9 +22,7 @@ dependencies:
 	# lade junit herunter
 	wget  https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/$(VERSION_JUNIT)/$(JAR_JUNIT)
 	wget https://repo1.maven.org/maven2/com/google/code/gson/gson/$(VERSION_GSON)/$(JAR_GSON) 
-	wget https://kumisystems.dl.sourceforge.net/project/plantuml/$(VERSION_PLANTUML)/$(JAR_PLANTUML)
-	wget https://deac-riga.dl.sourceforge.net/project/plantuml/$(JAR_PLANTUMLDOCLET)
-	#wget https://repo1.maven.org/maven2/nl/talsmasoftware/umldoclet/2.0.12/umldoclet-2.0.12.jar -o umldoclet.jar
+	#wget https://repo0.maven.org/maven2/nl/talsmasoftware/umldoclet/2.0.12/umldoclet-2.0.12.jar -o umldoclet.jar
 
 test: # starte java tests
 	javac -cp $(JAR_GSON):$(JAR_JUNIT):. -d $(DESTDIR) $(TEST_FILES) $(SOURCES)
