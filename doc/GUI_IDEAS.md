@@ -2,10 +2,11 @@
 Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren GUIs dokumentieren.
 
 ## Wie viele und welche Screens werden benötigt?
-1. **Start-Screen** - Ein einfacher Screen mit Game-Title und einem Start-Button und einem Exit-Button
-2. **Game-Screen** - Ein komplexer Screen, der das eigentliche Spiel präsentiert
-3. **Options-Screen** - Ein komplexer Screen, um Kategorien und Fragen hinzuzufügen, bearbeiten und löschen zu können
-4. **End-Screen** - Ein einfacher Screen, der das Ergebnis und den Punktestand anzeigt mit einem Again-Button und einem Exit-Button
+1. **Start-Screen** - Ein Screen mit Game-Title und einem Start-Button und einem Exit-Button
+2. **Game-Screen** - Ein Screen, der das eigentliche Spiel präsentiert
+3. **Options-Screen** - Ein Screen, um Fragen hinzuzufügen, bearbeiten und löschen zu können
+4. **Edit-Screen** - Ein Screen, um eine Frage zu bearbeiten und zu speichern
+5. **Result-Screen** - Ein Screen, der das Ergebnis und den Punktestand anzeigt mit einem Again-Button und einem Exit-Button
 
 ## 1. Start-Screen
 ### Funktionen des Screens
@@ -20,7 +21,7 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 - **Exit-Button** - Ein Button, der das Spiel schließt
 
 ### Zeichnung
-![StartGUI Bild](assets/StartGUI.png)
+![StartGUI Bild](StartGUI.png)
 
 ## 2. Game-Screen
 ### Funktionen des Screens
@@ -42,63 +43,55 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 - **Joker-Button** - Ein Button, der 2 falsche Antworten entfernt
 
 ### Zeichnungen
-![GameGUI Bild](assets/GameGUI.png)
+![GameGUI Bild](GameGUI.png)
 
 ## 3. Options-Screen
-Der Options-Screen wird in zwei Teile geteilt, einmal in OptionsCategories-Screen und in OptionsQuestions-Screen
-
-## 3.1. OptionsCategories-Screen
 ### Funktionen des Screens
-- 3 Kategorien auswählen für das Spiel
-- Tabelle mit Anzahl Fragen pro Level anzeigen, damit User nachvollziehen kann während der Auswahl ob genug Fragen(min. 10 Fragen) für jedes Level(5 Level) vorhanden sind
-- Neue Kategorie hinzufügen mit Eingabe durch Textfeld und Übermittlung durch Button
-- Kategorie ändern mit Kategorieauswahl, Eingabe durch Textfeld und Übermittlung durch Button
-- Kategorie löschen mit Kategorieauswahl und Übermittlung durch Button
+- Liste aller Fragen wird angezeigt, jede Frage kann bearbeitet werden
+- Neue Frage hinzufügen
+- Frage(n) löschen durch Checkbox(en)
 
 ### Komponenten
 - **Title-Label** - Der Name des Spiels
 - **Home-Button** - Ein Button, der zum Start-Screen zurück geht
 - **Exit-Button** - Ein Button, der das Spiel schließt
-- **Categories-Button** - Ein Button, der zum OptionsCategories-Screen führt
-- **Questions-Button** - Ein Button, der zum OptionsQuestions-Screen führt
-- **Categories-ComboBoxes** - ComboBoxes, zum auswählen der Kategorien
-- **QuestionsPerLevel-Labels** - Tabelle, zur Darstellung für User
-- **Category-TextFields** - Ein TextField, zur Eingabe eines Kategorienamens
-- **Add-Button** - Ein Button, der neue Kategorie hinzufügt
-- **Edit-Button** - Ein Button, der Änderungen an Kategorie speichert
-- **Delete-Button** - Ein Button, der Kategorie löscht
+- **Delete-Checkbox** - Eine Checkbox, zur Auswahl der löschenden Fragen
+- **Question-Label** - Die Frage anzeigen
+- **Categorie-Label** - Die Kategorie der Frage anzeigen
+- **Level-Label** - Das Level der Frage anzeigen
+- **Edit-Button** - Ein Button, der zum Edit-Screen führt, der ausgefühlt ist mit den Informationen der Frage, weil die Frage bereits existiert
+- **Add-Button** - Ein Button, der zum Edit-Screen führt, der leer ist, weil eine neue Frage erstellt wird
+- **Delete-Button** - Ein Button, der alle Fragen löscht, die gecheckt sind bei der Delete-Checkbox
 
 ### Zeichnung
-![OptionsCategoriesGUI Bild](assets/OptionsCategoriesGUI.png)
+![OptionsGUI Bild](OptionsGUI.png)
 
-## 3.2. OptionsQuestions-Screen
+## 4. Edit-Screen
 ### Funktionen des Screens
-- Textfelder zur Eingabe für neue Fragen oder Anzeigen ausgewählter Fragen zum Bearbeiten/Löschen
-- Kategorie und richtige Antwort auswählen zum Hinzufügen einer neuen Frage
-- Textfeld zum Suchen einer Frage
-- Auswahlliste um Frage auszuwählen, die in den Textfeldern angezeigt wird
-- Frage ändern mit Übermittlung durch Button
-- Frage löschen mit Übermittlung durch Button
+- Textfelder zur Eingabe für Frage und Antworten zu bearbeiten oder neu zu schreiben
+- Kategorie und Level auswählbar (Kategorie noch irgendwie neue Kategorie hinzufügen können)
+- Richtige Antwort auswählbar mit Radio-Button
+- Frage speichern
+- Vorgang abbrechen
 
 ### Komponenten
-- **Title-Label** - Der Name des Spiels
-- **Home-Button** - Ein Button, der zum Start-Screen zurück geht
-- **Exit-Button** - Ein Button, der das Spiel schließt
-- **Categories-Button** - Ein Button, der zum OptionsCategories-Screen führt
-- **Questions-Button** - Ein Button, der zum OptionsQuestions-Screen führt
-- **QuestionAnswers-TextFields** - Textfelder, zur Eingabe für neue Fragen oder Anzeigen ausgewählter Fragen zum Bearbeiten/Löschen
-- **Categories-ComboBox** - Eine ComboBox, zum auswählen der Kategorie
-- **Number-ComboBox** - Eine ComboBox, zum auswählen der Zahl, der richtigen Antwort
+- **Question-Label** - "Frage:" vor dem Question-TextField
+- **Question-TextField** - Textfeld, zur Eingabe der Frage
+- **Categorie-Label** - "Kategorie:" vor der Categorie-ComboBox
+- **Categorie-ComboBox** - Eine ComboBox, zum auswählen der Kategorie
+- **Level-Label** - "Level:" vor der Level-ComboBox
+- **Level-ComboBox** - Eine ComboBox, zum auswählen des Levels
 - **Add-Button** - Ein Button, der neue Frage hinzufügt
-- **Search-TextField** - Ein Textfeld, zum Suchen einer Frage
-- **Question-ComboBox** - Eine ComboBox, zur Auswahl einer Frage
-- **Edit-Button** - Ein Button, der Änderungen an Frage speichert
-- **Delete-Button** - Ein Button, der Frage löscht
+- **Answer-RadioButtons** - RadioButtons, zur Auswahl der richtigen Antwort
+- **Answer-Labels** - "Antwort-Nr.(Zahl):" vor dem jeweiligen Answer-TextField
+- **Answer-TextFields** - Textfelder, zur Eingabe der Antworten
+- **Save-Button** - Ein Button, der zum Options-Screen führt und die Änderungen speichert
+- **Cancel-Button** - Ein Button, der zum Options-Screen führt und die Änderungen verwirft
 
 ### Zeichnung
-![OptionsQuestionsGUI Bild](assets/OptionsQuestionsGUI.png)
+![EditGUI Bild](EditGUI.png)
 
-## 4. End-Screen
+## 5. Result-Screen
 ### Funktionen des Screens
 - Das Ergebnis anzeigen
 - Das erreichte Level anzeigen
@@ -118,19 +111,19 @@ Der Options-Screen wird in zwei Teile geteilt, einmal in OptionsCategories-Scree
 - **Exit-Button** - Ein Button, der das Spiel schließt
 
 ### Zeichnung
-![EndGUI Bild](assets/EndGUI.png)
+![ResultGUI Bild](ResultGUI.png)
 
 ## Zeichnung bearbeiten
 Mit den .drawio-Files hat man die Möglichkeit die Zeichnungen(.png-Files) weiter zu bearbeiten im Browser unter https://app.diagrams.net/?src=about oder sich ![hier](https://github.com/jgraph/drawio-desktop/releases/tag/v14.5.1) die Anwendung zu downloaden.
 
 ### Files
-- `assets/EditableStartGUI.drawio`
-- `assets/EditableGameGUI.drawio`
-- `assets/EditableOptionsCategoriesGUI.drawio`
-- `assets/EditableOptionsQuestionsGUI.drawio`
-- `assets/EditableEndGUI.drawio`
-- `assets/StartGUI.png`
-- `assets/GameGUI.png`
-- `assets/OptionsCategoriesGUI.drawio`
-- `assets/OptionsQuestionsGUI.drawio`
-- `assets/EndGUI.png`
+- `EditableStartGUI.drawio`
+- `EditableGameGUI.drawio`
+- `EditableOptionsGUI.drawio`
+- `EditableEditGUI.drawio`
+- `EditableResultGUI.drawio`
+- `StartGUI.png`
+- `GameGUI.png`
+- `OptionsGUI.png`
+- `EditGUI.png`
+- `ResultGUI.png`
