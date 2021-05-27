@@ -61,9 +61,9 @@ class StateBuilderTest {
         mockDB = new MockQuestionStoreTest(questions);
 		sb = new StateBuilder(mockDB);
 		State s = null;
-		int expect = 0;
+		int expect = 1;
 		try {
-			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 1);
+			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 0);
 		} catch (Exception e) {
 			fail(e);
 		}
@@ -73,9 +73,9 @@ class StateBuilderTest {
 		}
 		assertEquals(expect, got);
 		
-		expect = 0;
+		expect = 3;
 		try {
-			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 1);
+			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 0);
 		} catch (Exception e) {
 			fail(e);
 		}
@@ -109,10 +109,10 @@ class StateBuilderTest {
 		sb = new StateBuilder(mockDB);
 		int expect = 1;
 		
-		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, 1, 1));
+		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 0));
 		
 		expect = 3;
-		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 1));
+		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 0));
 	}	
 
 }
