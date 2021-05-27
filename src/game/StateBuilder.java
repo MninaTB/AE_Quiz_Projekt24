@@ -84,7 +84,7 @@ public class StateBuilder {
 		int counter = 0;
 		int currentLevel = customLevel;
 		int lastDifficulty = -1;
-
+ 
 		for (int i = currentLevel; i < input.size() && currentLevel < levelMax; i++) { 
 			Question q = input.get(i);
 
