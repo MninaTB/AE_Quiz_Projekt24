@@ -25,9 +25,9 @@ public class StateBuilder {
 	 * 
 	 * @return neue State
 	 */
-	public State newState(ArrayList<Category> cs, int levelfk, int levelMax, int levelMin) throws MissingQuestionsException {
+	public State newState(ArrayList<Category> cs, int levelfk, int levelMax, int customLevel) throws MissingQuestionsException {
 		ArrayList<Question> allQuestions = this.fetchAndSortbyDifficulty(cs);
-		return new State(this.limitQuestions(allQuestions, levelfk, levelMax, levelMin), levelfk);
+		return new State(this.limitQuestions(allQuestions, levelfk, levelMax, customLevel), levelfk);
 	}
 
 	/**
@@ -38,10 +38,10 @@ public class StateBuilder {
 	 * @param levelMin
 	 * @return true (wenn moeglich), false (wenn nicht moeglich)
 	 */
-	public boolean verify(ArrayList<Category> cs, int levelfk, int levelMax, int levelMin) {
+	public boolean verify(ArrayList<Category> cs, int levelfk, int levelMax, int customLevel) {
 		ArrayList<Question> allQuestions = this.fetchAndSortbyDifficulty(cs);
 		try {
-			this.limitQuestions(allQuestions, levelfk, levelMax, levelMin);
+			this.limitQuestions(allQuestions, levelfk, levelMax, customLevel);
 		} catch (MissingQuestionsException e) {
 			System.out.print("fucking false;");
 			return false;
@@ -74,18 +74,18 @@ public class StateBuilder {
 		return allQuestions;
 	}
 
-	private ArrayList<Question> limitQuestions(ArrayList<Question> input, int levelfk, int levelMax, int levelMin) throws MissingQuestionsException {
+	private ArrayList<Question> limitQuestions(ArrayList<Question> input, int levelfk, int levelMax, int customLevel) throws MissingQuestionsException {
 		ArrayList<Question> result = new ArrayList<Question>();
 
-		if (input.size() == 0 && (levelfk > 0 || levelMax > 0 || levelMin < 1)) {
+		if (input.size() == 0 && (levelfk > 0 || levelMax > 0 || customLevel < 0)) {
 			throw new MissingQuestionsException();
 		}
 
 		int counter = 0;
-		int currentLevel = 0;
+		int currentLevel = customLevel;
 		int lastDifficulty = -1;
 
-		for (int i = 0; i < input.size() && currentLevel < levelMax && currentLevel > levelMin; i++) {
+		for (int i = currentLevel; i < input.size() && currentLevel < levelMax; i++) { 
 			Question q = input.get(i);
 
 			int newDifficulty = q.getDifficulty();
