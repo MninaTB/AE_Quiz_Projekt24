@@ -31,7 +31,11 @@ public class Question implements Cloneable {
 	 * @return id (int)
 	 */
 	public int getID() {
-		return this.id;
+		return id;
+	}
+
+	public void setID(int id) {		
+		this.id = id;
 	}
 	
 	/**
