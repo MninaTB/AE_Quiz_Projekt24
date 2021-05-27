@@ -21,7 +21,7 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 - **Exit-Button** - Ein Button, der das Spiel schließt
 
 ### Zeichnung
-![StartGUI Bild](StartGUI.png)
+![StartGUI Bild](assets/StartGUI.png)
 
 ## 2. Game-Screen
 ### Funktionen des Screens
@@ -43,7 +43,7 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 - **Joker-Button** - Ein Button, der 2 falsche Antworten entfernt
 
 ### Zeichnungen
-![GameGUI Bild](GameGUI.png)
+![GameGUI Bild](assets/GameGUI.png)
 
 ## 3. Options-Screen
 ### Funktionen des Screens
@@ -64,7 +64,7 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 - **Delete-Button** - Ein Button, der alle Fragen löscht, die gecheckt sind bei der Delete-Checkbox
 
 ### Zeichnung
-![OptionsGUI Bild](OptionsGUI.png)
+![OptionsGUI Bild](assets/OptionsGUI.png)
 
 ## 4. Edit-Screen
 ### Funktionen des Screens
@@ -89,7 +89,7 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 - **Cancel-Button** - Ein Button, der zum Options-Screen führt und die Änderungen verwirft
 
 ### Zeichnung
-![EditGUI Bild](EditGUI.png)
+![EditGUI Bild](assets/EditGUI.png)
 
 ## 5. Result-Screen
 ### Funktionen des Screens
@@ -111,19 +111,19 @@ Diese Dokumentation soll Ideen für die Anzahl der möglichen Screens und deren 
 - **Exit-Button** - Ein Button, der das Spiel schließt
 
 ### Zeichnung
-![ResultGUI Bild](ResultGUI.png)
+![ResultGUI Bild](assets/ResultGUI.png)
 
 ## Zeichnung bearbeiten
 Mit den .drawio-Files hat man die Möglichkeit die Zeichnungen(.png-Files) weiter zu bearbeiten im Browser unter https://app.diagrams.net/?src=about oder sich ![hier](https://github.com/jgraph/drawio-desktop/releases/tag/v14.5.1) die Anwendung zu downloaden.
 
 ### Files
-- `EditableStartGUI.drawio`
-- `EditableGameGUI.drawio`
-- `EditableOptionsGUI.drawio`
-- `EditableEditGUI.drawio`
-- `EditableResultGUI.drawio`
-- `StartGUI.png`
-- `GameGUI.png`
-- `OptionsGUI.png`
-- `EditGUI.png`
-- `ResultGUI.png`
+- `assets/EditableStartGUI.drawio`
+- `assets/EditableGameGUI.drawio`
+- `assets/EditableOptionsGUI.drawio`
+- `assets/EditableEditGUI.drawio`
+- `assets/EditableResultGUI.drawio`
+- `assets/StartGUI.png`
+- `assets/GameGUI.png`
+- `assets/OptionsGUI.png`
+- `assets/EditGUI.png`
+- `assets/ResultGUI.png`
