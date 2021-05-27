@@ -41,7 +41,7 @@ class StateBuilderTest {
 		MockQuestionStoreTest mockDB = new MockQuestionStoreTest(questions);
 		StateBuilder sb = new StateBuilder(mockDB);
 		try {
-			sb.newState(new ArrayList<Category>(), 2, 2);
+			sb.newState(new ArrayList<Category>(), 2, 2, 1);
 		} catch (MissingQuestionsException e) {
 			assertTrue(true);
 		} catch (Exception e) {
@@ -63,7 +63,7 @@ class StateBuilderTest {
 		State s = null;
 		int expect = 1;
 		try {
-			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect);
+			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 0);
 		} catch (Exception e) {
 			fail(e);
 		}
@@ -75,7 +75,7 @@ class StateBuilderTest {
 		
 		expect = 3;
 		try {
-			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect);
+			s = sb.newState(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 0);
 		} catch (Exception e) {
 			fail(e);
 		}
@@ -93,7 +93,7 @@ class StateBuilderTest {
 		MockQuestionStoreTest mockDB = new MockQuestionStoreTest(questions);
 		StateBuilder sb = new StateBuilder(mockDB);
 		
-		assertFalse(sb.verify(new ArrayList<Category>(), 2, 2));
+		assertFalse(sb.verify(new ArrayList<Category>(), 2, 2, 1));
 	
 		Question q1 = new Question(1, "wer", 1, null, 0, Category.CATEGORY_FUN);
 		Question q2 = new Question(2, "wie", 1, null, 0, Category.CATEGORY_FUN);
@@ -109,10 +109,10 @@ class StateBuilderTest {
 		sb = new StateBuilder(mockDB);
 		int expect = 1;
 		
-		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, 1));
+		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 0));
 		
 		expect = 3;
-		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect));
+		assertTrue(sb.verify(new ArrayList<Category>() {{add(Category.CATEGORY_FUN);}}, 1, expect, 0));
 	}	
 
 }
