@@ -35,12 +35,12 @@ public class Start implements Controller {
 			}
 		});
 		this.view.getSecond().setText("Optionen");
-		this.view.getThird().addActionListener(new ActionListener() {
+		this.view.getSecond().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switcher.next(Screen.SCREEN_OPTIONS);
 			}
 		});
-		
+
 		this.view.getThird().setText("Beenden");
 		this.view.getThird().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -31,8 +31,8 @@ public class Main {
 		JFrame f = new JFrame("Fenster");
 
 		Registry reg = new Registry();
-		Router router = new Router(f, reg);
-		reg.init(router.getSwitcher());
+		Router router = new Router(f, reg, Screen.SCREEN_WELCOME);
+		reg.init(router.getSwitcher(), q);
 
 		Runnable spawner = new Runnable() {
 			public void run() {
@@ -42,8 +42,6 @@ public class Main {
 				f.setVisible(true);
 				// NOTE: vielleicht muessen wir das laden vom screen mit dem starten
 				// des routers synchronisieren.
-				System.out.println("Init screen!");
-				router.setStartScreen(Screen.SCREEN_WELCOME);
 			}
 		};
 
@@ -51,5 +49,6 @@ public class Main {
 		System.out.println("Run router!");
 		router.Run();
 		System.out.println("Bye!");
+		System.exit(0);
 	}
 }
