@@ -48,7 +48,7 @@ public class Start implements Controller {
 		this.view.getStartButton().setText("Start");
 		this.view.getStartButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switcher.next(Screen.SCREEN_CATEGORIES);
+				switcher.next(Screen.SCREEN_GAME);
 			}
 		});
 	}

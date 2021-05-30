@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import javax.swing.JPanel;
 
-import controller.Categories;
+import controller.Game;
 import controller.Controller;
 import controller.Options;
 import controller.Screen;
@@ -34,8 +34,8 @@ public class Registry {
 	 * @param s
 	 */
 	public void init(Switcher s, QuestionStore store) {
-		this.intern.put(Screen.SCREEN_WELCOME, (Controller) new Start(s));
-		this.intern.put(Screen.SCREEN_CATEGORIES, (Controller) new Categories(s, store));
+		this.intern.put(Screen.SCREEN_START, (Controller) new Start(s));
+		this.intern.put(Screen.SCREEN_GAME, (Controller) new Game(s, store));
 		this.intern.put(Screen.SCREEN_OPTIONS, (Controller) new Options(s, store));
 	}
 
