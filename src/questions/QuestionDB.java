@@ -54,7 +54,7 @@ public class QuestionDB implements QuestionStore {
 				answers.add(resultSet.getString("answers.d"));
 				
 				//	Prepare category
-				Category category = null;
+				Category category = new Category(resultSet.getString("categories.name"));
 
 				//	Create object
 				Question question = new Question(
@@ -132,9 +132,10 @@ public class QuestionDB implements QuestionStore {
 					+ "FROM questions"
 					+ "LEFT JOIN answers ON questions.answer_id = answers.id"
 					+ "LEFT JOIN categories ON questions.category_id = categories.id"
-					+ "WHERE questions.category = " + c;
+					+ "WHERE questions.category_id = ?";
 			
 			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, this.getCategoryIdByName(c));
 			resultSet = preparedStatement.executeQuery();
 			
 			//	Prepare answers
@@ -145,7 +146,7 @@ public class QuestionDB implements QuestionStore {
 			answers.add(resultSet.getString("answers.d"));
 			
 			//	Prepare category
-			Category category = null;
+			Category category = new Category(resultSet.getString("categories.name"));
 			
 			//	Prepare 
 			ArrayList<Question> questions = new ArrayList<Question>();
@@ -193,7 +194,7 @@ public class QuestionDB implements QuestionStore {
 			answers.add(resultSet.getString("answers.d"));
 			
 			//	Prepare category
-			Category category = null;
+			Category category = new Category(resultSet.getString("categories.name"));
 			
 			//	Prepare 
 			ArrayList<Question> questions = new ArrayList<Question>();
@@ -247,9 +248,28 @@ public class QuestionDB implements QuestionStore {
 		return id;
 	}
 	
-	private int getCategoryIdByCategory(Category c) {
+	private int getCategoryIdByName(Category c) {
 		
-		int id = 0;		
+		int id = 0;	
+		
+		try {
+			
+			String query = "SELECT id FROM categories WHERE name = ? LIMIT 1";
+			
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, c.getName());
+			resultSet = preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+
+				id = resultSet.getInt("id");
+			}
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return id;
 	}
 
@@ -262,7 +282,7 @@ public class QuestionDB implements QuestionStore {
 			int answer_id = this.getAnswerIdByAnswers(q.getAnswers());
 			
 			//	Get category reference ID
-			int category_id = this.getCategoryIdByCategory(q.getCategory());
+			int category_id = this.getCategoryIdByName(q.getCategory());
 			
 			// Insert query
 			String query = "INSERT INTO questions (question, difficulty, answer_id, solution, category_id)"
@@ -300,7 +320,7 @@ public class QuestionDB implements QuestionStore {
 			int answer_id = this.getAnswerIdByAnswers(q.getAnswers());
 			
 			//	Get category reference ID
-			int category_id = this.getCategoryIdByCategory(q.getCategory());
+			int category_id = this.getCategoryIdByName(q.getCategory());
 			
 			String query = "UPDATE questions SET " 
 					+ "question = ? " 
@@ -317,7 +337,6 @@ public class QuestionDB implements QuestionStore {
 			preparedStatement.setInt(4, q.getSolution());
 			preparedStatement.setInt(5, category_id);
 			preparedStatement.setInt(5, q.getID());
-			preparedStatement.execute();
 			preparedStatement.execute();
 		}
 		catch (SQLException e) {
