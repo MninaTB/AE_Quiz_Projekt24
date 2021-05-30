@@ -42,7 +42,7 @@ class QuestionParserTest {
 				+ "      \"a4\"\n"
 				+ "    ],\n"
 				+ "    \"solution\": 3,\n"
-				+ "    \"category\": \"CATEGORY_FUN\"\n"
+				+ "    \"category\": {\"text\":\"TestKategory\"}\n"
 				+ "  },\n"
 				+ "  {\n"
 				+ "    \"id\": 2,\n"
@@ -55,7 +55,7 @@ class QuestionParserTest {
 				+ "      \"a4\"\n"
 				+ "    ],\n"
 				+ "    \"solution\": 3,\n"
-				+ "    \"category\": \"CATEGORY_FUN\"\n"
+				+ "    \"category\": {\"text\":\"TestKategory\"}\n"
 				+ "  }\n"
 				+ "]\n"
 				+ "";
@@ -177,8 +177,8 @@ class QuestionParserTest {
 		Category category = new Category("Test Kategory");
 		ArrayList<Question> questions = new ArrayList<Question>();
 		ArrayList<String> aw = new ArrayList<String>() {{ add("a1"); add("a2"); add("a3"); add("a4"); }};
-		Question question = new Question(2, "wo", 100, aw, 2, category);
-		questions.add(new Question(1, "wie", 100, aw, 2, category));
+		Question question = new Question(1, "wo", 100, aw, 2, category);
+		questions.add(new Question(1, "wo", 100, aw, 2, category));
 		questions.add(question);
 		questions.add(new Question(3, "was", 100, aw, 2, category));
 		QuestionParser q = new QuestionParser(questions);
