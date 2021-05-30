@@ -1,25 +1,27 @@
 package view;
 
-import java.awt.FlowLayout;
-
-import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+
+import java.awt.GridLayout;
 
 /**
  * 
  * Start ist ein view, welches JComponents
  * haelt und anbietet.
  * 
- * @author nina
+ * @author nina, niklas e.
  *
  */
 public class Start {
 	private JPanel content;
-
-	private JButton first;
-	private JButton second;
-	private JButton third;
-
+	
+	private JLabel titleLabel;
+	private JButton startButton;
+	private JButton optionsButton;
+	private JButton exitButton;
+	
 	/**
 	 * Konstrukor zum erzeugen eines Start views.
 	 */
@@ -28,53 +30,67 @@ public class Start {
 		this.initComponents();
 		this.initLayout();
 	}
-
+	
 	/**
 	 * Initialisiert components.
 	 */
 	private void initComponents() {
-		this.first = new JButton();
-		this.second = new JButton();
-		this.third = new JButton();
+		this.titleLabel = new JLabel();
+		this.startButton = new JButton();
+		this.optionsButton = new JButton();
+		this.exitButton = new JButton();
 	}
-
+	
 	/**
 	 * Initialisiert view layout.
 	 */
 	public void initLayout() {
 		this.content = new JPanel();
-		this.content.setLayout(new FlowLayout());
-
-		this.content.add(this.first);
-		this.content.add(this.second);
-		this.content.add(this.third);
-	}
-
-	/**
-	 * Gibt den ersten Button zurueck
-	 * @return JButton
-	 */
-	public JButton getFirst() {
-		return this.first;
-	}
-
-	/**
-	 * Gibt den zweiten Button zurueck
-	 * @return JButton
-	 */
-	public JButton getSecond() {
-		return this.second;
-	}
-
-	/**
-	 * Gibt den dritten Button zurueck
-	 * @return JButton
-	 */
-	public JButton getThird() {
-		return this.third;
+		this.content.setLayout(new GridLayout(4, 1));
+		
+		this.content.add(this.titleLabel);
+		this.content.add(this.startButton);
+		this.content.add(this.optionsButton);
+		this.content.add(this.exitButton);
 	}
 	
+	/**
+	 * Gibt das Content-Panel zurueck
+	 * @return JPanel
+	 */
 	public JPanel getContent() {
 		return this.content;
+	}
+	
+	/**
+	 * Gibt das Title-Label zurueck
+	 * @return JLabel
+	 */
+	public JLabel getTitleLabel() {
+		return this.titleLabel;
+	}
+	
+	/**
+	 * Gibt den Start-Button zurueck
+	 * @return JButton
+	 */
+	public JButton getStartButton() {
+		return this.startButton;
+	}
+	
+	/**
+	 * Gibt den Options-Button zurueck
+	 * @return JButton
+	 */
+	public JButton getOptionsButton() {
+		return this.optionsButton;
+	}
+	
+	/**
+	 * Gibt den Exit-Button zurueck
+	 * @return JButton
+	 */
+	public JButton getExitButton() {
+		return this.exitButton;
 	}
 }
