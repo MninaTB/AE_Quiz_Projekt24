@@ -5,6 +5,7 @@ package model;
  * welche wir fuer die Fragen benutzen wollen
  * 
  */
+
 public class Category {
 	
 	private final String text;

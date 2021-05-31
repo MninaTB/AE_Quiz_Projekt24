@@ -39,9 +39,10 @@ public class QuestionDB implements QuestionStore {
 					+ "FROM questions"
 					+ "LEFT JOIN answers ON questions.answer_id = answers.id"
 					+ "LEFT JOIN categories ON questions.category_id = categories.id"
-					+ "WHERE questions.id = " + id;
+					+ "WHERE questions.id = ?";
 			
-			preparedStatement = connection.prepareStatement(query);			
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, id);
 			resultSet = preparedStatement.executeQuery();
 			
 			while (resultSet.next()) {
@@ -84,9 +85,10 @@ public class QuestionDB implements QuestionStore {
 					+ "FROM questions"
 					+ "LEFT JOIN answers ON questions.answer_id = answers.id"
 					+ "LEFT JOIN categories ON questions.category_id = categories.id"
-					+ "WHERE questions.difficulty = " + difficulty;
+					+ "WHERE questions.difficulty = ?";
 			
 			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, difficulty);
 			resultSet = preparedStatement.executeQuery();
 			
 			//	Prepare answers
@@ -146,7 +148,7 @@ public class QuestionDB implements QuestionStore {
 			answers.add(resultSet.getString("answers.d"));
 			
 			//	Prepare category
-			Category category = new Category(resultSet.getString("categories.name"));
+			Category category = c;
 			
 			//	Prepare 
 			ArrayList<Question> questions = new ArrayList<Question>();
