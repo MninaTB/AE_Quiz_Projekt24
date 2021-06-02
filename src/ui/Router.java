@@ -46,7 +46,7 @@ public class Router {
 		while (this.next != Screen.SCREEN_EXIT) {
 			System.out.print("Load screen: ");
 			System.out.println(this.next.toString());
-			JPanel current = this.registry.get(this.next);
+			var current = this.registry.get(this.next);
 			current.setBorder(BorderFactory.createLineBorder(Color.CYAN, 5));
 			current.setBackground(new Color(77, 77, 77));
 			this.frame.add(current);

@@ -1,10 +1,14 @@
 package view;
 
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
+import java.awt.Font;
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.BorderLayout;
 
 /**
  * 
@@ -21,6 +25,12 @@ public class Start {
 	private JButton startButton;
 	private JButton optionsButton;
 	private JButton exitButton;
+	private JPanel gridPanel;
+	
+	private final Font ARIAL_BOLD_100 = new Font("Arial", Font.BOLD, 100);
+	private final Font ARIAL_PLAIN_50 = new Font("Arial", Font.PLAIN, 50);
+	private final Color STANDARD_COLOR = Color.CYAN;
+	private final Color TRANSPARENT_COLOR = new Color(0,0,0,0);
 	
 	/**
 	 * Konstrukor zum erzeugen eines Start views.
@@ -36,22 +46,50 @@ public class Start {
 	 */
 	private void initComponents() {
 		this.titleLabel = new JLabel();
+		this.titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		this.titleLabel.setFont(ARIAL_BOLD_100);
+		this.titleLabel.setForeground(STANDARD_COLOR);
+		
 		this.startButton = new JButton();
+		this.startButton.setFont(ARIAL_PLAIN_50);
+		this.startButton.setForeground(STANDARD_COLOR);
+		this.startButton.setBackground(TRANSPARENT_COLOR);
+		this.startButton.setContentAreaFilled(false);
+		this.startButton.setBorder(null);
+		this.startButton.setFocusPainted(false);
+		
 		this.optionsButton = new JButton();
+		this.optionsButton.setFont(ARIAL_PLAIN_50);
+		this.optionsButton.setForeground(STANDARD_COLOR);
+		this.optionsButton.setBackground(TRANSPARENT_COLOR);
+		this.optionsButton.setContentAreaFilled(false);
+		this.optionsButton.setBorder(null);
+		this.optionsButton.setFocusPainted(false);
+		
 		this.exitButton = new JButton();
+		this.exitButton.setFont(ARIAL_PLAIN_50);
+		this.exitButton.setForeground(STANDARD_COLOR);
+		this.exitButton.setBackground(TRANSPARENT_COLOR);
+		this.exitButton.setContentAreaFilled(false);
+		this.exitButton.setBorder(null);
+		this.exitButton.setFocusPainted(false);
+		
+		this.gridPanel = new JPanel();
+		this.gridPanel.setOpaque(false);
 	}
 	
 	/**
 	 * Initialisiert view layout.
 	 */
-	public void initLayout() {
-		this.content = new JPanel();
-		this.content.setLayout(new GridLayout(4, 1));
+	private void initLayout() {
+		this.gridPanel.setLayout(new GridLayout(4, 1));
+		this.gridPanel.add(this.titleLabel);
+		this.gridPanel.add(this.startButton);
+		this.gridPanel.add(this.optionsButton);
+		this.gridPanel.add(this.exitButton);
 		
-		this.content.add(this.titleLabel);
-		this.content.add(this.startButton);
-		this.content.add(this.optionsButton);
-		this.content.add(this.exitButton);
+		this.content.setLayout(new BorderLayout());
+		this.content.add(gridPanel, BorderLayout.SOUTH);
 	}
 	
 	/**
