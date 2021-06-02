@@ -1,7 +1,7 @@
 package controller;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JPanel;
 
@@ -10,45 +10,73 @@ import javax.swing.JPanel;
  * Start.java Start ist ein Controller zur verwaltung von aktionen des start
  * screens.
  * 
- * @author Nina
+ * @author Nina, Niklas E.
  * @since 24-05-2021
  */
 public class Start implements Controller {
-
-	Switcher switcher;
-	view.Start view;
-
+	
+	private Switcher switcher;
+	private view.Start view;
+	
 	public Start(Switcher s) {
 		this.switcher = s;
 		this.init();
 	}
-
+	
 	/**
 	 * Initialisiert das Start view element
 	 */
-	public void init() {
+	private void init() {
 		this.view = new view.Start();
-		this.view.getFirst().setText("Start");
-		this.view.getFirst().addActionListener(new ActionListener() {
+		this.initTitleLabel();
+		this.initStartButton();
+		this.initOptionsButton();
+		this.initExitButton();
+	}
+	
+	/**
+	 * Initialisiert das Title-Label
+	 */
+	private void initTitleLabel() {
+		this.view.getTitleLabel().setText("Quiz Projekt24");
+	}
+	
+	/**
+	 * Initialisiert den Start-Button
+	 */
+	private void initStartButton() {
+		this.view.getStartButton().setText("Start");
+		this.view.getStartButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switcher.next(Screen.SCREEN_CATEGORIES);
 			}
 		});
-		this.view.getSecond().setText("Optionen");
-		this.view.getSecond().addActionListener(new ActionListener() {
+	}
+	
+	/**
+	 * Initialisiert den Options-Button
+	 */
+	private void initOptionsButton() {
+		this.view.getOptionsButton().setText("Optionen");
+		this.view.getOptionsButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switcher.next(Screen.SCREEN_OPTIONS);
 			}
 		});
-
-		this.view.getThird().setText("Beenden");
-		this.view.getThird().addActionListener(new ActionListener() {
+	}
+	
+	/**
+	 * Initialisiert den Exit-Button
+	 */
+	private void initExitButton() {
+		this.view.getExitButton().setText("Beenden");
+		this.view.getExitButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switcher.next(Screen.SCREEN_EXIT);
 			}
 		});
 	}
-
+	
 	/**
 	 * Implementiert das Controller interface.
 	 * 

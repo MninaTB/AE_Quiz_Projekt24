@@ -1,8 +1,11 @@
 package ui;
 
+import java.awt.Color;
 import java.util.function.Function;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import controller.Screen;
 import controller.Switcher;
@@ -44,6 +47,8 @@ public class Router {
 			System.out.print("Load screen: ");
 			System.out.println(this.next.toString());
 			var current = this.registry.get(this.next);
+			current.setBorder(BorderFactory.createLineBorder(Color.CYAN, 5));
+			current.setBackground(new Color(77, 77, 77));
 			this.frame.add(current);
 			this.frame.setVisible(true);
 			this.frame.revalidate();
