@@ -31,7 +31,7 @@ public class Main {
 		JFrame f = new JFrame();
 
 		Registry reg = new Registry();
-		Router router = new Router(f, reg, Screen.SCREEN_WELCOME);
+		Router router = new Router(f, reg, Screen.SCREEN_START);
 		reg.init(router.getSwitcher(), q);
 
 		Runnable spawner = new Runnable() {

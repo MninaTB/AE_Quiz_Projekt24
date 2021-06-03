@@ -8,14 +8,16 @@ package controller;
  * @since 24-05-2021
  */
 public enum Screen {
-	SCREEN_EXIT("exit"), 
-	SCREEN_WELCOME("welcome"), 
-	SCREEN_CATEGORIES("categories"), 
+	SCREEN_START("start"),
+	SCREEN_GAME("game"),
+	SCREEN_RESULT("result"),
 	SCREEN_OPTIONS("options"),
+	SCREEN_EDIT("edit"),
+	SCREEN_EXIT("exit"),
 	;
-
+	
 	private final String text;
-
+	
 	/**
 	 * Konstruktor mit einem uebergabe Parameter
 	 * 
@@ -24,7 +26,7 @@ public enum Screen {
 	Screen(final String text) {
 		this.text = text;
 	}
-
+	
 	/**
 	 * Gibt den screen namen als string zurueck.
 	 * 
@@ -34,5 +36,4 @@ public enum Screen {
 	public String toString() {
 		return this.text;
 	}
-
 }
