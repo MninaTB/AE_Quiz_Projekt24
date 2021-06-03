@@ -104,6 +104,8 @@ public class Game implements Controller {
 		this.view.getAnswerNo1Button().setText("Erste Antwort");//TODO muss automatisiert werden mit Frage laden
 		this.view.getAnswerNo1Button().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// Temporaer Result-Screen auf AnswerNo1-Button gelegt zum Testen, wieder entfernen bei Spiel-Implementation
+				switcher.next(Screen.SCREEN_RESULT);
 				//TODO hier Spielfunktion am besten auf eine gemeinsame Methode implementieren
 			}
 		});
