@@ -5,7 +5,7 @@ SOURCES:= $(shell find $(SOURCEDIR) -type f -iname '*.java' -not -name '*Test.ja
 TEST_FILES:= $(shell find $(SOURCEDIR) -type f -iname '*Test.java' -and -name '*.java')
 
 VERSION_JUNIT=1.7.1
-VERSION_GSON=2.6.2
+VERSION_GSON=2.8.6
 
 JAR_JUNIT=junit-platform-console-standalone-$(VERSION_JUNIT).jar
 JAR_GSON=gson-$(VERSION_GSON).jar
