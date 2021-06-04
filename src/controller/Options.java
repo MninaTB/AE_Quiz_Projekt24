@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import model.Category;
 import model.Question;
 import questions.QuestionStore;
 import view.OptionsQuestionRow;
@@ -96,7 +97,12 @@ public class Options implements Controller {
 		for(Question q : this.store.getAllQuestions()) {
 			OptionsQuestionRow oqr = new OptionsQuestionRow();
 			oqr.getQuestionLabel().setText(q.getQuestion());
-			oqr.getCategoryLabel().setText(q.getCategory().toString());
+			var c = q.getCategory();
+			if (c == null)
+			{
+				c = Category.CATEGORY_UNKNOWN;
+			}
+			oqr.getCategoryLabel().setText(c.toString());
 			oqr.getLevelLabel().setText(String.valueOf(q.getDifficulty()));
 			oqr.getEditButton().setText("Bearbeiten");
 			oqr.getEditButton().addActionListener(new ActionListener() {
