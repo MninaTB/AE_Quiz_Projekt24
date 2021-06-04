@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
 import model.Question;
 import model.Category;
@@ -42,7 +43,8 @@ public class QuestionParser implements QuestionStore {
 		Gson gson = new Gson();
 		String json = new BufferedReader(sr)
 				   .lines().collect(Collectors.joining("\n"));
-		this.questions = gson.fromJson(json, this.questions.getClass());
+		var t = TypeToken.getParameterized(ArrayList.class, Question.class).getType();
+		this.questions = gson.fromJson(json, t);
 	}
 	
 	/**

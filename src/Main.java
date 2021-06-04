@@ -28,17 +28,20 @@ public class Main {
 			System.out.printf("could not load: %s\n", filename);
 		}
 
-		JFrame f = new JFrame("Fenster");
+		JFrame f = new JFrame();
 
 		Registry reg = new Registry();
-		Router router = new Router(f, reg, Screen.SCREEN_WELCOME);
+		Router router = new Router(f, reg, Screen.SCREEN_START);
 		reg.init(router.getSwitcher(), q);
 
 		Runnable spawner = new Runnable() {
 			public void run() {
 				f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				f.setTitle("Ein GUI");
-				f.setSize(800, 600);
+				f.setSize(1280, 720);
+				f.setResizable(false);
+				// Entfernt Fensterrahmen, erst nachdem alle Exit-Buttons implementiert sind aktivieren
+				//f.setUndecorated(true);
+				f.setLocationRelativeTo(null);
 				f.setVisible(true);
 				// NOTE: vielleicht muessen wir das laden vom screen mit dem starten
 				// des routers synchronisieren.
