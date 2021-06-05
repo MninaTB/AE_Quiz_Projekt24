@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import controller.Screen;
+import controller.Share;
 import controller.Switcher;
 
 /**
@@ -21,6 +22,7 @@ public class Router {
 
 	private Screen next;
 	private Registry registry;
+	private Share share;
 	private JFrame frame;
 	private Object mutex;
 
@@ -35,6 +37,7 @@ public class Router {
 		this.frame = frame;
 		this.registry = reg;
 		this.next = start;
+		this.share = new Share();
 		this.mutex = new Object();
 	}
 
@@ -47,9 +50,11 @@ public class Router {
 			System.out.print("Load screen: ");
 			System.out.println(this.next.toString());
 			var current = this.registry.get(this.next);
-			current.setBorder(BorderFactory.createLineBorder(Color.CYAN, 5));
-			current.setBackground(new Color(77, 77, 77));
-			this.frame.add(current);
+			current.init(this.share);
+			JPanel panel = current.toJPanel();
+			panel.setBorder(BorderFactory.createLineBorder(Color.CYAN, 5));
+			panel.setBackground(new Color(77, 77, 77));
+			this.frame.add(panel);
 			this.frame.setVisible(true);
 			this.frame.revalidate();
 			this.frame.repaint();
@@ -62,7 +67,7 @@ public class Router {
 				} catch (InterruptedException e) {
 					System.exit(1);
 				}
-				this.frame.remove(current);
+				this.frame.remove(panel);
 			}
 
 		}

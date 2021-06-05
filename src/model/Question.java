@@ -3,9 +3,9 @@ package model;
 import java.util.ArrayList;
 
 /**
- * Diese Klasse ist nur fuer die Fragen im Quiz.
- * Hier haben wir einen Konstruktor und ausserdem verschiedene Getter-Methoden
- * fuer den Zugriff von anderen Klassen
+ * Diese Klasse ist nur fuer die Fragen im Quiz. Hier haben wir einen
+ * Konstruktor und ausserdem verschiedene Getter-Methoden fuer den Zugriff von
+ * anderen Klassen
  * 
  */
 public class Question implements Cloneable {
@@ -28,22 +28,33 @@ public class Question implements Cloneable {
 
 	/**
 	 * Gibt die ID zurueck
+	 * 
 	 * @return id (int)
 	 */
 	public int getID() {
 		return this.id;
 	}
-	
+
 	/**
 	 * Gibt die Question als String zurueck
+	 * 
 	 * @return question (String)
 	 */
 	public String getQuestion() {
 		return this.question;
 	}
-	
+
+	/**
+	 * Ueberschreibt Frage
+	 * 
+	 */
+	public void setQuestion(String q) {
+		this.question = q;
+	}
+
 	/**
 	 * Gibt den Schwierigkeitsgrad zurueck
+	 * 
 	 * @return difficulty
 	 */
 	public int getDifficulty() {
@@ -51,7 +62,16 @@ public class Question implements Cloneable {
 	}
 
 	/**
+	 * Ueberschreibt Schwierigkeitsgrad
+	 * 
+	 */
+	public void getDifficulty(int d) {
+		this.difficulty = d;
+	}
+
+	/**
 	 * Gibt die Antworten in einer ArrayList zurueck
+	 * 
 	 * @return answers
 	 */
 	public ArrayList<String> getAnswers() {
@@ -59,19 +79,51 @@ public class Question implements Cloneable {
 	}
 
 	/**
+	 * Setzt Antwort moeglichkeiten, mindestens 4 antworten muessen existieren
+	 * 
+	 */
+	public void setAnswers(ArrayList<String> a) throws IllegalArgumentException {
+		if (a.size() < 4) {
+			throw new IllegalArgumentException();
+		}
+		this.answers = a;
+	}
+
+	/**
 	 * Gibt die Loesungen zurueck
+	 * 
 	 * @return solution
 	 */
 	public int getSolution() {
 		return this.solution;
 	}
-	
+
+	/**
+	 * Setzt index der Loesung
+	 * 
+	 */
+	public void setSolution(int s) {
+		if (s > 3) {
+			throw new IllegalArgumentException();
+		}
+		this.solution = s;
+	}
+
 	/**
 	 * Gibt die Kategorien zurueck
+	 * 
 	 * @return category
 	 */
 	public Category getCategory() {
 		return this.category;
+	}
+
+	/**
+	 * Legt Category fuer Frage fest
+	 * 
+	 */
+	public void setCategory(Category c) {
+		this.category = c;
 	}
 
 	/**
@@ -81,4 +133,3 @@ public class Question implements Cloneable {
 		return super.clone();
 	}
 }
-
