@@ -122,7 +122,7 @@ public class Options implements Controller {
 		this.view.getAddButton().setText("Neue Frage erstellen");
 		this.view.getAddButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switcher.next(Screen.SCREEN_EDIT);
+				switcher.next(Screen.SCREEN_CREATE);
 			}
 		});
 	}

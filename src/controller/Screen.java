@@ -13,6 +13,7 @@ public enum Screen {
 	SCREEN_RESULT("result"),
 	SCREEN_OPTIONS("options"),
 	SCREEN_EDIT("edit"),
+	SCREEN_CREATE("create"),
 	SCREEN_EXIT("exit"),
 	;
 	
