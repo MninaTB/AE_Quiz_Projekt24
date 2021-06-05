@@ -1,7 +1,11 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -51,6 +55,17 @@ public class Main {
 		SwingUtilities.invokeLater(spawner);
 		System.out.println("Run router!");
 		router.Run();
+		try {
+			OutputStream os = new FileOutputStream(file);
+			OutputStreamWriter osw = new OutputStreamWriter(os);
+			q.save(osw);
+			osw.flush();
+		} catch (Exception e) {
+			System.out.print("Failed to save questions, file: ");
+			System.out.println(filename);
+			System.exit(1);
+		} 
+		System.out.println("Saved questions!");
 		System.out.println("Bye!");
 		System.exit(0);
 	}
