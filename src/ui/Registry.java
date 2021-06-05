@@ -2,15 +2,14 @@ package ui;
 
 import java.util.HashMap;
 
-import javax.swing.JPanel;
-
-import controller.Game;
 import controller.Controller;
 import controller.Create;
 import controller.Edit;
+import controller.Game;
 import controller.Options;
 import controller.Result;
 import controller.Screen;
+import controller.Share;
 import controller.Start;
 import controller.Switcher;
 import questions.QuestionStore;
@@ -24,11 +23,14 @@ import questions.QuestionStore;
 public class Registry {
 	private HashMap<Screen, Controller> intern;
 
+	private Share share;
+
 	/**
 	 * Konstruktor initialisiert interne map.
 	 */
 	public Registry() {
 		this.intern = new HashMap<Screen, Controller>();
+		this.share = new Share();
 	}
 
 	/**
@@ -51,7 +53,7 @@ public class Registry {
 	 * @param s
 	 * @return JPanel
 	 */
-	public JPanel get(Screen s) {
-		return this.intern.get(s).toJPanel();
+	public Controller get(Screen s) {
+		return this.intern.get(s);
 	}
 }
