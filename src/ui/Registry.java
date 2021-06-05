@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 
 import controller.Game;
 import controller.Controller;
+import controller.Create;
+import controller.Edit;
 import controller.Options;
 import controller.Result;
 import controller.Screen;
@@ -39,6 +41,8 @@ public class Registry {
 		this.intern.put(Screen.SCREEN_GAME, (Controller) new Game(s, store));
 		this.intern.put(Screen.SCREEN_RESULT, (Controller) new Result(s, store));
 		this.intern.put(Screen.SCREEN_OPTIONS, (Controller) new Options(s, store));
+		this.intern.put(Screen.SCREEN_EDIT, (Controller) new Edit(s, store));
+		this.intern.put(Screen.SCREEN_CREATE, (Controller) new Create(s, store));
 	}
 
 	/**
