@@ -32,7 +32,7 @@ public class Options implements Controller {
 		this.initQuestionFieldnameLabel();
 		this.initCategoryFieldnameLabel();
 		this.initLevelFieldnameLabel();
-		this.initQuestionRows();
+		this.initQuestionRows(share);
 		this.initAddButton();
 		this.initDeleteButton();
 	}
@@ -92,7 +92,7 @@ public class Options implements Controller {
 	/**
 	 * Initialisiert die QuestionRows-ArrayList
 	 */
-	public void initQuestionRows() {
+	public void initQuestionRows(Share share) {
 		for (Question q : this.store.getAllQuestions()) {
 			OptionsQuestionRow oqr = new OptionsQuestionRow();
 			oqr.getQuestionLabel().setText(q.getQuestion());
@@ -105,8 +105,8 @@ public class Options implements Controller {
 			oqr.getEditButton().setText("Bearbeiten");
 			oqr.getEditButton().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					share.put("KEY_EDIT_QUESTION_ID", q.getID());
 					switcher.next(Screen.SCREEN_EDIT);
-					// TODO Infos muessen irgendwie mit in den Edit Screen uebernommen werden
 				}
 			});
 

@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -24,6 +25,13 @@ public class Edit implements Controller {
 	 * Initialisiert das Edit view element
 	 */
 	public void init(Share share) {
+
+		this.question = this.store.getByID((int) share.get("KEY_EDIT_QUESTION_ID"));
+		if (this.question == null) {
+			// TODO: vielleicht sollten wir einen Fehlerscreen einfuehren?
+			this.switcher.next(Screen.SCREEN_EXIT);
+		}
+
 		this.view = new view.Edit();
 		this.initQuestionLabel();
 		this.initQuestionTextField();
@@ -52,7 +60,7 @@ public class Edit implements Controller {
 	 * Initialisiert das Question-TextField
 	 */
 	public void initQuestionTextField() {
-		// TODO this.view.getQuestionTextField().setText(hier uebergebene Question);
+		this.view.getQuestionTextField().setText(this.question.getQuestion());
 	}
 
 	/**
@@ -80,8 +88,7 @@ public class Edit implements Controller {
 	 * Initialisiert das AnswerNo1-TextField
 	 */
 	public void initAnswerNo1TextField() {
-		// TODO this.view.getAnswerNo1TextField().setText(hier uebergebene
-		// QuestionAnswerNo1);
+		this.view.getAnswerNo1TextField().setText(this.question.getAnswers().get(0));
 	}
 
 	/**
@@ -95,8 +102,7 @@ public class Edit implements Controller {
 	 * Initialisiert das AnswerNo2-TextField
 	 */
 	public void initAnswerNo2TextField() {
-		// TODO this.view.getAnswerNo2TextField().setText(hier uebergebene
-		// QuestionAnswerNo2);
+		this.view.getAnswerNo2TextField().setText(this.question.getAnswers().get(1));
 	}
 
 	/**
@@ -110,8 +116,7 @@ public class Edit implements Controller {
 	 * Initialisiert das AnswerNo3-TextField
 	 */
 	public void initAnswerNo3TextField() {
-		// TODO this.view.getAnswerNo3TextField().setText(hier uebergebene
-		// QuestionAnswerNo3);
+		this.view.getAnswerNo3TextField().setText(this.question.getAnswers().get(2));
 	}
 
 	/**
@@ -125,8 +130,7 @@ public class Edit implements Controller {
 	 * Initialisiert das AnswerNo4-TextField
 	 */
 	public void initAnswerNo4TextField() {
-		// TODO this.view.getAnswerNo4TextField().setText(hier uebergebene
-		// QuestionAnswerNo4);
+		this.view.getAnswerNo4TextField().setText(this.question.getAnswers().get(3));
 	}
 
 	/**
@@ -135,8 +139,20 @@ public class Edit implements Controller {
 	public void initSaveButton() {
 		this.view.getSaveButton().setText("Frage speichern");
 		this.view.getSaveButton().addActionListener(new ActionListener() {
+			@SuppressWarnings("serial")
 			public void actionPerformed(ActionEvent e) {
-				// TODO Aenderungen an der Frage im QuestionStore abspeichern
+				ArrayList<String> aw = new ArrayList<String>() {
+					{
+						add(view.getAnswerNo1TextField().getText());
+						add(view.getAnswerNo2TextField().getText());
+						add(view.getAnswerNo3TextField().getText());
+						add(view.getAnswerNo4TextField().getText());
+					}
+				};
+				// TODO: update difficutly, question, ...
+				question.setAnswers(aw);
+
+				store.update(question);
 				switcher.next(Screen.SCREEN_OPTIONS);
 			}
 		});
@@ -149,6 +165,7 @@ public class Edit implements Controller {
 		this.view.getCancelButton().setText("Abbrechen");
 		this.view.getCancelButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				question = null;
 				switcher.next(Screen.SCREEN_OPTIONS);
 			}
 		});
