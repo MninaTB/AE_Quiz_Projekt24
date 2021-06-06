@@ -1,392 +1,362 @@
 [
-	{
-		"id": 1,
-		"question": "Durch welche Methode kann man einer ArrayList ein Element hinzufügen?",
-		"answers": [
-			".add()",
-			".addElement()",
-			".append()",
-			".increase()"
-		],
-		"solution": 1,
-		"category": "Anwendungsentwicklung",
-		"difficulty": 1
-	},
-	{
-		"id": 2,
-		"question": "Welche der folgenden Optionen erbt nicht von dem Interface List?",
-		"answers": [
-			"LinkedList",
-			"ArrayList",
-			"Enum",
-			"Stack"
-		],
-		"solution": 3,
-		"category": "Anwendungsentwicklung",
-		"difficulty": 4
-	},
-	{
-		"id": 3,
-		"question": "Was ist die korrekte Syntax um ein \"Hallo Welt\" auszugeben?",
-		"answers": [
-			"Console.WriteLine(\"Hallo Welt\");",
-			"print(\"Hallo Welt\");",
-			"echo(\"Hallo Welt\");",
-			"System.out.println(\"Hallo Welt\");"
-		],
-		"solution": 4,
-		"category": "Anwendungsentwicklung",
-		"difficulty": 4
-	},
-	{
-		"id": 4,
-		"question": "Welcher Datentyp wird benutzt, um eine Variable zu initialisieren, die einen String speichern soll?",
-		"answers": [
-			"string",
-			"String",
-			"pString",
-			"txt"
-		],
-		"solution": 2,
-		"category": "Anwendungsentwicklung",
-		"difficulty": 4
-	},
-	{
-		"id": 5,
-		"question": "Wie wird eine numerische Variable erstellt, die den Wert 10 speichern soll?",
-		"answers": [
-			"float x = 10;",
-			"x = 10;",
-			"int x = 10;",
-			"num x = 10;"
-		],
-		"solution": 2,
-		"category": "Anwendungsentwicklung",
-		"difficulty": 4
-	},
-	{
-		"id": 6,
-		"question": "Welche Methode kann benutzt werden, um die Länge eines Strings zu ermitteln?",
-		"answers": [
-			"getSize()",
-			"length()",
-			"strLength()",
-			"len()"
-		],
-		"solution": 2,
-		"category": "Anwendungsentwicklung",
-		"difficulty": 4
-	},
-	{
-		"id": 7,
-		"question": "Beispielfrage 2?",
-		"answers": [
-			"antwort1",
-			"antwort2",
-			"antwort3",
-			"antwort4"
-		],
-		"solution": 2,
-		"category": "Anwendungsentwicklung",
-		"difficulty": 4
-	},
-	{
-		"id": 8,
-		"question": "Mit welchem Operanten werden zwei Werte zusammengefügt?",
-		"answers": [
-			"Der & Wert",
-			"Der + Wert",
-			"Der * Wert",
-			"Der $ Wert"
-		],
-		"solution": 2,
-		"category": "Anwendungsentwicklung",
-		"difficulty": 4
-	},
-	{
-		"id": 9,
-		"question": "Mit welchem Operatenen werden zwei Werte verglichen?",
-		"answers": [
-			"<>",
-			"><",
-			"==",
-			"="
-		],
-		"solution": 3,
-		"category": "Anwendungsentwicklung",
-		"difficulty": 4
-	},
-	{
-		"id": 10,
-		"question": "Welchen Namen hatte Java urspünglich?",
-		"answers": [
-			"JavaScript",
-			"Oak",
-			"Beech",
-			"Fir"
-		],
-		"solution": 2,
-		"category": "Anwendungsentwicklung",
-		"difficulty": 4
-	},
-	{
-		"id": 11,
-		"question": "Welche Schicht gehört nicht zum OSI Modell?",
-		"answers": [
-			"Anwendungsschicht",
-			"Transportschicht",
-			"Byteübertragungsschicht",
-			"Sitzungsschicht"
-		],
-		"solution": 3,
-		"category": "IT-Systeme",
-		"difficulty": 1
-	},
-	{
-		"id": 12,
-		"question": "Wofür steht TCP?",
-		"answers": [
-			"Transport Control Protocol",
-			"Transmission Control Protocol",
-			"Transport Control Principle",
-			"Transmission Control Principle"
-		],
-		"solution": 2,
-		"category": "IT-Systeme",
-		"difficulty": 4
-	},
-	{
-		"id": 13,
-		"question": "Welche Adressart wird verwendet, um eine Nachricht an alle Geräte zu schicken?",
-		"answers": [
-			"Multicast",
-			"Anycast",
-			"Broadcast",
-			"Unicast"
-		],
-		"solution": 3,
-		"category": "IT-Systeme",
-		"difficulty": 4
-	},
-	{
-		"id": 14,
-		"question": "Die Dezimalzahl 100, kann binär wie dargestellt werden?",
-		"answers": [
-			"1101111",
-			"1100100",
-			"101",
-			"100"
-		],
-		"solution": 2,
-		"category": "IT-Systeme",
-		"difficulty": 4
-	},
-	{
-		"id": 15,
-		"question": "Welche Übertragungsmethode gewährleisten Kupferkabel?",
-		"answers": [
-			"Daten werden in elektrische Impulse umgewandelt",
-			"Daten werden als Lichtimpulse übertragen",
-			"Daten werden durch elektromagnetische Wellen übertragen",
-			"Daten werden gar nicht übertragen"
-		],
-		"solution": 1,
-		"category": "IT-Systeme",
-		"difficulty": 4
-	},
-	{
-		"id": 16,
-		"question": "Wie ist die richtige Reihenfolge des TCP/IP-Modells?",
-		"answers": [
-			"Transport, Anwendung, Internet, Netzwerkzugriff",
-			"Anwendung, Netzwerkzugriff, Internet, Transport",
-			"Anwendung, Transport, Internet, Netzwerkzugriff",
-			"Transport, Netzwerkzugriff, Internet, Anwendung"
-		],
-		"solution": 3,
-		"category": "IT-Systeme",
-		"difficulty": 4
-	},
-	{
-		"id": 17,
-		"question": "Aus wie viel Bit besteht eine IPv6-Adresse?",
-		"answers": [
-			"32",
-			"64",
-			"128",
-			"256"
-		],
-		"solution": 2,
-		"category": "IT-Systeme",
-		"difficulty": 4
-	},
-	{
-		"id": 18,
-		"question": "Was bedeutet EVA?",
-		"answers": [
-			"Einsatz - Verwendung - Ausarbeitung",
-			"Eingabe - Verwertung - Ausgabe",
-			"Einrichten - Verarbeiten - Ausrichten",
-			"Eingabe - Verarbeitung - Ausgabe"
-		],
-		"solution": 4,
-		"category": "IT-Systeme",
-		"difficulty": 1
-	},
-	{
-		"id": 19,
-		"question": "Zu den Aufgaben eines Fachinformatikers der Fachrichtung Anwendungsentwicklung gehört...",
-		"answers": [
-			"das Programmieren und Entwickeln von Software",
-			"der Bau technischer Anlagen",
-			"das Verlegen von Glasfaserkabeln",
-			"das Einrichten von Telefon- und Alarmanlagen"
-		],
-		"solution": 1,
-		"category": "IT-Systeme",
-		"difficulty": 1
-	},
-	{
-		"id": 20,
-		"question": "Welche Phase ist nicht Teil des Produktzyklus?",
-		"answers": [
-			"Einführungsphase",
-			"Wachstumsphase",
-			"Absatzphase",
-			"Sättigungsphase"
-		],
-		"solution": 3,
-		"category": "WGP",
-		"difficulty": 4
-	},
-	{
-		"id": 21,
-		"question": "Lohnsteuerklasse 1 bezieht sich auf?",
-		"answers": [
-			"Alleinstehende",
-			"Alleinerziehende",
-			"Verheiratete",
-			"Lebensgemeinschaften"
-		],
-		"solution": 1,
-		"category": "WGP",
-		"difficulty": 1
-	},
-	{
-		"id": 22,
-		"question": "Welches Marketing Ziel ist kein Quantitätsziel?",
-		"answers": [
-			"Absatzsteigerung",
-			"Umsatzsteigerung",
-			"Imageverbesserung",
-			"Marktstellungserhöhung"
-		],
-		"solution": 3,
-		"category": "WGP",
-		"difficulty": 4
-	},
-	{
-		"id": 23,
-		"question": "Was ist kein Vorteil von online Fragebögen?",
-		"answers": [
-			"Sie sind günstig",
-			"Sie sind schnell",
-			"Sie haben eine hohe Aussagekraft",
-			"Sie sind nicht beeinflusst"
-		],
-		"solution": 2,
-		"category": "WGP",
-		"difficulty": 4
-	},
-	{
-		"id": 24,
-		"question": "Wofür steht das erste \"A\" der AIDA Formel?",
-		"answers": [
-			"Action",
-			"Anchor",
-			"Attention",
-			"Administration"
-		],
-		"solution": 3,
-		"category": "WGP",
-		"difficulty": 4
-	},
-	{
-		"id": 25,
-		"question": "Was ist Absatzwerbung?",
-		"answers": [
-			"Werbung über TV, Radio, Internet",
-			"Außerstädtische Werbung",
-			"Werbung auf über Zeitschriften und Zeitung",
-			"Werbung durch Plakate"
-		],
-		"solution": 1,
-		"category": "WGP",
-		"difficulty": 4
-	},
-	{
-		"id": 26,
-		"question": "Beispielfrage 2?",
-		"answers": [
-			"antwort1",
-			"antwort2",
-			"antwort3",
-			"antwort4"
-		],
-		"solution": 2,
-		"category": "WGP",
-		"difficulty": 4
-	},
-	{
-		"id": 27,
-		"question": "Beispielfrage 2?",
-		"answers": [
-			"antwort1",
-			"antwort2",
-			"antwort3",
-			"antwort4"
-		],
-		"solution": 2,
-		"category": "WGP",
-		"difficulty": 4
-	},
-	{
-		"id": 28,
-		"question": "Beispielfrage 2?",
-		"answers": [
-			"antwort1",
-			"antwort2",
-			"antwort3",
-			"antwort4"
-		],
-		"solution": 2,
-		"category": "WGP",
-		"difficulty": 4
-	},
-	{
-		"id": 29,
-		"question": "Beispielfrage 2?",
-		"answers": [
-			"antwort1",
-			"antwort2",
-			"antwort3",
-			"antwort4"
-		],
-		"solution": 2,
-		"category": "WGP",
-		"difficulty": 4
-	},
-	{
-		"id": 30,
-		"question": "Beispielfrage 2?",
-		"answers": [
-			"antwort1",
-			"antwort2",
-			"antwort3",
-			"antwort4"
-		],
-		"solution": 2,
-		"category": "WGP",
-		"difficulty": 4
-	}
+  {
+    "id": 1,
+    "question": "Durch welche Methode kann man einer ArrayList ein Element hinzufï¿½gen?",
+    "difficulty": 1,
+    "answers": [
+      ".add()",
+      ".addElement()",
+      ".append()",
+      ".increase()"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 2,
+    "question": "Welche der folgenden Optionen erbt nicht von dem Interface List?",
+    "difficulty": 4,
+    "answers": [
+      "LinkedList",
+      "ArrayList",
+      "Enum",
+      "Stack"
+    ],
+    "solution": 3
+  },
+  {
+    "id": 3,
+    "question": "Was ist die korrekte Syntax um ein \"Hallo Welt\" auszugeben?",
+    "difficulty": 4,
+    "answers": [
+      "Console.WriteLine(\"Hallo Welt\");",
+      "print(\"Hallo Welt\");",
+      "echo(\"Hallo Welt\");",
+      "System.out.println(\"Hallo Welt\");"
+    ],
+    "solution": 4
+  },
+  {
+    "id": 4,
+    "question": "Welcher Datentyp wird benutzt, um eine Variable zu initialisieren, die einen String speichern soll?",
+    "difficulty": 4,
+    "answers": [
+      "string",
+      "String",
+      "pString",
+      "txt"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 5,
+    "question": "Wie wird eine numerische Variable erstellt, die den Wert 10 speichern soll?",
+    "difficulty": 4,
+    "answers": [
+      "float x \u003d 10;",
+      "x \u003d 10;",
+      "int x \u003d 10;",
+      "num x \u003d 10;"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 6,
+    "question": "Welche Methode kann benutzt werden, um die Lï¿½nge eines Strings zu ermitteln?",
+    "difficulty": 4,
+    "answers": [
+      "getSize()",
+      "length()",
+      "strLength()",
+      "len()"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 7,
+    "question": "Beispielfrage 2?",
+    "difficulty": 4,
+    "answers": [
+      "antwort1",
+      "antwort2",
+      "antwort3",
+      "antwort4"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 8,
+    "question": "Mit welchem Operanten werden zwei Werte zusammengefï¿½gt?",
+    "difficulty": 4,
+    "answers": [
+      "Der \u0026 Wert",
+      "Der + Wert",
+      "Der * Wert",
+      "Der $ Wert"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 9,
+    "question": "Mit welchem Operatenen werden zwei Werte verglichen?",
+    "difficulty": 4,
+    "answers": [
+      "\u003c\u003e",
+      "\u003e\u003c",
+      "\u003d\u003d",
+      "\u003d"
+    ],
+    "solution": 3
+  },
+  {
+    "id": 10,
+    "question": "Welchen Namen hatte Java urspï¿½nglich?",
+    "difficulty": 4,
+    "answers": [
+      "JavaScript",
+      "Oak",
+      "Beech",
+      "Fir"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 11,
+    "question": "Welche Schicht gehï¿½rt nicht zum OSI Modell?",
+    "difficulty": 1,
+    "answers": [
+      "Anwendungsschicht",
+      "Transportschicht",
+      "Byteï¿½bertragungsschicht",
+      "Sitzungsschicht"
+    ],
+    "solution": 3
+  },
+  {
+    "id": 12,
+    "question": "Wofï¿½r steht TCP?",
+    "difficulty": 4,
+    "answers": [
+      "Transport Control Protocol",
+      "Transmission Control Protocol",
+      "Transport Control Principle",
+      "Transmission Control Principle"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 13,
+    "question": "Welche Adressart wird verwendet, um eine Nachricht an alle Gerï¿½te zu schicken?",
+    "difficulty": 4,
+    "answers": [
+      "Multicast",
+      "Anycast",
+      "Broadcast",
+      "Unicast"
+    ],
+    "solution": 3
+  },
+  {
+    "id": 14,
+    "question": "Die Dezimalzahl 100, kann binï¿½r wie dargestellt werden?",
+    "difficulty": 4,
+    "answers": [
+      "1101111",
+      "1100100",
+      "101",
+      "100"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 15,
+    "question": "Welche ï¿½bertragungsmethode gewï¿½hrleisten Kupferkabel?",
+    "difficulty": 4,
+    "answers": [
+      "Daten werden in elektrische Impulse umgewandelt",
+      "Daten werden als Lichtimpulse ï¿½bertragen",
+      "Daten werden durch elektromagnetische Wellen ï¿½bertragen",
+      "Daten werden gar nicht ï¿½bertragen"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 16,
+    "question": "Wie ist die richtige Reihenfolge des TCP/IP-Modells?",
+    "difficulty": 4,
+    "answers": [
+      "Transport, Anwendung, Internet, Netzwerkzugriff",
+      "Anwendung, Netzwerkzugriff, Internet, Transport",
+      "Anwendung, Transport, Internet, Netzwerkzugriff",
+      "Transport, Netzwerkzugriff, Internet, Anwendung"
+    ],
+    "solution": 3
+  },
+  {
+    "id": 17,
+    "question": "Aus wie viel Bit besteht eine IPv6-Adresse?",
+    "difficulty": 4,
+    "answers": [
+      "32",
+      "64",
+      "128",
+      "256"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 18,
+    "question": "Was bedeutet EVA?",
+    "difficulty": 1,
+    "answers": [
+      "Einsatz - Verwendung - Ausarbeitung",
+      "Eingabe - Verwertung - Ausgabe",
+      "Einrichten - Verarbeiten - Ausrichten",
+      "Eingabe - Verarbeitung - Ausgabe"
+    ],
+    "solution": 4
+  },
+  {
+    "id": 19,
+    "question": "Zu den Aufgaben eines Fachinformatikers der Fachrichtung Anwendungsentwicklung gehï¿½rt...",
+    "difficulty": 1,
+    "answers": [
+      "das Programmieren und Entwickeln von Software",
+      "der Bau technischer Anlagen",
+      "das Verlegen von Glasfaserkabeln",
+      "das Einrichten von Telefon- und Alarmanlagen"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 20,
+    "question": "Welche Phase ist nicht Teil des Produktzyklus?",
+    "difficulty": 4,
+    "answers": [
+      "Einfï¿½hrungsphase",
+      "Wachstumsphase",
+      "Absatzphase",
+      "Sï¿½ttigungsphase"
+    ],
+    "solution": 3
+  },
+  {
+    "id": 21,
+    "question": "Lohnsteuerklasse 1 bezieht sich auf?",
+    "difficulty": 1,
+    "answers": [
+      "Alleinstehende",
+      "Alleinerziehende",
+      "Verheiratete",
+      "Lebensgemeinschaften"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 22,
+    "question": "Welches Marketing Ziel ist kein Quantitï¿½tsziel?",
+    "difficulty": 4,
+    "answers": [
+      "Absatzsteigerung",
+      "Umsatzsteigerung",
+      "Imageverbesserung",
+      "Marktstellungserhï¿½hung"
+    ],
+    "solution": 3
+  },
+  {
+    "id": 23,
+    "question": "Was ist kein Vorteil von online Fragebï¿½gen?",
+    "difficulty": 4,
+    "answers": [
+      "Sie sind gï¿½nstig",
+      "Sie sind schnell",
+      "Sie haben eine hohe Aussagekraft",
+      "Sie sind nicht beeinflusst"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 24,
+    "question": "Wofï¿½r steht das erste \"A\" der AIDA Formel?",
+    "difficulty": 4,
+    "answers": [
+      "Action",
+      "Anchor",
+      "Attention",
+      "Administration"
+    ],
+    "solution": 3
+  },
+  {
+    "id": 25,
+    "question": "Was ist Absatzwerbung?",
+    "difficulty": 4,
+    "answers": [
+      "Werbung ï¿½ber TV, Radio, Internet",
+      "Auï¿½erstï¿½dtische Werbung",
+      "Werbung auf ï¿½ber Zeitschriften und Zeitung",
+      "Werbung durch Plakate"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 26,
+    "question": "Beispielfrage 2?",
+    "difficulty": 4,
+    "answers": [
+      "antwort1",
+      "antwort2",
+      "antwort3",
+      "antwort4"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 27,
+    "question": "Beispielfrage 2?",
+    "difficulty": 4,
+    "answers": [
+      "antwort1",
+      "antwort2",
+      "antwort3",
+      "antwort4"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 28,
+    "question": "Beispielfrage 2?",
+    "difficulty": 4,
+    "answers": [
+      "antwort1",
+      "antwort2",
+      "antwort3",
+      "antwort4"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 29,
+    "question": "Beispielfrage 2?",
+    "difficulty": 4,
+    "answers": [
+      "antwort1",
+      "antwort2",
+      "antwort3",
+      "antwort4"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 30,
+    "question": "Beispielfrage 2?",
+    "difficulty": 4,
+    "answers": [
+      "antwort1",
+      "antwort2",
+      "antwort3",
+      "antwort4"
+    ],
+    "solution": 2
+  }
 ]

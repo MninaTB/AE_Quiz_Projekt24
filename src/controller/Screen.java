@@ -9,10 +9,12 @@ package controller;
  */
 public enum Screen {
 	SCREEN_START("start"),
+	SCREEN_CATEGORY("category"),
 	SCREEN_GAME("game"),
 	SCREEN_RESULT("result"),
 	SCREEN_OPTIONS("options"),
 	SCREEN_EDIT("edit"),
+	SCREEN_CREATE("create"),
 	SCREEN_EXIT("exit"),
 	;
 	

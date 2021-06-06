@@ -1,7 +1,7 @@
 package controller;
 
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
@@ -14,33 +14,32 @@ import javax.swing.JPanel;
  * @since 24-05-2021
  */
 public class Start implements Controller {
-	
+
 	private Switcher switcher;
 	private view.Start view;
-	
+
 	public Start(Switcher s) {
 		this.switcher = s;
-		this.init();
 	}
-	
+
 	/**
 	 * Initialisiert das Start view element
 	 */
-	private void init() {
+	public void init(Share share) {
 		this.view = new view.Start();
 		this.initTitleLabel();
 		this.initStartButton();
 		this.initOptionsButton();
 		this.initExitButton();
 	}
-	
+
 	/**
 	 * Initialisiert das Title-Label
 	 */
 	private void initTitleLabel() {
 		this.view.getTitleLabel().setText("Quiz Projekt24");
 	}
-	
+
 	/**
 	 * Initialisiert den Start-Button
 	 */
@@ -48,11 +47,11 @@ public class Start implements Controller {
 		this.view.getStartButton().setText("Start");
 		this.view.getStartButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switcher.next(Screen.SCREEN_GAME);
+				switcher.next(Screen.SCREEN_CATEGORY);
 			}
 		});
 	}
-	
+
 	/**
 	 * Initialisiert den Options-Button
 	 */
@@ -64,7 +63,7 @@ public class Start implements Controller {
 			}
 		});
 	}
-	
+
 	/**
 	 * Initialisiert den Exit-Button
 	 */
@@ -76,7 +75,7 @@ public class Start implements Controller {
 			}
 		});
 	}
-	
+
 	/**
 	 * Implementiert das Controller interface.
 	 * 
