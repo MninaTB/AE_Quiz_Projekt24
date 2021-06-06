@@ -149,8 +149,9 @@ public class Edit implements Controller {
 						add(view.getAnswerNo4TextField().getText());
 					}
 				};
-				// TODO: update difficutly, question, ...
+				// TODO: update difficutly, solution and category
 				question.setAnswers(aw);
+				question.setQuestion(view.getQuestionTextField().getText());
 
 				store.update(question);
 				switcher.next(Screen.SCREEN_OPTIONS);

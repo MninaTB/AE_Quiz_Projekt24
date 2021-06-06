@@ -2,9 +2,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import model.Question;
 import questions.QuestionStore;
 
 public class Create implements Controller {
@@ -90,7 +92,18 @@ public class Create implements Controller {
 		this.view.getSaveButton().setText("Frage speichern");
 		this.view.getSaveButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Neue Frage dem QuestionStore hinzufuegen
+				model.Category c = new model.Category("unknown");
+				@SuppressWarnings("serial")
+				ArrayList<String> aw = new ArrayList<String>() {
+					{
+						add(view.getAnswerNo1TextField().getText());
+						add(view.getAnswerNo2TextField().getText());
+						add(view.getAnswerNo3TextField().getText());
+						add(view.getAnswerNo4TextField().getText());
+					}
+				};
+				Question q = new Question(0, view.getQuestionTextField().getText(), 1, aw, 0, c);
+				store.create(q);
 				switcher.next(Screen.SCREEN_OPTIONS);
 			}
 		});
