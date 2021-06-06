@@ -15,7 +15,7 @@ public class Category {
 		this.text = text;
 	}
 	
-	public String getName() {
+	public String toString() {
 		return this.text;
 	}
 }

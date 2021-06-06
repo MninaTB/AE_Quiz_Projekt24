@@ -19,13 +19,14 @@ public class Options implements Controller {
 	public Options(Switcher s, QuestionStore store) {
 		this.switcher = s;
 		this.store = store;
-		this.init();
 	}
 	
 	/**
 	 * Initialisiert das Start view element
 	 */
-	public void init() {
+	
+	@Override
+	public void init(Share share) {
 		this.view = new view.Options();
 		this.initHomeButton();
 		this.initTitleLabel();
@@ -33,7 +34,7 @@ public class Options implements Controller {
 		this.initQuestionFieldnameLabel();
 		this.initCategoryFieldnameLabel();
 		this.initLevelFieldnameLabel();
-		this.initQuestionRows();
+		this.initQuestionRows(share);
 		this.initAddButton();
 		this.initDeleteButton();
 	}
@@ -93,7 +94,7 @@ public class Options implements Controller {
 	/**
 	 * Initialisiert die QuestionRows-ArrayList
 	 */
-	public void initQuestionRows() {
+	public void initQuestionRows(Share share) {
 		for(Question q : this.store.getAllQuestions()) {
 			OptionsQuestionRow oqr = new OptionsQuestionRow();
 			oqr.getQuestionLabel().setText(q.getQuestion());
@@ -107,8 +108,8 @@ public class Options implements Controller {
 			oqr.getEditButton().setText("Bearbeiten");
 			oqr.getEditButton().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					share.put("KEY_EDIT_QUESTION_ID", q.getID());
 					switcher.next(Screen.SCREEN_EDIT);
-					//TODO Infos muessen irgendwie mit in den Edit Screen uebernommen werden
 				}
 			});
 			
@@ -128,7 +129,7 @@ public class Options implements Controller {
 		this.view.getAddButton().setText("Neue Frage erstellen");
 		this.view.getAddButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switcher.next(Screen.SCREEN_EDIT);
+				switcher.next(Screen.SCREEN_CREATE);
 			}
 		});
 	}
@@ -154,9 +155,5 @@ public class Options implements Controller {
 		return this.view.getContent();
 	}
 
-	@Override
-	public void init(Share share) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

@@ -168,6 +168,10 @@ public class QuestionParser implements QuestionStore {
     public ArrayList<Category> getCategories() {
         HashMap<String, Category> categories = new HashMap<String, Category>();
         for (Question q : this.questions) {
+        	if (q.getCategory() == null) {
+        		categories.put("unknown", new Category("unknown"));
+        		continue;
+        	}
             categories.put(q.getCategory().toString(), q.getCategory());
         }
         ArrayList<Category> res = new ArrayList<Category>();

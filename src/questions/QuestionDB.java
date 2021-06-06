@@ -258,7 +258,7 @@ public class QuestionDB implements QuestionStore {
 			String query = "SELECT id FROM categories WHERE name = ? LIMIT 1";
 			
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, c.getName());
+			preparedStatement.setString(1, c.toString());
 			resultSet = preparedStatement.executeQuery();
 			
 			while (resultSet.next()) {
@@ -446,7 +446,7 @@ public class QuestionDB implements QuestionStore {
 				
 				String query = "SELECT * FROM categories WHERE name = ?";
 				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setString(1, category.getName());
+				preparedStatement.setString(1, category.toString());
 				resultSet = preparedStatement.executeQuery();
 				
 				if (!resultSet.next()) {                            
@@ -455,7 +455,7 @@ public class QuestionDB implements QuestionStore {
 					query = "INSERT INTO categories (name) values (?)";
 	
 					preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-					preparedStatement.setString(1, category.getName());
+					preparedStatement.setString(1, category.toString());
 					preparedStatement.execute();
 	
 					resultSet = preparedStatement.getGeneratedKeys();
