@@ -162,7 +162,7 @@ public class Category {
 	/**
 	 * Initialisiert und hinzufuegt die Category-CheckBox
 	 */
-	public void initAndAddNewCategoryCheckBox(String categoryText) {
+	public JCheckBox initAndAddNewCategoryCheckBox(String categoryText) {
 		JCheckBox categoryCheckBox = new JCheckBox(categoryText);
 		categoryCheckBox.setFont(ARIAL_PLAIN_20);
 		categoryCheckBox.setForeground(STANDARD_COLOR);
@@ -170,6 +170,7 @@ public class Category {
 		categoryCheckBox.setFocusable(false);
 		
 		this.categoryPanel.add(categoryCheckBox);
+		return categoryCheckBox;
 	}
 	
 	/**
