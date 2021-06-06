@@ -38,7 +38,6 @@ public class QuestionParser implements QuestionStore {
 	 * Laedt die Fragen aus einem json File in das Array "questions"
 	 * @param sr
 	 */
-	@SuppressWarnings("unchecked")
 	public void load(InputStreamReader sr) {
 		Gson gson = new Gson();
 		String json = new BufferedReader(sr)

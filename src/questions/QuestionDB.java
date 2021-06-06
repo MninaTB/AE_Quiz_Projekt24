@@ -36,173 +36,19 @@ public class QuestionDB implements QuestionStore {
 	@Override
 	public Question getByID(int id) {
 		
-		if (this.getConnection() != null)	{
-
-			try {
-	
-				String query = "SELECT questions.*, answers.a, answers.b, answers.c, answers.d, categories.name"
-						+ "FROM questions"
-						+ "LEFT JOIN answers ON questions.answer_id = answers.id"
-						+ "LEFT JOIN categories ON questions.category_id = categories.id"
-						+ "WHERE questions.id = ?";
-				
-				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setInt(1, id);
-				resultSet = preparedStatement.executeQuery();
-				
-				while (resultSet.next()) {
-					
-					//	Prepare answers
-					ArrayList<String> answers = new ArrayList<String>(); 
-					answers.add(resultSet.getString("answers.a"));
-					answers.add(resultSet.getString("answers.b"));
-					answers.add(resultSet.getString("answers.c"));
-					answers.add(resultSet.getString("answers.d"));
-					
-					//	Prepare category
-					Category category = new Category(resultSet.getString("categories.name"));
-	
-					//	Create object
-					Question question = new Question(
-						resultSet.getInt("id"),
-						resultSet.getString("question"),
-						resultSet.getInt("difficulty"),
-						answers,
-						resultSet.getInt("solution"),
-						category
-					);
-					return question;
-				}
-			}
-			catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return null;
-	}
-
-	@Override
-	public ArrayList<Question> getByDifficulty(int difficulty) {
-		
-		if (this.getConnection() != null)	{
+		try {
 			
-			try {
-	
-				String query = "SELECT questions.*, answers.a, answers.b, answers.c, answers.d, categories.name"
-						+ "FROM questions"
-						+ "LEFT JOIN answers ON questions.answer_id = answers.id"
-						+ "LEFT JOIN categories ON questions.category_id = categories.id"
-						+ "WHERE questions.difficulty = ?";
-				
-				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setInt(1, difficulty);
-				resultSet = preparedStatement.executeQuery();
-				
-				//	Prepare answers
-				ArrayList<String> answers = new ArrayList<String>(); 
-				answers.add(resultSet.getString("answers.a"));
-				answers.add(resultSet.getString("answers.b"));
-				answers.add(resultSet.getString("answers.c"));
-				answers.add(resultSet.getString("answers.d"));
-				
-				//	Prepare category
-				Category category = null;
-				
-				//	Prepare 
-				ArrayList<Question> questions = new ArrayList<Question>();
-	
-				while (resultSet.next()) {
-	
-					Question question = new Question(
-						resultSet.getInt("id"),
-						resultSet.getString("question"),
-						resultSet.getInt("difficulty"),
-						answers,
-						resultSet.getInt("solution"),
-						category
-					);
-					questions.add((Question) question);
-				}
-				return questions;
-			}
-			catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return null;
-	}
-
-	@Override
-	public ArrayList<Question> getByCategory(Category c) {
-
-		
-		if (this.getConnection() != null)	{
+			String query = "SELECT questions.*, answers.a, answers.b, answers.c, answers.d, categories.name"
+					+ " FROM questions"
+					+ " LEFT JOIN answers ON questions.answer_id = answers.id"
+					+ " LEFT JOIN categories ON questions.category_id = categories.id"
+					+ " WHERE questions.id = ?";
 			
-			try {
-	
-				String query = "SELECT questions.*, answers.a, answers.b, answers.c, answers.d, categories.name"
-						+ "FROM questions"
-						+ "LEFT JOIN answers ON questions.answer_id = answers.id"
-						+ "LEFT JOIN categories ON questions.category_id = categories.id"
-						+ "WHERE questions.category_id = ?";
-				
-				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setInt(1, this.getCategoryIdByName(c));
-				resultSet = preparedStatement.executeQuery();
-				
-				//	Prepare answers
-				ArrayList<String> answers = new ArrayList<String>(); 
-				answers.add(resultSet.getString("answers.a"));
-				answers.add(resultSet.getString("answers.b"));
-				answers.add(resultSet.getString("answers.c"));
-				answers.add(resultSet.getString("answers.d"));
-				
-				//	Prepare category
-				Category category = c;
-				
-				//	Prepare 
-				ArrayList<Question> questions = new ArrayList<Question>();
-	
-				while (resultSet.next()) {
-	
-					Question question = new Question(
-						resultSet.getInt("id"),
-						resultSet.getString("question"),
-						resultSet.getInt("difficulty"),
-						answers,
-						resultSet.getInt("solution"),
-						category
-					);
-					questions.add((Question) question);
-				}
-				return questions;
-	
-			}
-			catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return null;
-	}
-
-	@Override
-	public ArrayList<Question> getAllQuestions() {
-
-		
-		if (this.getConnection() != null)	{
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, id);
+			resultSet = preparedStatement.executeQuery();
 			
-			try {
-	
-				String query = "SELECT questions.*, answers.a, answers.b, answers.c, answers.d, categories.name"
-						+ "FROM questions"
-						+ "LEFT JOIN answers ON questions.answer_id = answers.id"
-						+ "LEFT JOIN categories ON questions.category_id = categories.id";
-				
-				preparedStatement = connection.prepareStatement(query);
-				resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
 				
 				//	Prepare answers
 				ArrayList<String> answers = new ArrayList<String>(); 
@@ -213,30 +59,164 @@ public class QuestionDB implements QuestionStore {
 				
 				//	Prepare category
 				Category category = new Category(resultSet.getString("categories.name"));
-				
-				//	Prepare 
-				ArrayList<Question> questions = new ArrayList<Question>();
-				
-				while (resultSet.next()) {
-	
-					Question question = new Question(
-						resultSet.getInt("id"),
-						resultSet.getString("question"),
-						resultSet.getInt("difficulty"),
-						answers,
-						resultSet.getInt("solution"),
-						category
-					);
-					questions.add((Question) question);
-				}
-				return questions;
-			}
-			catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+
+				//	Create object
+				Question question = new Question(
+					resultSet.getInt("id"),
+					resultSet.getString("question"),
+					resultSet.getInt("difficulty"),
+					answers,
+					resultSet.getInt("solution"),
+					category
+				);
+				return question;
 			}
 		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
+	}
+
+	@Override
+	public ArrayList<Question> getByDifficulty(int difficulty) {
+
+		ArrayList<Question> questions = new ArrayList<Question>();
+		
+		try {
+			
+			String query = "SELECT questions.*, answers.a, answers.b, answers.c, answers.d, categories.name"
+					+ " FROM questions"
+					+ " LEFT JOIN answers ON questions.answer_id = answers.id"
+					+ " LEFT JOIN categories ON questions.category_id = categories.id"
+					+ " WHERE questions.difficulty = ?";
+			
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, difficulty);
+			resultSet = preparedStatement.executeQuery();
+			
+			//	Prepare answers
+			ArrayList<String> answers = new ArrayList<String>(); 
+			answers.add(resultSet.getString("answers.a"));
+			answers.add(resultSet.getString("answers.b"));
+			answers.add(resultSet.getString("answers.c"));
+			answers.add(resultSet.getString("answers.d"));
+			
+			//	Prepare category
+			Category category = new Category(resultSet.getString("categories.name"));
+
+			while (resultSet.next()) {
+
+				Question question = new Question(
+					resultSet.getInt("id"),
+					resultSet.getString("question"),
+					resultSet.getInt("difficulty"),
+					answers,
+					resultSet.getInt("solution"),
+					category
+				);
+				questions.add((Question) question);
+			}
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return questions;
+	}
+
+	@Override
+	public ArrayList<Question> getByCategory(Category c) {
+
+		ArrayList<Question> questions = new ArrayList<Question>();
+		
+		try {
+			
+			String query = "SELECT questions.*, answers.a, answers.b, answers.c, answers.d, categories.name"
+					+ " FROM questions"
+					+ " LEFT JOIN answers ON questions.answer_id = answers.id"
+					+ " LEFT JOIN categories ON questions.category_id = categories.id"
+					+ " WHERE questions.category_id = ?";
+			
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, this.getCategoryIdByName(c));
+			resultSet = preparedStatement.executeQuery();
+			
+			//	Prepare answers
+			ArrayList<String> answers = new ArrayList<String>(); 
+			answers.add(resultSet.getString("answers.a"));
+			answers.add(resultSet.getString("answers.b"));
+			answers.add(resultSet.getString("answers.c"));
+			answers.add(resultSet.getString("answers.d"));
+			
+			//	Prepare category
+			Category category = c;
+
+			while (resultSet.next()) {
+
+				Question question = new Question(
+					resultSet.getInt("id"),
+					resultSet.getString("question"),
+					resultSet.getInt("difficulty"),
+					answers,
+					resultSet.getInt("solution"),
+					category
+				);
+				questions.add((Question) question);
+			}
+
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return questions;
+	}
+
+	@Override
+	public ArrayList<Question> getAllQuestions() {
+
+		ArrayList<Question> questions = new ArrayList<Question>();
+		
+		try {
+			
+			String query = "SELECT questions.*, answers.a, answers.b, answers.c, answers.d, categories.name"
+					+ " FROM questions"
+					+ " LEFT JOIN answers ON questions.answer_id = answers.id"
+					+ " LEFT JOIN categories ON questions.category_id = categories.id";
+			
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			
+			//	Prepare answers
+			ArrayList<String> answers = new ArrayList<String>(); 
+			answers.add(resultSet.getString("answers.a"));
+			answers.add(resultSet.getString("answers.b"));
+			answers.add(resultSet.getString("answers.c"));
+			answers.add(resultSet.getString("answers.d"));
+			
+			//	Prepare category
+			Category category = new Category(resultSet.getString("categories.name"));
+			
+			while (resultSet.next()) {
+
+				Question question = new Question(
+					resultSet.getInt("id"),
+					resultSet.getString("question"),
+					resultSet.getInt("difficulty"),
+					answers,
+					resultSet.getInt("solution"),
+					category
+				);
+				questions.add((Question) question);
+			}
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return questions;
 	}
 	
 	private int getAnswerIdByAnswers(ArrayList<String> a) {
@@ -269,29 +249,26 @@ public class QuestionDB implements QuestionStore {
 		return id;
 	}
 	
-	private int getCategoryIdByName(Category c) {
+	public int getCategoryIdByName(Category c) {
 		
 		int id = 0;	
 		
-		if (this.getConnection() != null)	{
-		
-			try {
+		try {
 			
-				String query = "SELECT id FROM categories WHERE name = ? LIMIT 1";
-				
-				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setString(1, c.getName());
-				resultSet = preparedStatement.executeQuery();
-				
-				while (resultSet.next()) {
-	
-					id = resultSet.getInt("id");
-				}
-			} 
-			catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			String query = "SELECT id FROM categories WHERE name = ? LIMIT 1";
+			
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, c.getName());
+			resultSet = preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+
+				id = resultSet.getInt("id");
 			}
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return id;
 	}
@@ -351,10 +328,10 @@ public class QuestionDB implements QuestionStore {
 				int category_id = this.getCategoryIdByName(q.getCategory());
 				
 				String query = "UPDATE questions SET " 
-						+ "question = ? " 
-						+ "difficulty = ? " 
-						+ "answer_id = ? " 
-						+ "solution = ? " 
+						+ "question = ?, " 
+						+ "difficulty = ?, " 
+						+ "answer_id = ?, " 
+						+ "solution = ?, " 
 						+ "category_id = ? "
 						+ "WHERE id = ?";
 	
