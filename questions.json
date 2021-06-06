@@ -1,782 +1,392 @@
 [
-  {
-    "id": 1,
-    "question": "Durch welche Methode kann man einer ArrayList ein Element hinzuf�gen?",
-    "difficulty": 1,
-    "answers": [
-      ".add()",
-      ".addElement()",
-      ".append()",
-      ".increase()"
-    ],
-    "solution": 1,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 1,
-    "question": "Durch welche Methode kann man einer ArrayList ein Element hinzuf�gen?",
-    "difficulty": 1,
-    "answers": [
-      ".add()",
-      ".addElement()",
-      ".append()",
-      ".increase()"
-    ],
-    "solution": 1,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 2,
-    "question": "Welche der folgenden Optionen erbt nicht von dem Interface List?",
-    "difficulty": 4,
-    "answers": [
-      "LinkedList",
-      "ArrayList",
-      "Enum",
-      "Stack"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 2,
-    "question": "Welche der folgenden Optionen erbt nicht von dem Interface List?",
-    "difficulty": 4,
-    "answers": [
-      "LinkedList",
-      "ArrayList",
-      "Enum",
-      "Stack"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 3,
-    "question": "Was ist die korrekte Syntax um ein \"Hallo Welt\" auszugeben?",
-    "difficulty": 4,
-    "answers": [
-      "Console.WriteLine(\"Hallo Welt\");",
-      "print(\"Hallo Welt\");",
-      "echo(\"Hallo Welt\");",
-      "System.out.println(\"Hallo Welt\");"
-    ],
-    "solution": 4,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 3,
-    "question": "Was ist die korrekte Syntax um ein \"Hallo Welt\" auszugeben?",
-    "difficulty": 4,
-    "answers": [
-      "Console.WriteLine(\"Hallo Welt\");",
-      "print(\"Hallo Welt\");",
-      "echo(\"Hallo Welt\");",
-      "System.out.println(\"Hallo Welt\");"
-    ],
-    "solution": 4,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 4,
-    "question": "Welcher Datentyp wird benutzt, um eine Variable zu initialisieren, die einen String speichern soll?",
-    "difficulty": 4,
-    "answers": [
-      "string",
-      "String",
-      "pString",
-      "txt"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 4,
-    "question": "Welcher Datentyp wird benutzt, um eine Variable zu initialisieren, die einen String speichern soll?",
-    "difficulty": 4,
-    "answers": [
-      "string",
-      "String",
-      "pString",
-      "txt"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 5,
-    "question": "Wie wird eine numerische Variable erstellt, die den Wert 10 speichern soll?",
-    "difficulty": 4,
-    "answers": [
-      "float x \u003d 10;",
-      "x \u003d 10;",
-      "int x \u003d 10;",
-      "num x \u003d 10;"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 5,
-    "question": "Wie wird eine numerische Variable erstellt, die den Wert 10 speichern soll?",
-    "difficulty": 4,
-    "answers": [
-      "float x \u003d 10;",
-      "x \u003d 10;",
-      "int x \u003d 10;",
-      "num x \u003d 10;"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 6,
-    "question": "Welche Methode kann benutzt werden, um die L�nge eines Strings zu ermitteln?",
-    "difficulty": 4,
-    "answers": [
-      "getSize()",
-      "length()",
-      "strLength()",
-      "len()"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 6,
-    "question": "Welche Methode kann benutzt werden, um die L�nge eines Strings zu ermitteln?",
-    "difficulty": 4,
-    "answers": [
-      "getSize()",
-      "length()",
-      "strLength()",
-      "len()"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 7,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 7,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 8,
-    "question": "Mit welchem Operanten werden zwei Werte zusammengef�gt?",
-    "difficulty": 4,
-    "answers": [
-      "Der \u0026 Wert",
-      "Der + Wert",
-      "Der * Wert",
-      "Der $ Wert"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 8,
-    "question": "Mit welchem Operanten werden zwei Werte zusammengef�gt?",
-    "difficulty": 4,
-    "answers": [
-      "Der \u0026 Wert",
-      "Der + Wert",
-      "Der * Wert",
-      "Der $ Wert"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 9,
-    "question": "Mit welchem Operatenen werden zwei Werte verglichen?",
-    "difficulty": 4,
-    "answers": [
-      "\u003c\u003e",
-      "\u003e\u003c",
-      "\u003d\u003d",
-      "\u003d"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 9,
-    "question": "Mit welchem Operatenen werden zwei Werte verglichen?",
-    "difficulty": 4,
-    "answers": [
-      "\u003c\u003e",
-      "\u003e\u003c",
-      "\u003d\u003d",
-      "\u003d"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 10,
-    "question": "Welchen Namen hatte Java ursp�nglich?",
-    "difficulty": 4,
-    "answers": [
-      "JavaScript",
-      "Oak",
-      "Beech",
-      "Fir"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 10,
-    "question": "Welchen Namen hatte Java ursp�nglich?",
-    "difficulty": 4,
-    "answers": [
-      "JavaScript",
-      "Oak",
-      "Beech",
-      "Fir"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 11,
-    "question": "Welche Schicht geh�rt nicht zum OSI Modell?",
-    "difficulty": 1,
-    "answers": [
-      "Anwendungsschicht",
-      "Transportschicht",
-      "Byte�bertragungsschicht",
-      "Sitzungsschicht"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 11,
-    "question": "Welche Schicht geh�rt nicht zum OSI Modell?",
-    "difficulty": 1,
-    "answers": [
-      "Anwendungsschicht",
-      "Transportschicht",
-      "Byte�bertragungsschicht",
-      "Sitzungsschicht"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 12,
-    "question": "Wof�r steht TCP?",
-    "difficulty": 4,
-    "answers": [
-      "Transport Control Protocol",
-      "Transmission Control Protocol",
-      "Transport Control Principle",
-      "Transmission Control Principle"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 12,
-    "question": "Wof�r steht TCP?",
-    "difficulty": 4,
-    "answers": [
-      "Transport Control Protocol",
-      "Transmission Control Protocol",
-      "Transport Control Principle",
-      "Transmission Control Principle"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 13,
-    "question": "Welche Adressart wird verwendet, um eine Nachricht an alle Ger�te zu schicken?",
-    "difficulty": 4,
-    "answers": [
-      "Multicast",
-      "Anycast",
-      "Broadcast",
-      "Unicast"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 13,
-    "question": "Welche Adressart wird verwendet, um eine Nachricht an alle Ger�te zu schicken?",
-    "difficulty": 4,
-    "answers": [
-      "Multicast",
-      "Anycast",
-      "Broadcast",
-      "Unicast"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 14,
-    "question": "Die Dezimalzahl 100, kann bin�r wie dargestellt werden?",
-    "difficulty": 4,
-    "answers": [
-      "1101111",
-      "1100100",
-      "101",
-      "100"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 14,
-    "question": "Die Dezimalzahl 100, kann bin�r wie dargestellt werden?",
-    "difficulty": 4,
-    "answers": [
-      "1101111",
-      "1100100",
-      "101",
-      "100"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 15,
-    "question": "Welche �bertragungsmethode gew�hrleisten Kupferkabel?",
-    "difficulty": 4,
-    "answers": [
-      "Daten werden in elektrische Impulse umgewandelt",
-      "Daten werden als Lichtimpulse �bertragen",
-      "Daten werden durch elektromagnetische Wellen �bertragen",
-      "Daten werden gar nicht �bertragen"
-    ],
-    "solution": 1,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 15,
-    "question": "Welche �bertragungsmethode gew�hrleisten Kupferkabel?",
-    "difficulty": 4,
-    "answers": [
-      "Daten werden in elektrische Impulse umgewandelt",
-      "Daten werden als Lichtimpulse �bertragen",
-      "Daten werden durch elektromagnetische Wellen �bertragen",
-      "Daten werden gar nicht �bertragen"
-    ],
-    "solution": 1,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 16,
-    "question": "Wie ist die richtige Reihenfolge des TCP/IP-Modells?",
-    "difficulty": 4,
-    "answers": [
-      "Transport, Anwendung, Internet, Netzwerkzugriff",
-      "Anwendung, Netzwerkzugriff, Internet, Transport",
-      "Anwendung, Transport, Internet, Netzwerkzugriff",
-      "Transport, Netzwerkzugriff, Internet, Anwendung"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 16,
-    "question": "Wie ist die richtige Reihenfolge des TCP/IP-Modells?",
-    "difficulty": 4,
-    "answers": [
-      "Transport, Anwendung, Internet, Netzwerkzugriff",
-      "Anwendung, Netzwerkzugriff, Internet, Transport",
-      "Anwendung, Transport, Internet, Netzwerkzugriff",
-      "Transport, Netzwerkzugriff, Internet, Anwendung"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 17,
-    "question": "Aus wie viel Bit besteht eine IPv6-Adresse?",
-    "difficulty": 4,
-    "answers": [
-      "32",
-      "64",
-      "128",
-      "256"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 17,
-    "question": "Aus wie viel Bit besteht eine IPv6-Adresse?",
-    "difficulty": 4,
-    "answers": [
-      "32",
-      "64",
-      "128",
-      "256"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 18,
-    "question": "Was bedeutet EVA?",
-    "difficulty": 1,
-    "answers": [
-      "Einsatz - Verwendung - Ausarbeitung",
-      "Eingabe - Verwertung - Ausgabe",
-      "Einrichten - Verarbeiten - Ausrichten",
-      "Eingabe - Verarbeitung - Ausgabe"
-    ],
-    "solution": 4,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 18,
-    "question": "Was bedeutet EVA?",
-    "difficulty": 1,
-    "answers": [
-      "Einsatz - Verwendung - Ausarbeitung",
-      "Eingabe - Verwertung - Ausgabe",
-      "Einrichten - Verarbeiten - Ausrichten",
-      "Eingabe - Verarbeitung - Ausgabe"
-    ],
-    "solution": 4,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 19,
-    "question": "Zu den Aufgaben eines Fachinformatikers der Fachrichtung CATEGORY_AE geh�rt...",
-    "difficulty": 1,
-    "answers": [
-      "das Programmieren und Entwickeln von Software",
-      "der Bau technischer Anlagen",
-      "das Verlegen von Glasfaserkabeln",
-      "das Einrichten von Telefon- und Alarmanlagen"
-    ],
-    "solution": 1,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 19,
-    "question": "Zu den Aufgaben eines Fachinformatikers der Fachrichtung CATEGORY_AE geh�rt...",
-    "difficulty": 1,
-    "answers": [
-      "das Programmieren und Entwickeln von Software",
-      "der Bau technischer Anlagen",
-      "das Verlegen von Glasfaserkabeln",
-      "das Einrichten von Telefon- und Alarmanlagen"
-    ],
-    "solution": 1,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 20,
-    "question": "Welche Phase ist nicht Teil des Produktzyklus?",
-    "difficulty": 4,
-    "answers": [
-      "Einf�hrungsphase",
-      "Wachstumsphase",
-      "Absatzphase",
-      "S�ttigungsphase"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 20,
-    "question": "Welche Phase ist nicht Teil des Produktzyklus?",
-    "difficulty": 4,
-    "answers": [
-      "Einf�hrungsphase",
-      "Wachstumsphase",
-      "Absatzphase",
-      "S�ttigungsphase"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 21,
-    "question": "Lohnsteuerklasse 1 bezieht sich auf?",
-    "difficulty": 1,
-    "answers": [
-      "Alleinstehende",
-      "Alleinerziehende",
-      "Verheiratete",
-      "Lebensgemeinschaften"
-    ],
-    "solution": 1,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 21,
-    "question": "Lohnsteuerklasse 1 bezieht sich auf?",
-    "difficulty": 1,
-    "answers": [
-      "Alleinstehende",
-      "Alleinerziehende",
-      "Verheiratete",
-      "Lebensgemeinschaften"
-    ],
-    "solution": 1,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 22,
-    "question": "Welches Marketing Ziel ist kein Quantit�tsziel?",
-    "difficulty": 4,
-    "answers": [
-      "Absatzsteigerung",
-      "Umsatzsteigerung",
-      "Imageverbesserung",
-      "Marktstellungserh�hung"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 22,
-    "question": "Welches Marketing Ziel ist kein Quantit�tsziel?",
-    "difficulty": 4,
-    "answers": [
-      "Absatzsteigerung",
-      "Umsatzsteigerung",
-      "Imageverbesserung",
-      "Marktstellungserh�hung"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 23,
-    "question": "Was ist kein Vorteil von online Frageb�gen?",
-    "difficulty": 4,
-    "answers": [
-      "Sie sind g�nstig",
-      "Sie sind schnell",
-      "Sie haben eine hohe Aussagekraft",
-      "Sie sind nicht beeinflusst"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 23,
-    "question": "Was ist kein Vorteil von online Frageb�gen?",
-    "difficulty": 4,
-    "answers": [
-      "Sie sind g�nstig",
-      "Sie sind schnell",
-      "Sie haben eine hohe Aussagekraft",
-      "Sie sind nicht beeinflusst"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 24,
-    "question": "Wof�r steht das erste \"A\" der AIDA Formel?",
-    "difficulty": 4,
-    "answers": [
-      "Action",
-      "Anchor",
-      "Attention",
-      "Administration"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 24,
-    "question": "Wof�r steht das erste \"A\" der AIDA Formel?",
-    "difficulty": 4,
-    "answers": [
-      "Action",
-      "Anchor",
-      "Attention",
-      "Administration"
-    ],
-    "solution": 3,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 25,
-    "question": "Was ist Absatzwerbung?",
-    "difficulty": 4,
-    "answers": [
-      "Werbung �ber TV, Radio, Internet",
-      "Au�erst�dtische Werbung",
-      "Werbung auf �ber Zeitschriften und Zeitung",
-      "Werbung durch Plakate"
-    ],
-    "solution": 1,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 25,
-    "question": "Was ist Absatzwerbung?",
-    "difficulty": 4,
-    "answers": [
-      "Werbung �ber TV, Radio, Internet",
-      "Au�erst�dtische Werbung",
-      "Werbung auf �ber Zeitschriften und Zeitung",
-      "Werbung durch Plakate"
-    ],
-    "solution": 1,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 26,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 26,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 27,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 27,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 28,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 28,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 29,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 29,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 30,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  },
-  {
-    "id": 30,
-    "question": "Beispielfrage 2?",
-    "difficulty": 4,
-    "answers": [
-      "antwort1",
-      "antwort2",
-      "antwort3",
-      "antwort4"
-    ],
-    "solution": 2,
-    "category": "CATEGORY_FUN"
-  }
+	{
+		"id": 1,
+		"question": "Durch welche Methode kann man einer ArrayList ein Element hinzufuegen?",
+		"answers": [
+			".add()",
+			".addElement()",
+			".append()",
+			".increase()"
+		],
+		"solution": 1,
+		"category": { "text": "Anwendungsentwicklung" },
+		"difficulty": 1
+	},
+	{
+		"id": 2,
+		"question": "Welche der folgenden Optionen erbt nicht von dem Interface List?",
+		"answers": [
+			"LinkedList",
+			"ArrayList",
+			"Enum",
+			"Stack"
+		],
+		"solution": 3,
+		"category": { "text": "Anwendungsentwicklung" },
+		"difficulty": 2
+	},
+	{
+		"id": 3,
+		"question": "Was ist die korrekte Syntax um ein \"Hallo Welt\" auszugeben?",
+		"answers": [
+			"Console.WriteLine(\"Hallo Welt\");",
+			"print(\"Hallo Welt\");",
+			"echo(\"Hallo Welt\");",
+			"System.out.println(\"Hallo Welt\");"
+		],
+		"solution": 4,
+		"category": { "text": "Anwendungsentwicklung" },
+		"difficulty": 1
+	},
+	{
+		"id": 4,
+		"question": "Welcher Datentyp wird benutzt, um eine Variable zu initialisieren, die einen String speichern soll?",
+		"answers": [
+			"string",
+			"String",
+			"pString",
+			"txt"
+		],
+		"solution": 2,
+		"category": { "text": "Anwendungsentwicklung" },
+		"difficulty": 1
+	},
+	{
+		"id": 5,
+		"question": "Wie wird eine numerische Variable erstellt, die den Wert 10 speichern soll?",
+		"answers": [
+			"float x = 10;",
+			"x = 10;",
+			"int x = 10;",
+			"num x = 10;"
+		],
+		"solution": 2,
+		"category": { "text": "Anwendungsentwicklung" },
+		"difficulty": 4
+	},
+	{
+		"id": 6,
+		"question": "Welche Methode kann benutzt werden, um die Laenge eines Strings zu ermitteln?",
+		"answers": [
+			"getSize()",
+			"length()",
+			"strLength()",
+			"len()"
+		],
+		"solution": 2,
+		"category": { "text": "Anwendungsentwicklung" },
+		"difficulty": 4
+	},
+	{
+		"id": 7,
+		"question": "Beispielfrage 2?",
+		"answers": [
+			"antwort1",
+			"antwort2",
+			"antwort3",
+			"antwort4"
+		],
+		"solution": 2,
+		"category": { "text": "Anwendungsentwicklung" },
+		"difficulty": 4
+	},
+	{
+		"id": 8,
+		"question": "Mit welchem Operanten werden zwei Werte zusammengefuegt?",
+		"answers": [
+			"Der & Wert",
+			"Der + Wert",
+			"Der * Wert",
+			"Der $ Wert"
+		],
+		"solution": 2,
+		"category": { "text": "Anwendungsentwicklung" },
+		"difficulty": 4
+	},
+	{
+		"id": 9,
+		"question": "Mit welchem Operatenen werden zwei Werte verglichen?",
+		"answers": [
+			"<>",
+			"><",
+			"==",
+			"="
+		],
+		"solution": 3,
+		"category": { "text": "Anwendungsentwicklung" },
+		"difficulty": 4
+	},
+	{
+		"id": 10,
+		"question": "Welchen Namen hatte Java urspuenglich?",
+		"answers": [
+			"JavaScript",
+			"Oak",
+			"Beech",
+			"Fir"
+		],
+		"solution": 2,
+		"category": { "text": "Anwendungsentwicklung" },
+		"difficulty": 4
+	},
+	{
+		"id": 11,
+		"question": "Welche Schicht gehoert nicht zum OSI Modell?",
+		"answers": [
+			"Anwendungsschicht",
+			"Transportschicht",
+			"Byteuebertragungsschicht",
+			"Sitzungsschicht"
+		],
+		"solution": 3,
+		"category": { "text": "IT-Systeme" },
+		"difficulty": 1
+	},
+	{
+		"id": 12,
+		"question": "Wofuer steht TCP?",
+		"answers": [
+			"Transport Control Protocol",
+			"Transmission Control Protocol",
+			"Transport Control Principle",
+			"Transmission Control Principle"
+		],
+		"solution": 2,
+		"category": { "text": "IT-Systeme" },
+		"difficulty": 4
+	},
+	{
+		"id": 13,
+		"question": "Welche Adressart wird verwendet, um eine Nachricht an alle Geraete zu schicken?",
+		"answers": [
+			"Multicast",
+			"Anycast",
+			"Broadcast",
+			"Unicast"
+		],
+		"solution": 3,
+		"category": { "text": "IT-Systeme" },
+		"difficulty": 4
+	},
+	{
+		"id": 14,
+		"question": "Die Dezimalzahl 100, kann binaer wie dargestellt werden?",
+		"answers": [
+			"1101111",
+			"1100100",
+			"101",
+			"100"
+		],
+		"solution": 2,
+		"category": { "text": "IT-Systeme" },
+		"difficulty": 4
+	},
+	{
+		"id": 15,
+		"question": "Welche uebertragungsmethode gewaehrleisten Kupferkabel?",
+		"answers": [
+			"Daten werden in elektrische Impulse umgewandelt",
+			"Daten werden als Lichtimpulse uebertragen",
+			"Daten werden durch elektromagnetische Wellen uebertragen",
+			"Daten werden gar nicht uebertragen"
+		],
+		"solution": 1,
+		"category": { "text": "IT-Systeme" },
+		"difficulty": 4
+	},
+	{
+		"id": 16,
+		"question": "Wie ist die richtige Reihenfolge des TCP/IP-Modells?",
+		"answers": [
+			"Transport, Anwendung, Internet, Netzwerkzugriff",
+			"Anwendung, Netzwerkzugriff, Internet, Transport",
+			"Anwendung, Transport, Internet, Netzwerkzugriff",
+			"Transport, Netzwerkzugriff, Internet, Anwendung"
+		],
+		"solution": 3,
+		"category": { "text": "IT-Systeme" },
+		"difficulty": 4
+	},
+	{
+		"id": 17,
+		"question": "Aus wie viel Bit besteht eine IPv6-Adresse?",
+		"answers": [
+			"32",
+			"64",
+			"128",
+			"256"
+		],
+		"solution": 2,
+		"category": { "text": "IT-Systeme" },
+		"difficulty": 4
+	},
+	{
+		"id": 18,
+		"question": "Was bedeutet EVA?",
+		"answers": [
+			"Einsatz - Verwendung - Ausarbeitung",
+			"Eingabe - Verwertung - Ausgabe",
+			"Einrichten - Verarbeiten - Ausrichten",
+			"Eingabe - Verarbeitung - Ausgabe"
+		],
+		"solution": 4,
+		"category": { "text": "IT-Systeme" },
+		"difficulty": 1
+	},
+	{
+		"id": 19,
+		"question": "Zu den Aufgaben eines Fachinformatikers der Fachrichtung Anwendungsentwicklung gehoert...",
+		"answers": [
+			"das Programmieren und Entwickeln von Software",
+			"der Bau technischer Anlagen",
+			"das Verlegen von Glasfaserkabeln",
+			"das Einrichten von Telefon- und Alarmanlagen"
+		],
+		"solution": 1,
+		"category": { "text": "IT-Systeme" },
+		"difficulty": 1
+	},
+	{
+		"id": 20,
+		"question": "Welche Phase ist nicht Teil des Produktzyklus?",
+		"answers": [
+			"Einfuehrungsphase",
+			"Wachstumsphase",
+			"Absatzphase",
+			"Saettigungsphase"
+		],
+		"solution": 3,
+		"category": { "text": "WGP" },
+		"difficulty": 4
+	},
+	{
+		"id": 21,
+		"question": "Lohnsteuerklasse 1 bezieht sich auf?",
+		"answers": [
+			"Alleinstehende",
+			"Alleinerziehende",
+			"Verheiratete",
+			"Lebensgemeinschaften"
+		],
+		"solution": 1,
+		"category": { "text": "WGP" },
+		"difficulty": 1
+	},
+	{
+		"id": 22,
+		"question": "Welches Marketing Ziel ist kein Quantitaetsziel?",
+		"answers": [
+			"Absatzsteigerung",
+			"Umsatzsteigerung",
+			"Imageverbesserung",
+			"Marktstellungserhoehung"
+		],
+		"solution": 3,
+		"category": { "text": "WGP" },
+		"difficulty": 4
+	},
+	{
+		"id": 23,
+		"question": "Was ist kein Vorteil von online Frageboegen?",
+		"answers": [
+			"Sie sind guenstig",
+			"Sie sind schnell",
+			"Sie haben eine hohe Aussagekraft",
+			"Sie sind nicht beeinflusst"
+		],
+		"solution": 2,
+		"category": { "text": "WGP" },
+		"difficulty": 4
+	},
+	{
+		"id": 24,
+		"question": "Wofuer steht das erste \"A\" der AIDA Formel?",
+		"answers": [
+			"Action",
+			"Anchor",
+			"Attention",
+			"Administration"
+		],
+		"solution": 3,
+		"category": { "text": "WGP" },
+		"difficulty": 4
+	},
+	{
+		"id": 25,
+		"question": "Was ist Absatzwerbung?",
+		"answers": [
+			"Werbung ueber TV, Radio, Internet",
+			"Außerstaedtische Werbung",
+			"Werbung auf ueber Zeitschriften und Zeitung",
+			"Werbung durch Plakate"
+		],
+		"solution": 1,
+		"category": { "text": "WGP" },
+		"difficulty": 4
+	},
+	{
+		"id": 26,
+		"question": "Wofuer steht die Abkuerzung MbD?",
+		"answers": [
+			"Management by Decision",
+			"Marketing by Dicipline",
+			"Marketing by Delegacy",
+			"Management by Delegation"
+		],
+		"solution": 4,
+		"category": { "text": "WGP" },
+		"difficulty": 4
+	},
+	{
+		"id": 27,
+		"question": "Was ist nicht Teil der Produktpolitik?",
+		"answers": [
+			"Suche nach neuen Produktideen",
+			"Entwicklungen und Markteinfuehrung",
+			"Produktgestaltung",
+			"Absatzwerbung"
+		],
+		"solution": 4,
+		"category": { "text": "WGP" },
+		"difficulty": 4
+	},
+	{
+		"id": 28,
+		"question": "Was ist keine Strategie zur Preisbildung?",
+		"answers": [
+			"Nachfrageorientierte Preisbildung",
+			"Spekulative Preisbildung",
+			"Kostenorientierte Preisbildung",
+			"Konkurrenzorientierte Preisbildung"
+		],
+		"solution": 2,
+		"category": { "text": "WGP" },
+		"difficulty": 4
+	},
+	{
+		"id": 29,
+		"question": "Wie ist das Vorrangmodell der Nachhaltigkeit aufgebaut (Klein nach groß)?",
+		"answers": [
+			"oekologie - Wirtschaft - Soziales",
+			"Soziales - Wirtschaft - oekologie",
+			"Wirtschaft - Soziales - oekologie",
+			"Wirtschaft - oekologie - Soziales"
+		],
+		"solution": 3,
+		"category": { "text": "WGP" },
+		"difficulty": 4
+	},
+	{
+		"id": 30,
+		"question": "Das Drei-Saeulen-Modell beschaeftigt sich mit?",
+		"answers": [
+			"Sozialem - oekologie - oekonomie",
+			"Beschaffung - Marketing - Verkauf",
+			"Einfuehrung - Wachstum - Saettigung",
+			"Produkten - Distribution - Kommunikation"
+		],
+		"solution": 1,
+		"category": { "text": "WGP" },
+		"difficulty": 4
+	}
 ]
