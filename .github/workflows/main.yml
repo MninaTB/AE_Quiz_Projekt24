@@ -29,3 +29,6 @@ jobs:
       - name: Fuehre Unit tests des Projekts aus
         run: make test
 
+      # Fuehre jar build aus
+      - name: Fuehre jar build aus
+        run: make jar
