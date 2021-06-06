@@ -18,7 +18,7 @@ import questions.QuestionParser;
 public class Main {
 
 	@SuppressWarnings("rawtypes")
-	public static void main(String[] args) throws org.json.simple.parser.ParseException {
+	public static void main(String[] args) {
 
 		Connection connection = getDatabaseConnection();
 		String filename = "questions.json";
