@@ -101,7 +101,7 @@ public class Options implements Controller {
 			var c = q.getCategory();
 			if (c == null)
 			{
-				c = new Category("Unknown Category");
+				c = new Category("unknown");
 			}
 			oqr.getCategoryLabel().setText(c.toString());
 			oqr.getLevelLabel().setText(String.valueOf(q.getDifficulty()));
