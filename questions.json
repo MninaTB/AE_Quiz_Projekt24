@@ -481,7 +481,7 @@
   },
   {
     "id": 33,
-    "question": "Wann wurde Java veröffentlicht?",
+    "question": "Wann wurde Java veroeffentlicht?",
     "difficulty": 3,
     "answers": [
       "23 Mai 1995",
@@ -586,7 +586,7 @@
   },
   {
     "id": 40,
-    "question": "Welche Open Source Lizenz benötigt keine Erwaehnung im Header?",
+    "question": "Welche Open Source Lizenz benoetigt keine Erwaehnung im Header?",
     "difficulty": 4,
     "answers": [
       "MIT",
@@ -601,7 +601,7 @@
   },
   {
     "id": 41,
-    "question": "Wofür steht PHP?",
+    "question": "Wofuer steht PHP?",
     "difficulty": 5,
     "answers": [
       "Personal Homepage Plugin",
@@ -661,7 +661,7 @@
   },
   {
     "id": 45,
-    "question": "Was wurde der ENIAC-Recher, der erste Computer erfunden?",
+    "question": "Wann wurde der ENIAC-Recher, der erste Computer erfunden?",
     "difficulty": 5,
     "answers": [
       "1942",
@@ -676,7 +676,7 @@
   },
   {
     "id": 46,
-    "question": "Wie lange gilt das gesetzliche Rückgaberecht?",
+    "question": "Wie lange gilt das gesetzliche Rueckgaberecht?",
     "difficulty": 2,
     "answers": [
       "21 Tage",
