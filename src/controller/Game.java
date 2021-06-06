@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import game.State;
+import model.Question;
 import questions.QuestionStore;
 
 /**
@@ -21,12 +24,10 @@ import questions.QuestionStore;
 public class Game implements Controller {
 
 	private Switcher switcher;
-	// private QuestionStore store;
 	private view.Game view;
 
 	public Game(Switcher s, QuestionStore store) {
 		this.switcher = s;
-		// this.store = store;
 	}
 
 	/**
@@ -34,14 +35,34 @@ public class Game implements Controller {
 	 */
 	public void init(Share share) {
 		this.view = new view.Game();
+		
+		final String key = "KEY_GAME_STATE";
+		if (!share.entryExists(key)) {
+			// TODO: maybe we should allow a screen switch from
+			// the init func.
+			System.out.println("missing game state");
+			System.exit(1);
+		}
+		State s = (State) share.get(key);
+
+		Question q = s.next();
+		if (q == null) {
+			// TODO: maybe we should allow a screen switch from
+			// the init func.
+			System.out.println("game: question is null");
+			System.exit(1);
+		}
+		ArrayList<String> answers = q.getAnswers();
+		
+		
 		this.initHomeButton();
 		this.initTitleLabel();
 		this.initExitButton();
 		this.initQuestionLabel();
-		this.initAnswerNo1Button();
-		this.initAnswerNo2Button();
-		this.initAnswerNo3Button();
-		this.initAnswerNo4Button();
+		this.initAnswerNo1Button(answers.get(0));
+		this.initAnswerNo2Button(answers.get(1));
+		this.initAnswerNo3Button(answers.get(2));
+		this.initAnswerNo4Button(answers.get(3));
 		this.initCategoryLabel();
 		this.initCurrentCategoryLabel();
 		this.initLevelLabel();
@@ -102,8 +123,8 @@ public class Game implements Controller {
 	/**
 	 * Initialisiert den AnswerNo1-Button
 	 */
-	public void initAnswerNo1Button() {
-		this.view.getAnswerNo1Button().setText("Erste Antwort");// TODO muss automatisiert werden mit Frage laden
+	public void initAnswerNo1Button(String a) {
+		this.view.getAnswerNo1Button().setText(a);
 		this.view.getAnswerNo1Button().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Temporaer Result-Screen auf AnswerNo1-Button gelegt zum Testen, wieder
@@ -117,8 +138,8 @@ public class Game implements Controller {
 	/**
 	 * Initialisiert den AnswerNo2-Button
 	 */
-	public void initAnswerNo2Button() {
-		this.view.getAnswerNo2Button().setText("Zweite Antwort");// TODO muss automatisiert werden mit Frage laden
+	public void initAnswerNo2Button(String a) {
+		this.view.getAnswerNo2Button().setText(a);
 		this.view.getAnswerNo2Button().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO hier Spielfunktion am besten auf eine gemeinsame Methode implementieren
@@ -129,8 +150,8 @@ public class Game implements Controller {
 	/**
 	 * Initialisiert den AnswerNo3-Button
 	 */
-	public void initAnswerNo3Button() {
-		this.view.getAnswerNo3Button().setText("Dritte Antwort");// TODO muss automatisiert werden mit Frage laden
+	public void initAnswerNo3Button(String a) {
+		this.view.getAnswerNo3Button().setText(a);
 		this.view.getAnswerNo3Button().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO hier Spielfunktion am besten auf eine gemeinsame Methode implementieren
@@ -141,8 +162,8 @@ public class Game implements Controller {
 	/**
 	 * Initialisiert den AnswerNo4-Button
 	 */
-	public void initAnswerNo4Button() {
-		this.view.getAnswerNo4Button().setText("Vierte Antwort");// TODO muss automatisiert werden mit Frage laden
+	public void initAnswerNo4Button(String a) {
+		this.view.getAnswerNo4Button().setText(a);
 		this.view.getAnswerNo4Button().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO hier Spielfunktion am besten auf eine gemeinsame Methode implementieren

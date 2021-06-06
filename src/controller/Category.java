@@ -47,7 +47,6 @@ public class Category implements Controller {
 		this.actionContinue = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				share.put("KEY_GAME_STATE", gameState);
-				// TODO Kategorien und Start-Level muss in den Game Screen uebernommen werden
 				switcher.next(Screen.SCREEN_GAME);
 			}
 		};
