@@ -227,7 +227,7 @@ public class QuestionDB implements QuestionStore {
 		
 			try {
 				
-				String query = "SELECT id FROM answers WHERE a = ?, b = ?, c = ?, d = ? LIMIT 1";
+				String query = "SELECT id FROM answers WHERE a = ? AND b = ? AND c = ? AND d = ? LIMIT 1";
 				
 				preparedStatement = connection.prepareStatement(query);
 				preparedStatement.setString(1, a.get(0));
@@ -310,25 +310,39 @@ public class QuestionDB implements QuestionStore {
 				//	Get category reference ID
 				int category_id = this.getCategoryIdByName(q.getCategory());
 				
-				// Insert query
-				String query = "INSERT INTO questions (question, difficulty, answer_id, solution, category_id)"
-		        		+ " values (?, ?, ?, ?, ?)"; 
+				String query = "SELECT * FROM questions WHERE question = ? AND difficulty = ? AND answer_id = ? AND solution = ? AND category_id = ? LIMIT 1";
 				
-				preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+				preparedStatement = connection.prepareStatement(query);
 				preparedStatement.setString(1, q.getQuestion());
 				preparedStatement.setInt(2, q.getDifficulty());
 				preparedStatement.setInt(3, answer_id);
 				preparedStatement.setInt(4, q.getSolution());
 				preparedStatement.setInt(5, category_id);
-				preparedStatement.execute();
-	
-				resultSet = preparedStatement.getGeneratedKeys();
-				int insertedId = 0;
-	
-				if (resultSet.next()) {
-	
-					insertedId = resultSet.getInt(1);
-					q.setID(insertedId);
+				resultSet = preparedStatement.executeQuery();
+				
+				if (!resultSet.next()) { 
+					
+					// Insert query
+					query = "INSERT INTO questions (question, difficulty, answer_id, solution, category_id)"
+			        		+ " values (?, ?, ?, ?, ?)"; 
+					
+					preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+					preparedStatement.setString(1, q.getQuestion());
+					preparedStatement.setInt(2, q.getDifficulty());
+					preparedStatement.setInt(3, answer_id);
+					preparedStatement.setInt(4, q.getSolution());
+					preparedStatement.setInt(5, category_id);
+					preparedStatement.execute();
+		
+					resultSet = preparedStatement.getGeneratedKeys();
+					int insertedId = 0;
+		
+					if (resultSet.next()) {
+		
+						insertedId = resultSet.getInt(1);
+						q.setID(insertedId);
+					}  
+				
 				}
 			}
 			catch (SQLException e) {
@@ -401,7 +415,7 @@ public class QuestionDB implements QuestionStore {
 		
 			try {			
 				
-				String query = "SELECT * FROM answers WHERE a = ?, b = ?, c = ?, d = ?";
+				String query = "SELECT * FROM answers WHERE a = ? AND b = ? AND c = ? AND d = ?";
 				preparedStatement = connection.prepareStatement(query);
 				preparedStatement.setString(1, a.get(0));
 				preparedStatement.setString(2, a.get(1));

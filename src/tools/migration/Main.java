@@ -1,8 +1,11 @@
 package tools.migration;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -15,6 +18,7 @@ import org.json.simple.parser.JSONParser;
 import model.Category;
 import model.Question;
 import questions.QuestionDB;
+import questions.QuestionParser;
 
 public class Main {
 
@@ -22,38 +26,29 @@ public class Main {
 	public static void main(String[] args) throws org.json.simple.parser.ParseException {
 
 		Connection connection = getDatabaseConnection();
-
-		JSONParser jsonparser = new JSONParser();
+		String filename = "questions.json";
+		File file = new File(filename);
 		
-		try (FileReader reader = new FileReader("questions.json")) {
+		try {
 			
-			//	read file
-			Object obj = jsonparser.parse(reader);
-			JSONArray list = (JSONArray) obj;
-			Iterator iterator = list.iterator();
+			InputStreamReader sr = new InputStreamReader(new FileInputStream(file));
+			var q = new QuestionParser();
+			q.load(sr);
 			
-			while (iterator.hasNext()) {
-				
-				JSONObject nextJsonObj = (JSONObject) iterator.next();
+			ArrayList<Question> questions = q.getAllQuestions();		    
+		    Iterator iterator = questions.iterator();
+		    while (iterator.hasNext()) {
+		    	
+		    	Question nextQuestionObj = (Question) iterator.next();
 				//QuestionDB questionDB = new QuestionDB();
 				
 				//	get json column values
-				String question = (String) nextJsonObj.get("question");
-				int difficulty = (int) (long) nextJsonObj.get("difficulty");
-				int solution = (int) (long) nextJsonObj.get("solution");
-				
-				//	get category
-				JSONObject category = (JSONObject) nextJsonObj.get("category");
-				String categoryName = (String) category.get("text");
-				
-				//	get answers
-				ArrayList<String> listAnswers = new ArrayList<String>();
-				JSONArray answers = (JSONArray) nextJsonObj.get("answers");
-                Iterator answersIterator = answers.iterator();                
-                while (answersIterator.hasNext())
-                {    				
-                	listAnswers.add((String) answersIterator.next());
-                }
+				String question = nextQuestionObj.getQuestion();
+				int difficulty = nextQuestionObj.getDifficulty();
+				int solution = nextQuestionObj.getSolution();
+				Category category = nextQuestionObj.getCategory();
+				String categoryName = category.toString();
+				ArrayList<String> answers = nextQuestionObj.getAnswers();
 				
 				QuestionDB questionDB = new QuestionDB(connection);
 				
@@ -64,19 +59,16 @@ public class Main {
 				questionDB.saveCategory(Category);	
 				
 				//	Save answers in database
-				questionDB.saveAnswers(listAnswers);
+				questionDB.saveAnswers(answers);
 
 				//	Save question in database
-				questionDB.create(new Question(0, question, difficulty, listAnswers, solution, Category));	
-			}
-			
+				questionDB.create(new Question(0, question, difficulty, answers, solution, Category));	
+		    }
 			System.out.println("Migration: All questions, answers and categories have been added successfully.");
-		}
+		} 
 		catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		catch (IOException e) {
-			e.printStackTrace();
+			
+			System.out.printf("could not load: %s\n", filename);
 		}
 	}
 	
