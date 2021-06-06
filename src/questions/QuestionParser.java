@@ -19,6 +19,7 @@ import model.Category;
 public class QuestionParser implements QuestionStore {
 
 	private ArrayList<Question> questions;
+	private int nextID;
 
 	/**
 	 * Standard Konstruktor
@@ -26,6 +27,7 @@ public class QuestionParser implements QuestionStore {
 	 */
 	public QuestionParser() {
 		this.questions = new ArrayList<Question>();
+		this.nextID = 0;
 	}
 	
 	/**
@@ -46,6 +48,12 @@ public class QuestionParser implements QuestionStore {
 				   .lines().collect(Collectors.joining("\n"));
 		var t = TypeToken.getParameterized(ArrayList.class, Question.class).getType();
 		this.questions = gson.fromJson(json, t);
+		for (Question q : this.questions) {
+			int current = q.getID();
+			if (current > this.nextID) {
+				this.nextID = current + 1;
+			}
+		}
 	}
 	
 	/**
@@ -122,11 +130,13 @@ public class QuestionParser implements QuestionStore {
 	 */
 	@Override
 	public void create(Question q) {
+		q.setID(this.nextID);
 		try {
 			this.questions.add((Question) q.clone());
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
+		this.nextID++;
 	}
 
 	/**
