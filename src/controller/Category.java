@@ -44,8 +44,8 @@ public class Category implements Controller {
 	 * Initialisiert die Categories-CheckBoxes
 	 */
 	public void initCategoriesCheckBoxes() {
-		for (model.Category category : model.Category.values()) {
-			if(!category.equals(model.Category.CATEGORY_UNKNOWN) && !category.equals(model.Category.CATEGORY_FUN)) {
+		for (model.Category category : this.store.getCategories()) {
+			if(!(category.toString() == "Uknown Category") && !(category.toString() == "fun")) {
 				this.view.initAndAddNewCategoryCheckBox(category.toString());
 			}
 		}

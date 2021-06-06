@@ -274,6 +274,30 @@ public class QuestionDB implements QuestionStore {
 	}
 
 	@Override
+	public ArrayList<Category> getCategories() {
+		
+		ArrayList<Category> categories = new ArrayList<Category>();	
+		
+		try {
+			
+			String query = "SELECT * FROM categories";
+			
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				
+				categories.add(new Category(resultSet.getString("name")));
+			}
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return categories;
+	}
+
+	@Override
 	public void create(Question q) {
 		
 		if (this.getConnection() != null)	{

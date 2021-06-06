@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import com.google.gson.*;
@@ -160,5 +162,18 @@ public class QuestionParser implements QuestionStore {
 				return;
 			}
 		}
-	}
+	}  
+	
+	@Override
+    public ArrayList<Category> getCategories() {
+        HashMap<String, Category> categories = new HashMap<String, Category>();
+        for (Question q : this.questions) {
+            categories.put(q.getCategory().toString(), q.getCategory());
+        }
+        ArrayList<Category> res = new ArrayList<Category>();
+        for (Entry<String, Category> e : categories.entrySet()) {
+            res.add(e.getValue());
+        }
+        return res;
+    }
 }

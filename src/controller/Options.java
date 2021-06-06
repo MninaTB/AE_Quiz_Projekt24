@@ -19,12 +19,13 @@ public class Options implements Controller {
 	public Options(Switcher s, QuestionStore store) {
 		this.switcher = s;
 		this.store = store;
+		this.init();
 	}
-
+	
 	/**
 	 * Initialisiert das Start view element
 	 */
-	public void init(Share share) {
+	public void init() {
 		this.view = new view.Options();
 		this.initHomeButton();
 		this.initTitleLabel();
@@ -32,11 +33,11 @@ public class Options implements Controller {
 		this.initQuestionFieldnameLabel();
 		this.initCategoryFieldnameLabel();
 		this.initLevelFieldnameLabel();
-		this.initQuestionRows(share);
+		this.initQuestionRows();
 		this.initAddButton();
 		this.initDeleteButton();
 	}
-
+	
 	/**
 	 * Initialisiert den Home-Button
 	 */
@@ -48,14 +49,14 @@ public class Options implements Controller {
 			}
 		});
 	}
-
+	
 	/**
 	 * Initialisiert das Title-Label
 	 */
 	public void initTitleLabel() {
 		this.view.getTitleLabel().setText("Optionen");
 	}
-
+	
 	/**
 	 * Initialisiert den Exit-Button
 	 */
@@ -67,49 +68,50 @@ public class Options implements Controller {
 			}
 		});
 	}
-
+	
 	/**
 	 * Initialisiert das QuestionFieldname-Label
 	 */
 	public void initQuestionFieldnameLabel() {
 		this.view.getQuestionFieldnameLabel().setText("Frage");
 	}
-
+	
 	/**
 	 * Initialisiert das CategoryFieldname-Label
 	 */
 	public void initCategoryFieldnameLabel() {
 		this.view.getCategoryFieldnameLabel().setText("Kategorie");
 	}
-
+	
 	/**
 	 * Initialisiert das LevelFieldname-Label
 	 */
 	public void initLevelFieldnameLabel() {
 		this.view.getLevelFieldnameLabel().setText("Level");
 	}
-
+	
 	/**
 	 * Initialisiert die QuestionRows-ArrayList
 	 */
-	public void initQuestionRows(Share share) {
-		for (Question q : this.store.getAllQuestions()) {
+	public void initQuestionRows() {
+		for(Question q : this.store.getAllQuestions()) {
 			OptionsQuestionRow oqr = new OptionsQuestionRow();
 			oqr.getQuestionLabel().setText(q.getQuestion());
 			var c = q.getCategory();
-			if (c == null) {
-				c = Category.CATEGORY_UNKNOWN;
+			if (c == null)
+			{
+				c = new Category("Unknown Category");
 			}
 			oqr.getCategoryLabel().setText(c.toString());
 			oqr.getLevelLabel().setText(String.valueOf(q.getDifficulty()));
 			oqr.getEditButton().setText("Bearbeiten");
 			oqr.getEditButton().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					share.put("KEY_EDIT_QUESTION_ID", q.getID());
 					switcher.next(Screen.SCREEN_EDIT);
+					//TODO Infos muessen irgendwie mit in den Edit Screen uebernommen werden
 				}
 			});
-
+			
 			// Konnte nirgendswo im View die QuestionRows adden, funktionierte nur hier
 			this.view.getCenterPanel().add(oqr.getCheckBoxPanel());
 			this.view.getCenterPanel().add(oqr.getQuestionLabel());
@@ -118,7 +120,7 @@ public class Options implements Controller {
 			this.view.getCenterPanel().add(oqr.getEditButton());
 		}
 	}
-
+	
 	/**
 	 * Initialisiert den Add-Button
 	 */
@@ -126,11 +128,11 @@ public class Options implements Controller {
 		this.view.getAddButton().setText("Neue Frage erstellen");
 		this.view.getAddButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switcher.next(Screen.SCREEN_CREATE);
+				switcher.next(Screen.SCREEN_EDIT);
 			}
 		});
 	}
-
+	
 	/**
 	 * Initialisiert den Delete-Button
 	 */
@@ -142,7 +144,7 @@ public class Options implements Controller {
 			}
 		});
 	}
-
+	
 	/**
 	 * Implementiert das Controller interface.
 	 * 
@@ -150,5 +152,11 @@ public class Options implements Controller {
 	 */
 	public JPanel toJPanel() {
 		return this.view.getContent();
+	}
+
+	@Override
+	public void init(Share share) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -61,5 +61,11 @@ public class MockQuestionStoreTest implements QuestionStore{
 	public void delete(int id) {
 		// NOTE: unused
 	}
+
+	@Override
+	public ArrayList<Category> getCategories() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
