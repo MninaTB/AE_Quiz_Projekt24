@@ -13,6 +13,7 @@ public interface QuestionStore {
 	public Question getByID(int id);
 	public ArrayList<Question> getByDifficulty(int difficulty);
 	public ArrayList<Question> getByCategory(Category c);
+	public ArrayList<Category> getCategories();
 	public void create(Question q);
 	public void update(Question q);
 	public void delete(int id);

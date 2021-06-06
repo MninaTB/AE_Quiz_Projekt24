@@ -5,22 +5,17 @@ package model;
  * welche wir fuer die Fragen benutzen wollen
  * 
  */
-public enum Category {
-	CATEGORY_UNKNOWN("unknown"),
-	CATEGORY_AE("Anwendungsentwicklung"),
-	CATEGORY_ITS("IT-Systeme"),
-	CATEGORY_FUN("fun"),
-	CATEGORY_WGP("WGP");
+
+public class Category {
 	
 	private final String text;
 	
-	Category(final String text){
+	public Category(final String text) {
+		
 		this.text = text;
 	}
 	
-	@Override
 	public String toString() {
 		return this.text;
 	}
-
 }

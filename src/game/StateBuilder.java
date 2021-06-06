@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import model.Category;
 import model.Question;
 import questions.QuestionStore;
-import model.Category;
 
 public class StateBuilder {
 	private QuestionStore store;
-	
+
 	/**
-	 * Konstruktor mit einem Parameter, welcher an die Variable store uebergeben wird
+	 * Konstruktor mit einem Parameter, welcher an die Variable store uebergeben
+	 * wird
+	 * 
 	 * @param s
 	 */
 	public StateBuilder(QuestionStore s) {
@@ -25,13 +27,16 @@ public class StateBuilder {
 	 * 
 	 * @return neue State
 	 */
-	public State newState(ArrayList<Category> cs, int levelfk, int levelMax, int customLevel) throws MissingQuestionsException {
+	public State newState(ArrayList<Category> cs, int levelfk, int levelMax, int customLevel)
+			throws MissingQuestionsException {
 		ArrayList<Question> allQuestions = this.fetchAndSortbyDifficulty(cs);
 		return new State(this.limitQuestions(allQuestions, levelfk, levelMax, customLevel), levelfk);
 	}
 
 	/**
-	 * Prueft ob genug Fragen in den Kategorien vorhanden sind um das Spiel starten zu koennen
+	 * Prueft ob genug Fragen in den Kategorien vorhanden sind um das Spiel starten
+	 * zu koennen
+	 * 
 	 * @param cs
 	 * @param levelfk
 	 * @param levelMax
@@ -43,7 +48,6 @@ public class StateBuilder {
 		try {
 			this.limitQuestions(allQuestions, levelfk, levelMax, customLevel);
 		} catch (MissingQuestionsException e) {
-			System.out.print("fucking false;");
 			return false;
 		}
 		return true;
@@ -74,7 +78,8 @@ public class StateBuilder {
 		return allQuestions;
 	}
 
-	private ArrayList<Question> limitQuestions(ArrayList<Question> input, int levelfk, int levelMax, int customLevel) throws MissingQuestionsException {
+	private ArrayList<Question> limitQuestions(ArrayList<Question> input, int levelfk, int levelMax, int customLevel)
+			throws MissingQuestionsException {
 		ArrayList<Question> result = new ArrayList<Question>();
 
 		if (input.size() == 0 && (levelfk > 0 || levelMax > 0 || customLevel < 0)) {
@@ -84,8 +89,8 @@ public class StateBuilder {
 		int counter = 0;
 		int currentLevel = customLevel;
 		int lastDifficulty = -1;
- 
-		for (int i = currentLevel; i < input.size() && currentLevel < levelMax; i++) { 
+
+		for (int i = currentLevel; i < input.size() && currentLevel < levelMax; i++) {
 			Question q = input.get(i);
 
 			int newDifficulty = q.getDifficulty();

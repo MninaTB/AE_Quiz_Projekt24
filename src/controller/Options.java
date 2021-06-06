@@ -20,10 +20,12 @@ public class Options implements Controller {
 		this.switcher = s;
 		this.store = store;
 	}
-
+	
 	/**
 	 * Initialisiert das Start view element
 	 */
+	
+	@Override
 	public void init(Share share) {
 		this.view = new view.Options();
 		this.initHomeButton();
@@ -36,7 +38,7 @@ public class Options implements Controller {
 		this.initAddButton();
 		this.initDeleteButton();
 	}
-
+	
 	/**
 	 * Initialisiert den Home-Button
 	 */
@@ -48,14 +50,14 @@ public class Options implements Controller {
 			}
 		});
 	}
-
+	
 	/**
 	 * Initialisiert das Title-Label
 	 */
 	public void initTitleLabel() {
 		this.view.getTitleLabel().setText("Optionen");
 	}
-
+	
 	/**
 	 * Initialisiert den Exit-Button
 	 */
@@ -67,38 +69,39 @@ public class Options implements Controller {
 			}
 		});
 	}
-
+	
 	/**
 	 * Initialisiert das QuestionFieldname-Label
 	 */
 	public void initQuestionFieldnameLabel() {
 		this.view.getQuestionFieldnameLabel().setText("Frage");
 	}
-
+	
 	/**
 	 * Initialisiert das CategoryFieldname-Label
 	 */
 	public void initCategoryFieldnameLabel() {
 		this.view.getCategoryFieldnameLabel().setText("Kategorie");
 	}
-
+	
 	/**
 	 * Initialisiert das LevelFieldname-Label
 	 */
 	public void initLevelFieldnameLabel() {
 		this.view.getLevelFieldnameLabel().setText("Level");
 	}
-
+	
 	/**
 	 * Initialisiert die QuestionRows-ArrayList
 	 */
 	public void initQuestionRows(Share share) {
-		for (Question q : this.store.getAllQuestions()) {
+		for(Question q : this.store.getAllQuestions()) {
 			OptionsQuestionRow oqr = new OptionsQuestionRow();
 			oqr.getQuestionLabel().setText(q.getQuestion());
 			var c = q.getCategory();
-			if (c == null) {
-				c = Category.CATEGORY_UNKNOWN;
+			if (c == null)
+			{
+				c = new Category("unknown");
 			}
 			oqr.getCategoryLabel().setText(c.toString());
 			oqr.getLevelLabel().setText(String.valueOf(q.getDifficulty()));
@@ -109,7 +112,7 @@ public class Options implements Controller {
 					switcher.next(Screen.SCREEN_EDIT);
 				}
 			});
-
+			
 			// Konnte nirgendswo im View die QuestionRows adden, funktionierte nur hier
 			this.view.getCenterPanel().add(oqr.getCheckBoxPanel());
 			this.view.getCenterPanel().add(oqr.getQuestionLabel());
@@ -118,7 +121,7 @@ public class Options implements Controller {
 			this.view.getCenterPanel().add(oqr.getEditButton());
 		}
 	}
-
+	
 	/**
 	 * Initialisiert den Add-Button
 	 */
@@ -130,7 +133,7 @@ public class Options implements Controller {
 			}
 		});
 	}
-
+	
 	/**
 	 * Initialisiert den Delete-Button
 	 */
@@ -142,7 +145,7 @@ public class Options implements Controller {
 			}
 		});
 	}
-
+	
 	/**
 	 * Implementiert das Controller interface.
 	 * 
@@ -151,4 +154,6 @@ public class Options implements Controller {
 	public JPanel toJPanel() {
 		return this.view.getContent();
 	}
+
+
 }

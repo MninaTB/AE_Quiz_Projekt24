@@ -40,8 +40,9 @@ class StateTest {
 		assertNull(s.next());
 		
 		ArrayList<Question> questions = new ArrayList<Question>();
-		Question q1 = new Question(1, "wer", 2, null, 0, Category.CATEGORY_FUN);
-		Question q2 = new Question(2, "wie", 2, null, 0, Category.CATEGORY_FUN);
+		Category category = new Category("Test Kategory");
+		Question q1 = new Question(1, "wer", 2, null, 0, category);
+		Question q2 = new Question(2, "wie", 2, null, 0, category);
 		questions.add(q1);
 		questions.add(q2);
 		s = new State(questions, 0);
@@ -53,10 +54,11 @@ class StateTest {
 	@Test
 	final void testGetLevel() {
 		ArrayList<Question> questions = new ArrayList<Question>();
-		Question q1 = new Question(1, "wer", 2, null, 0, Category.CATEGORY_FUN);
-		Question q2 = new Question(2, "wie", 2, null, 0, Category.CATEGORY_FUN);
-		Question q3 = new Question(3, "wo", 2, null, 0, Category.CATEGORY_FUN);
-		Question q4 = new Question(4, "warum", 2, null, 0, Category.CATEGORY_FUN);
+		Category category = new Category("Test Kategory");
+		Question q1 = new Question(1, "wer", 2, null, 0, category);
+		Question q2 = new Question(2, "wie", 2, null, 0, category);
+		Question q3 = new Question(3, "wo", 2, null, 0, category);
+		Question q4 = new Question(4, "warum", 2, null, 0, category);
 		questions.add(q1);
 		questions.add(q2);
 		questions.add(q3);
