@@ -3,6 +3,7 @@ DESTDIR=bin
 
 SOURCES:= $(shell find $(SOURCEDIR) -type f -iname '*.java' -not -name '*Test.java')
 TEST_FILES:= $(shell find $(SOURCEDIR) -type f -iname '*Test.java' -and -name '*.java')
+CLASS:= $(shell find $(DESTDIR) -type f -iname '*.class' -not -name '*Test.class')
 
 VERSION_JUNIT=1.7.1
 VERSION_GSON=2.8.6
@@ -62,6 +63,9 @@ doc:
 
 uml:
 	java -jar plantuml.jar diagram.puml
+
+jar:
+	jar -v --create --main-class=bin.Main --file quiz.jar $(CLASS)
 
 db_up:
 	docker-compose up -d
