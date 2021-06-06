@@ -35,12 +35,8 @@ public class Main {
 		    while (iterator.hasNext()) {
 		    	
 		    	Question nextQuestionObj = (Question) iterator.next();
-				//QuestionDB questionDB = new QuestionDB();
 				
 				//	get json column values
-				String question = nextQuestionObj.getQuestion();
-				int difficulty = nextQuestionObj.getDifficulty();
-				int solution = nextQuestionObj.getSolution();
 				Category category = nextQuestionObj.getCategory();
 				String categoryName = category.toString();
 				ArrayList<String> answers = nextQuestionObj.getAnswers();
@@ -57,7 +53,7 @@ public class Main {
 				questionDB.saveAnswers(answers);
 
 				//	Save question in database
-				questionDB.create(new Question(0, question, difficulty, answers, solution, Category));	
+				questionDB.create(nextQuestionObj);	
 		    }
 			System.out.println("Migration: All questions, answers and categories have been added successfully.");
 		} 
