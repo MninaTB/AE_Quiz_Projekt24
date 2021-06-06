@@ -114,7 +114,7 @@ public class QuestionParser implements QuestionStore {
 	public ArrayList<Question> getByCategory(Category c) {
 		ArrayList<Question> questions = new ArrayList<Question>();
 		for (Question q : this.questions) {
-			if (q.getCategory() == c) {
+			if (q.getCategory().toString() == c.toString()) {
 				try {
 					questions.add((Question) q.clone());
 				} catch (CloneNotSupportedException e) {
