@@ -312,7 +312,7 @@ public class QuestionDB implements QuestionStore {
 				
 				// Insert query
 				String query = "INSERT INTO questions (question, difficulty, answer_id, solution, category_id)"
-		        		+ " values (?, ?, ?, ?, ?)";
+		        		+ " values (?, ?, ?, ?, ?)"; 
 				
 				preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 				preparedStatement.setString(1, q.getQuestion());
