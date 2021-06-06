@@ -7,6 +7,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 import java.awt.Font;
+import java.awt.event.ItemListener;
 import java.awt.Color;
 
 /**
@@ -28,6 +29,10 @@ public class OptionsQuestionRow {
 
 	public OptionsQuestionRow() {
 		this.initComponents();
+	}
+	
+	public void addItemListener(ItemListener il) {
+		this.questionCheckBox.addItemListener(il);
 	}
 	
 	/**
