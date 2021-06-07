@@ -68,15 +68,16 @@ public class Category implements Controller {
 			if (c.toString() != "unknown" && c.toString() != "fun") {
 				JCheckBox box = this.view.initAndAddNewCategoryCheckBox(category.toString());
 				box.addItemListener(new ItemListener() {
-				    @Override
-				    public void itemStateChanged(ItemEvent e) {
-				        if(e.getStateChange() == ItemEvent.SELECTED) {
-				        	selectedCategories.add(c);
-				        } else {
-				            selectedCategories.remove(c);
-				        };
-				        updateStartButton(share);
-				    }
+					@Override
+					public void itemStateChanged(ItemEvent e) {
+						if (e.getStateChange() == ItemEvent.SELECTED) {
+							selectedCategories.add(c);
+						} else {
+							selectedCategories.remove(c);
+						}
+						;
+						updateStartButton(share);
+					}
 				});
 			}
 		}

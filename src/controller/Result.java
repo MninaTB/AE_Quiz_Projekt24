@@ -29,7 +29,7 @@ public class Result implements Controller {
 	 */
 	public void init(Share share) {
 		this.view = new view.Result();
-		
+
 		Question q = (Question) share.get("KEY_GAME_QUESTION");
 		boolean win = share.get("KEY_GAME_WIN") != null;
 		this.initResultLabel(win);
@@ -43,7 +43,7 @@ public class Result implements Controller {
 			this.initPlayerAnswerLeftLabel();
 			this.initPlayerAnswerRightLabel();
 			this.initCorrectAnswerLeftLabel();
-			this.initCorrectAnswerRightLabel(q.getAnswers().get(q.getSolution()));			
+			this.initCorrectAnswerRightLabel(q.getAnswers().get(q.getSolution()));
 		}
 		this.initHomeButton();
 		this.initExitButton();
@@ -57,7 +57,7 @@ public class Result implements Controller {
 		if (win) {
 			this.view.getResultLabel().setText("Gewonnen!");
 		}
-		
+
 	}
 
 	/**

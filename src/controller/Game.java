@@ -38,7 +38,7 @@ public class Game implements Controller {
 	public void init(Share share) {
 		this.share = share;
 		this.view = new view.Game();
-		
+
 		final String key = "KEY_GAME_STATE";
 		if (!share.entryExists(key)) {
 			// TODO: maybe we should allow a screen switch from
@@ -55,9 +55,9 @@ public class Game implements Controller {
 			System.out.println("game: question is null");
 			System.exit(1);
 		}
-		
+
 		this.initQuestion(share);
-		
+
 		this.initHomeButton();
 		this.initTitleLabel();
 		this.initExitButton();
@@ -70,24 +70,24 @@ public class Game implements Controller {
 		this.initLevelNo5Label();
 		this.initJokerButton();
 	}
-	
+
 	private void next() {
 		this.question = this.state.next();
 		this.initQuestion(this.share);
 	}
-	
+
 	private void initQuestion(Share share) {
-		
+
 		ActionListener right = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				share.put("KEY_GAME_WIN", new Object());
 				next();
 				if (question == null) {
-					switcher.next(Screen.SCREEN_RESULT);	
+					switcher.next(Screen.SCREEN_RESULT);
 				}
 			}
 		};
-		
+
 		ActionListener wrong = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				share.put("KEY_GAME_QUESTION", question);
@@ -95,9 +95,8 @@ public class Game implements Controller {
 			}
 		};
 
-		
 		ArrayList<String> answers = this.question.getAnswers();
-		
+
 		this.initQuestionLabel(this.question.getQuestion());
 
 		this.initCurrentCategoryLabel(this.question.getCategory().toString());
@@ -126,7 +125,7 @@ public class Game implements Controller {
 			this.initAnswerNo3Button(answers.get(2), wrong);
 			this.initAnswerNo4Button(answers.get(3), right);
 			break;
-		default:		
+		default:
 		}
 	}
 

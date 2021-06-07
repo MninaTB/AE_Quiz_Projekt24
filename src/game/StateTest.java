@@ -38,7 +38,7 @@ class StateTest {
 	final void testNext() {
 		State s = new State(new ArrayList<Question>(), 0);
 		assertNull(s.next());
-		
+
 		ArrayList<Question> questions = new ArrayList<Question>();
 		Category category = new Category("Test Kategory");
 		Question q1 = new Question(1, "wer", 2, null, 0, category);
@@ -65,7 +65,7 @@ class StateTest {
 		questions.add(q4);
 		State s = new State(questions, 2);
 		assertEquals(1, s.getLevel());
-		
+
 		s.next();
 		s.next();
 		assertEquals(2, s.getLevel());

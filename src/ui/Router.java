@@ -7,6 +7,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import controller.Controller;
 import controller.Screen;
 import controller.Share;
 import controller.Switcher;
@@ -47,7 +48,7 @@ public class Router {
 		while (this.next != Screen.SCREEN_EXIT) {
 			System.out.print("Load screen: ");
 			System.out.println(this.next.toString());
-			var current = this.registry.get(this.next);
+			Controller current = this.registry.get(this.next);
 			current.init(this.share);
 			JPanel panel = current.toJPanel();
 			panel.setBorder(BorderFactory.createLineBorder(Color.CYAN, 5));

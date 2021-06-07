@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -15,23 +16,22 @@ import com.google.gson.reflect.TypeToken;
 import model.Question;
 import model.Category;
 
-
 public class QuestionParser implements QuestionStore {
 
 	private ArrayList<Question> questions;
 	private int nextID;
 
 	/**
-	 * Standard Konstruktor
-	 * hier wird die ArrayList initialisiert
+	 * Standard Konstruktor hier wird die ArrayList initialisiert
 	 */
 	public QuestionParser() {
 		this.questions = new ArrayList<Question>();
 		this.nextID = 0;
 	}
-	
+
 	/**
 	 * Konstruktor mit Parameter zur Uebergabe beim initialisieren
+	 * 
 	 * @param q
 	 */
 	public QuestionParser(ArrayList<Question> q) {
@@ -40,13 +40,13 @@ public class QuestionParser implements QuestionStore {
 
 	/**
 	 * Laedt die Fragen aus einem json File in das Array "questions"
+	 * 
 	 * @param sr
 	 */
 	public void load(InputStreamReader sr) {
 		Gson gson = new Gson();
-		String json = new BufferedReader(sr)
-				   .lines().collect(Collectors.joining("\n"));
-		var t = TypeToken.getParameterized(ArrayList.class, Question.class).getType();
+		String json = new BufferedReader(sr).lines().collect(Collectors.joining("\n"));
+		Type t = TypeToken.getParameterized(ArrayList.class, Question.class).getType();
 		this.questions = gson.fromJson(json, t);
 		for (Question q : this.questions) {
 			int current = q.getID();
@@ -55,9 +55,10 @@ public class QuestionParser implements QuestionStore {
 			}
 		}
 	}
-	
+
 	/**
 	 * Speichert die neuen Fragen in die ArrayList von questions
+	 * 
 	 * @param w
 	 */
 	public void save(OutputStreamWriter w) {
@@ -76,6 +77,7 @@ public class QuestionParser implements QuestionStore {
 
 	/**
 	 * Gibt eine Frage zurueck mit Angabe einer ID
+	 * 
 	 * @param id
 	 */
 	@Override
@@ -90,6 +92,7 @@ public class QuestionParser implements QuestionStore {
 
 	/**
 	 * Gibt eine oder mehrere Fragen zurueck mit Angabe des Schwierigkeitsgrades
+	 * 
 	 * @param difficulty
 	 */
 	@Override
@@ -108,6 +111,7 @@ public class QuestionParser implements QuestionStore {
 
 	/**
 	 * Gibt Fragen zurueck mit Angabe der Kategorie
+	 * 
 	 * @param c
 	 */
 	@Override
@@ -126,6 +130,7 @@ public class QuestionParser implements QuestionStore {
 
 	/**
 	 * Erstellt eine neue Frage fuer das Quiz
+	 * 
 	 * @param q
 	 */
 	@Override
@@ -141,6 +146,7 @@ public class QuestionParser implements QuestionStore {
 
 	/**
 	 * Updated das Quiz mit den neuen Fragen
+	 * 
 	 * @param qu
 	 */
 	@Override
@@ -162,6 +168,7 @@ public class QuestionParser implements QuestionStore {
 
 	/**
 	 * Loescht die Fragen mit der dazugehoerigen ID
+	 * 
 	 * @param id
 	 */
 	@Override
@@ -172,22 +179,22 @@ public class QuestionParser implements QuestionStore {
 				return;
 			}
 		}
-	}  
-	
+	}
+
 	@Override
-    public ArrayList<Category> getCategories() {
-        HashMap<String, Category> categories = new HashMap<String, Category>();
-        for (Question q : this.questions) {
-        	if (q.getCategory() == null) {
-        		categories.put("unknown", new Category("unknown"));
-        		continue;
-        	}
-            categories.put(q.getCategory().toString(), q.getCategory());
-        }
-        ArrayList<Category> res = new ArrayList<Category>();
-        for (Entry<String, Category> e : categories.entrySet()) {
-            res.add(e.getValue());
-        }
-        return res;
-    }
+	public ArrayList<Category> getCategories() {
+		HashMap<String, Category> categories = new HashMap<String, Category>();
+		for (Question q : this.questions) {
+			if (q.getCategory() == null) {
+				categories.put("unknown", new Category("unknown"));
+				continue;
+			}
+			categories.put(q.getCategory().toString(), q.getCategory());
+		}
+		ArrayList<Category> res = new ArrayList<Category>();
+		for (Entry<String, Category> e : categories.entrySet()) {
+			res.add(e.getValue());
+		}
+		return res;
+	}
 }

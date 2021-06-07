@@ -3,7 +3,7 @@ package game;
 /**
  * Erstellung einer Exception, weil keine passende zur Verfuegung stand.
  */
-public class MissingQuestionsException extends Exception{
+public class MissingQuestionsException extends Exception {
 	/**
 	 * 
 	 */

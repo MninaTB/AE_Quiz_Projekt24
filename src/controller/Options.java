@@ -103,7 +103,7 @@ public class Options implements Controller {
 		for (Question q : this.store.getAllQuestions()) {
 			OptionsQuestionRow oqr = new OptionsQuestionRow();
 			oqr.getQuestionLabel().setText(q.getQuestion());
-			var c = q.getCategory();
+			Category c = q.getCategory();
 			if (c == null) {
 				c = new Category("unknown");
 			}

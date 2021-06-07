@@ -9,14 +9,14 @@ import questions.QuestionStore;
 /**
  * Klasse wird benoetigt um eine Datenbank zu simulieren in spaeteren verlaeufen
  */
-public class MockQuestionStoreTest implements QuestionStore{
+public class MockQuestionStoreTest implements QuestionStore {
 
 	private ArrayList<Question> db;
-	
+
 	public MockQuestionStoreTest(ArrayList<Question> db) {
 		this.db = db;
 	}
-	
+
 	@Override
 	public ArrayList<Question> getAllQuestions() {
 		// NOTE: unused
@@ -49,7 +49,7 @@ public class MockQuestionStoreTest implements QuestionStore{
 	@Override
 	public void create(Question q) {
 		// NOTE: unused
-		
+
 	}
 
 	@Override
@@ -67,5 +67,5 @@ public class MockQuestionStoreTest implements QuestionStore{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 }
