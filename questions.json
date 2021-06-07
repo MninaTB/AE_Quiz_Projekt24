@@ -365,7 +365,7 @@
     "difficulty": 1,
     "answers": [
       "Werbung ueber TV, Radio, Internet",
-      "Außerstaedtische Werbung",
+      "Ausserstaedtische Werbung",
       "Werbung auf ueber Zeitschriften und Zeitung",
       "Werbung durch Plakate"
     ],
@@ -421,7 +421,7 @@
   },
   {
     "id": 29,
-    "question": "Wie ist das Vorrangmodell der Nachhaltigkeit aufgebaut (Klein nach groß)?",
+    "question": "Wie ist das Vorrangmodell der Nachhaltigkeit aufgebaut (Klein nach gross)?",
     "difficulty": 3,
     "answers": [
       "oekologie - Wirtschaft - Soziales",
