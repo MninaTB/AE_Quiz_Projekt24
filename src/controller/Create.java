@@ -27,7 +27,10 @@ public class Create implements Controller {
 		this.view = new view.Edit();
 		this.initQuestionLabel();
 		this.initCategoryLabel();
+		this.initCategoryComboBox();
 		this.initLevelLabel();
+		this.initLevelComboBox();
+		this.initAnswerNo1Button();
 		this.initAnswerNo1Label();
 		this.initAnswerNo2Label();
 		this.initAnswerNo3Label();
@@ -49,12 +52,43 @@ public class Create implements Controller {
 	public void initCategoryLabel() {
 		this.view.getCategoryLabel().setText("Kategorie:");
 	}
+	
+	/**
+	 * Initialisiert die Category-ComboBox
+	 */
+	public void initCategoryComboBox() {
+		this.view.getCategoryComboBox().addItem("");
+		for (model.Category category : this.store.getCategories()) {
+			model.Category c = category;
+			if (c.toString() != "unknown" && c.toString() != "fun") {
+				this.view.getCategoryComboBox().addItem(c.toString());
+			}
+		}
+	}
 
 	/**
 	 * Initialisiert das Level-Label
 	 */
 	public void initLevelLabel() {
 		this.view.getLevelLabel().setText("Level:");
+	}
+	
+	/**
+	 * Initialisiert die Level-ComboBox
+	 */
+	public void initLevelComboBox() {
+		this.view.getLevelComboBox().addItem("1");
+		this.view.getLevelComboBox().addItem("2");
+		this.view.getLevelComboBox().addItem("3");
+		this.view.getLevelComboBox().addItem("4");
+		this.view.getLevelComboBox().addItem("5");
+	}
+	
+	/**
+	 * Initialisiert den AnswerNo1-Button
+	 */
+	public void initAnswerNo1Button() {
+		this.view.getAnswerNo1Button().setSelected(true);
 	}
 
 	/**
@@ -92,7 +126,8 @@ public class Create implements Controller {
 		this.view.getSaveButton().setText("Frage speichern");
 		this.view.getSaveButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				model.Category c = new model.Category("unknown");
+				String question = view.getQuestionTextField().getText();
+				int d = Integer.parseInt(view.getLevelComboBox().getSelectedItem().toString());
 				@SuppressWarnings("serial")
 				ArrayList<String> aw = new ArrayList<String>() {
 					{
@@ -102,7 +137,16 @@ public class Create implements Controller {
 						add(view.getAnswerNo4TextField().getText());
 					}
 				};
-				Question q = new Question(0, view.getQuestionTextField().getText(), 1, aw, 0, c);
+				int s = Integer.parseInt(view.getButtonGroup().getSelection().getActionCommand());
+				model.Category c;
+				String cString = view.getCategoryComboBox().getSelectedItem().toString();
+				if(cString == "") {
+					c = new model.Category("unknown");
+				}
+				else {
+					c = new model.Category(cString);
+				}
+				Question q = new Question(0, question, d, aw, s, c);
 				store.create(q);
 				switcher.next(Screen.SCREEN_OPTIONS);
 			}
@@ -116,6 +160,7 @@ public class Create implements Controller {
 		this.view.getCancelButton().setText("Abbrechen");
 		this.view.getCancelButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println(store.getAllQuestions().size());
 				switcher.next(Screen.SCREEN_OPTIONS);
 			}
 		});
