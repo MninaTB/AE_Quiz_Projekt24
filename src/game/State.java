@@ -15,6 +15,7 @@ public class State {
 
 	/**
 	 * Konstruktor mit zwei uebergabe Parametern
+	 * 
 	 * @param questions
 	 * @param levelfk
 	 */
@@ -28,6 +29,7 @@ public class State {
 
 	/**
 	 * Wenn eine Question beantwortet wurde, dann gehe zur naechsten
+	 * 
 	 * @return q
 	 */
 	public Question next() {
@@ -41,6 +43,7 @@ public class State {
 
 	/**
 	 * Methode sagt aus in welchem Level man momentan ist
+	 * 
 	 * @return
 	 */
 	public int getLevel() {

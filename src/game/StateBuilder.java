@@ -108,11 +108,11 @@ public class StateBuilder {
 			counter++;
 			result.add(input.get(i));
 		}
-		
-		if (result.size() < (levelMax-customLevel)*levelfk) {
+
+		if (result.size() < (levelMax - customLevel) * levelfk) {
 			throw new MissingQuestionsException();
 		}
-		
+
 		return result;
 	}
 }
