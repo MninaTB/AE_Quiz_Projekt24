@@ -173,14 +173,14 @@ public class Game implements Controller {
 	 * Initialisiert das Question-Label
 	 */
 	public void initQuestionLabel(String q) {
-		this.view.getQuestionLabel().setText(q);
+		this.view.getQuestionLabel().setText("<html><p style=\"width:800px\">"+q+"</p></html>");
 	}
 
 	/**
 	 * Initialisiert den AnswerNo1-Button
 	 */
 	public void initAnswerNo1Button(String a, ActionListener al) {
-		this.view.getAnswerNo1Button().setText(a);
+		this.view.getAnswerNo1Button().setText("<html><p style=\"width:300px\">"+a+"</p></html>");
 		this.view.getAnswerNo1Button().setVisible(true);
 		this.view.getAnswerNo1Button().addActionListener(al);
 	}
@@ -189,7 +189,7 @@ public class Game implements Controller {
 	 * Initialisiert den AnswerNo2-Button
 	 */
 	public void initAnswerNo2Button(String a, ActionListener al) {
-		this.view.getAnswerNo2Button().setText(a);
+		this.view.getAnswerNo2Button().setText("<html><p style=\"width:300px\">"+a+"</p></html>");
 		this.view.getAnswerNo2Button().setVisible(true);
 		this.view.getAnswerNo2Button().addActionListener(al);
 	}
@@ -198,7 +198,7 @@ public class Game implements Controller {
 	 * Initialisiert den AnswerNo3-Button
 	 */
 	public void initAnswerNo3Button(String a, ActionListener al) {
-		this.view.getAnswerNo3Button().setText(a);
+		this.view.getAnswerNo3Button().setText("<html><p style=\"width:300px\">"+a+"</p></html>");
 		this.view.getAnswerNo3Button().setVisible(true);
 		this.view.getAnswerNo3Button().addActionListener(al);
 	}
@@ -207,7 +207,7 @@ public class Game implements Controller {
 	 * Initialisiert den AnswerNo4-Button
 	 */
 	public void initAnswerNo4Button(String a, ActionListener al) {
-		this.view.getAnswerNo4Button().setText(a);
+		this.view.getAnswerNo4Button().setText("<html><p style=\"width:300px\">"+a+"</p></html>");
 		this.view.getAnswerNo4Button().setVisible(true);
 		this.view.getAnswerNo4Button().addActionListener(al);
 	}
