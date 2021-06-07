@@ -4,10 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 import ch.ifocusit.plantuml.classdiagram.ClassDiagramBuilder;
-import controller.Screen;
-import questions.QuestionParser;
-import questions.QuestionStore;
-import ui.Router;
 
 public class Main {
 	public static void main(String[] args) {
