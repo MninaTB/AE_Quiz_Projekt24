@@ -160,7 +160,6 @@ public class Create implements Controller {
 		this.view.getCancelButton().setText("Abbrechen");
 		this.view.getCancelButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(store.getAllQuestions().size());
 				switcher.next(Screen.SCREEN_OPTIONS);
 			}
 		});
