@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -68,6 +69,7 @@ public class Result implements Controller {
 		this.view.getResultLabel().setText("Verloren!");
 		if (win) {
 			this.view.getResultLabel().setText("Gewonnen!");
+			this.view.getResultLabel().setForeground(Color.GREEN);
 		}
 
 	}

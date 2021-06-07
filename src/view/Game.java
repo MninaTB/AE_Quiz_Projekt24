@@ -46,6 +46,7 @@ public class Game {
 
 	private final Font ARIAL_BOLD_70 = new Font("Arial", Font.BOLD, 70);
 	private final Font ARIAL_PLAIN_50 = new Font("Arial", Font.PLAIN, 50);
+	private final Font ARIAL_PLAIN_35 = new Font("Arial", Font.PLAIN, 35);
 	private final Font ARIAL_PLAIN_20 = new Font("Arial", Font.PLAIN, 20);
 	private final Color STANDARD_COLOR = Color.CYAN;
 	private final Color TRANSPARENT_COLOR = new Color(0, 0, 0, 0);
@@ -95,7 +96,7 @@ public class Game {
 		this.questionLabel.setForeground(STANDARD_COLOR);
 
 		this.answerNo1Button = new JButton();
-		this.answerNo1Button.setFont(ARIAL_PLAIN_50);
+		this.answerNo1Button.setFont(ARIAL_PLAIN_35);
 		this.answerNo1Button.setForeground(STANDARD_COLOR);
 		this.answerNo1Button.setBackground(TRANSPARENT_COLOR);
 		this.answerNo1Button.setContentAreaFilled(false);
@@ -103,7 +104,7 @@ public class Game {
 		this.answerNo1Button.setFocusPainted(false);
 
 		this.answerNo2Button = new JButton();
-		this.answerNo2Button.setFont(ARIAL_PLAIN_50);
+		this.answerNo2Button.setFont(ARIAL_PLAIN_35);
 		this.answerNo2Button.setForeground(STANDARD_COLOR);
 		this.answerNo2Button.setBackground(TRANSPARENT_COLOR);
 		this.answerNo2Button.setContentAreaFilled(false);
@@ -111,7 +112,7 @@ public class Game {
 		this.answerNo2Button.setFocusPainted(false);
 
 		this.answerNo3Button = new JButton();
-		this.answerNo3Button.setFont(ARIAL_PLAIN_50);
+		this.answerNo3Button.setFont(ARIAL_PLAIN_35);
 		this.answerNo3Button.setForeground(STANDARD_COLOR);
 		this.answerNo3Button.setBackground(TRANSPARENT_COLOR);
 		this.answerNo3Button.setContentAreaFilled(false);
@@ -119,7 +120,7 @@ public class Game {
 		this.answerNo3Button.setFocusPainted(false);
 
 		this.answerNo4Button = new JButton();
-		this.answerNo4Button.setFont(ARIAL_PLAIN_50);
+		this.answerNo4Button.setFont(ARIAL_PLAIN_35);
 		this.answerNo4Button.setForeground(STANDARD_COLOR);
 		this.answerNo4Button.setBackground(TRANSPARENT_COLOR);
 		this.answerNo4Button.setContentAreaFilled(false);
