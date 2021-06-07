@@ -82,34 +82,51 @@ public class StateBuilder {
 			throws MissingQuestionsException {
 		ArrayList<Question> result = new ArrayList<Question>();
 
-		if (input.size() == 0 && (levelfk > 0 || levelMax > 0 || customLevel < 0)) {
+		if (input.size() == 0) {
+			throw new MissingQuestionsException();
+		} else if (levelfk <= 0 || levelMax <= 0) {
+			throw new MissingQuestionsException();
+		} else if (((levelMax - (customLevel - 1)) * levelfk) > input.size()) {
 			throw new MissingQuestionsException();
 		}
 
-		int counter = 0;
+		int difficultyCounter = 1;
 		int currentLevel = customLevel;
 		int lastDifficulty = -1;
 
-		for (int i = currentLevel; i < input.size() && currentLevel <= levelMax; i++) {
-			Question q = input.get(i);
+		for (int i = 0; i < input.size(); i++) {
+			Question tmpQuestion = input.get(i);
+			int newDifficulty = tmpQuestion.getDifficulty();
 
-			int newDifficulty = q.getDifficulty();
-			if (newDifficulty > lastDifficulty) {
-				if (counter < levelfk && i != currentLevel) {
-					throw new MissingQuestionsException();
-				}
-				counter = 0;
-				currentLevel++;
-				lastDifficulty = newDifficulty;
-			}
-			if (counter >= levelfk) {
+			if (newDifficulty < currentLevel) {
 				continue;
 			}
-			counter++;
-			result.add(input.get(i));
+
+			if (lastDifficulty == -1) {
+				lastDifficulty = newDifficulty;
+			}
+
+			if (newDifficulty > lastDifficulty) {
+				if (difficultyCounter < levelfk) {
+					throw new MissingQuestionsException();
+				}
+				difficultyCounter = 1;
+				lastDifficulty = newDifficulty;
+			}
+
+			if (difficultyCounter > levelfk) {
+				continue;
+			}
+
+			if (result.size() >= ((levelMax - (customLevel - 1)) * levelfk)) {
+				break;
+			}
+
+			difficultyCounter++;
+			result.add(tmpQuestion);
 		}
 
-		if (result.size() < (levelMax - customLevel) * levelfk) {
+		if (((levelMax - (customLevel - 1)) * levelfk) > result.size()) {
 			throw new MissingQuestionsException();
 		}
 
