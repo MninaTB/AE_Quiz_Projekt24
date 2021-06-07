@@ -166,6 +166,7 @@ public class Category implements Controller {
 	private void updateStartButton(Share share) {
 		final int levelFK = 10;
 		final int maxLevel = 5;
+		share.put("KEY_GAME_START_ITER", (this.startLevel-1) * levelFK);
 		StateBuilder s = new StateBuilder(store);
 		if (s.verify(this.selectedCategories, levelFK, maxLevel, startLevel)) {
 			this.view.getStartButton().setText("Weiter!");
