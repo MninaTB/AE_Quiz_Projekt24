@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import model.Question;
-import questions.QuestionStore;
 
 /**
  * 
@@ -17,12 +16,10 @@ import questions.QuestionStore;
 public class Result implements Controller {
 
 	private Switcher switcher;
-	// private QuestionStore store;
 	private view.Result view;
 
-	public Result(Switcher s, QuestionStore store) {
+	public Result(Switcher s) {
 		this.switcher = s;
-		// this.store = store;
 	}
 
 	/**
@@ -38,16 +35,13 @@ public class Result implements Controller {
 		if (!win) {
 			int iter = (int) share.get("KEY_GAME_ITERATION");
 			int iterMax = (int) share.get("KEY_GAME_ITERATION_MAX");
-			int level = 0;
-			if (iter > 0) {
-				level = iterMax / iter * levelFK;
-			} else {
-				level++;
-			}
+			int offset = (int) share.get("KEY_GAME_START_ITER");
+
+			int level = (iter / levelFK) + 1 + (offset/levelFK);
 			this.initLevelLeftLabel();
 			this.initLevelRightLabel(level, iterMax/levelFK);
 			this.initScoreLeftLabel();
-			this.initScoreRightLabel(iter, iterMax);
+			this.initScoreRightLabel(iter+offset, iterMax);
 			this.initQuestionLeftLabel(iter + 1);
 			this.initQuestionRightLabel(q.getQuestion());
 			this.initPlayerAnswerLeftLabel();

@@ -82,13 +82,9 @@ public class Main {
 				f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				f.setSize(1280, 720);
 				f.setResizable(false);
-				// Entfernt Fensterrahmen, erst nachdem alle Exit-Buttons implementiert sind
-				// aktivieren
-				// f.setUndecorated(true);
+				f.setUndecorated(true);
 				f.setLocationRelativeTo(null);
 				f.setVisible(true);
-				// NOTE: vielleicht muessen wir das laden vom screen mit dem starten
-				// des routers synchronisieren.
 			}
 		};
 

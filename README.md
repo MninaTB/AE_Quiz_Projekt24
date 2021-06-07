@@ -49,6 +49,13 @@ Beispiel:
 mysql -u username -p database_name < file.sql
 ```
 
+## Hilfsprogramme
+
+Unter `src/tools` befinden sich zwei Hilfsprogramme.
+
+1. `migration` dieses Tool kann verwendet werden um Fragen aus einer `json` Datei in eine Datenbank zu uebertragen.
+2. `uml_draw` wird verwendet um das unten gezeigte UML Diagramm zu generieren
+
 ## UML
 
 Uebersicht:
