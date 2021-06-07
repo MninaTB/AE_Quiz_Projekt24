@@ -9,7 +9,7 @@
       ".append()",
       ".increase()"
     ],
-    "solution": 1,
+    "solution": 0,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -24,7 +24,7 @@
       "Enum",
       "Stack"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -39,7 +39,7 @@
       "echo(\"Hallo Welt\");",
       "System.out.println(\"Hallo Welt\");"
     ],
-    "solution": 4,
+    "solution": 3,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -54,7 +54,7 @@
       "pString",
       "txt"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -69,7 +69,7 @@
       "int x \u003d 10;",
       "num x \u003d 10;"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -84,7 +84,7 @@
       "strLength()",
       "len()"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -99,7 +99,7 @@
       ".addActionListener()",
       ".giveActionListener()"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -114,7 +114,7 @@
       "Der * Wert",
       "Der $ Wert"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -129,7 +129,7 @@
       "\u003d\u003d",
       "\u003d"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -144,7 +144,7 @@
       "Beech",
       "Fir"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -159,7 +159,7 @@
       "Byteuebertragungsschicht",
       "Sitzungsschicht"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "IT-Systeme"
     }
@@ -174,7 +174,7 @@
       "Transport Control Principle",
       "Transmission Control Principle"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "IT-Systeme"
     }
@@ -189,7 +189,7 @@
       "Broadcast",
       "Unicast"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "IT-Systeme"
     }
@@ -204,7 +204,7 @@
       "101",
       "100"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "IT-Systeme"
     }
@@ -219,7 +219,7 @@
       "Daten werden durch elektromagnetische Wellen uebertragen",
       "Daten werden gar nicht uebertragen"
     ],
-    "solution": 1,
+    "solution": 0,
     "category": {
       "text": "IT-Systeme"
     }
@@ -234,7 +234,7 @@
       "Anwendung, Transport, Internet, Netzwerkzugriff",
       "Transport, Netzwerkzugriff, Internet, Anwendung"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "IT-Systeme"
     }
@@ -249,7 +249,7 @@
       "128",
       "256"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "IT-Systeme"
     }
@@ -264,7 +264,7 @@
       "Einrichten - Verarbeiten - Ausrichten",
       "Eingabe - Verarbeitung - Ausgabe"
     ],
-    "solution": 4,
+    "solution": 3,
     "category": {
       "text": "IT-Systeme"
     }
@@ -279,7 +279,7 @@
       "das Verlegen von Glasfaserkabeln",
       "das Einrichten von Telefon- und Alarmanlagen"
     ],
-    "solution": 1,
+    "solution": 0,
     "category": {
       "text": "IT-Systeme"
     }
@@ -294,7 +294,7 @@
       "Absatzphase",
       "Saettigungsphase"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "WGP"
     }
@@ -309,7 +309,7 @@
       "Verheiratete",
       "Lebensgemeinschaften"
     ],
-    "solution": 1,
+    "solution": 0,
     "category": {
       "text": "WGP"
     }
@@ -324,7 +324,7 @@
       "Imageverbesserung",
       "Marktstellungserhoehung"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "WGP"
     }
@@ -339,7 +339,7 @@
       "Sie haben eine hohe Aussagekraft",
       "Sie sind nicht beeinflusst"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "WGP"
     }
@@ -354,7 +354,7 @@
       "Attention",
       "Administration"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "WGP"
     }
@@ -369,7 +369,7 @@
       "Werbung auf ueber Zeitschriften und Zeitung",
       "Werbung durch Plakate"
     ],
-    "solution": 1,
+    "solution": 0,
     "category": {
       "text": "WGP"
     }
@@ -384,7 +384,7 @@
       "Marketing by Delegacy",
       "Management by Delegation"
     ],
-    "solution": 4,
+    "solution": 3,
     "category": {
       "text": "WGP"
     }
@@ -399,7 +399,7 @@
       "Produktgestaltung",
       "Absatzwerbung"
     ],
-    "solution": 4,
+    "solution": 3,
     "category": {
       "text": "WGP"
     }
@@ -414,7 +414,7 @@
       "Kostenorientierte Preisbildung",
       "Konkurrenzorientierte Preisbildung"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "WGP"
     }
@@ -429,7 +429,7 @@
       "Wirtschaft - Soziales - oekologie",
       "Wirtschaft - oekologie - Soziales"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "WGP"
     }
@@ -444,7 +444,7 @@
       "Einfuehrung - Wachstum - Saettigung",
       "Produkten - Distribution - Kommunikation"
     ],
-    "solution": 1,
+    "solution": 0,
     "category": {
       "text": "WGP"
     }
@@ -459,7 +459,7 @@
       "git branch \u003cNAME\u003e",
       "git setBranchName \u003cNAME\u003e"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -474,7 +474,7 @@
       "SELECT * FROM table",
       "SELECT * WHERE table LIKE"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -489,7 +489,7 @@
       "23 Januar 2004",
       "23 Dezember 1945"
     ],
-    "solution": 1,
+    "solution": 0,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -504,7 +504,7 @@
       "@UnitTest",
       "@SetTest"
     ],
-    "solution": 1,
+    "solution": 0,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -519,7 +519,7 @@
       "Ruft die gekennzeichnete Methode vor jedem Test auf",
       "Ruft die gekennzeichnete Methode vor jeder Test Methode auf"
     ],
-    "solution": 4,
+    "solution": 3,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -534,7 +534,7 @@
       "PHP",
       "C"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -549,7 +549,7 @@
       "cout()",
       "message()"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -564,7 +564,7 @@
       "cout()",
       "message()"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -579,7 +579,7 @@
       "Dennis Ritchie",
       "Bjarne Stroustrup"
     ],
-    "solution": 4,
+    "solution": 3,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -594,7 +594,7 @@
       "GPLV2",
       "BSDV2"
     ],
-    "solution": 1,
+    "solution": 0,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -609,7 +609,7 @@
       "Personal Home Page Tool",
       "Hypertext Protocol"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -624,7 +624,7 @@
       "Rasmus Lerdorf",
       "Bjarne Stroustrup"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -639,7 +639,7 @@
       "Hypertext Transport Paragraph",
       "Homepage Transfer Paragraph"
     ],
-    "solution": 1,
+    "solution": 0,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -654,7 +654,7 @@
       "Eine Abbildungsvorschrift",
       "Ein Editor"
     ],
-    "solution": 3,
+    "solution": 2,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -669,7 +669,7 @@
       "1995",
       "1899"
     ],
-    "solution": 1,
+    "solution": 0,
     "category": {
       "text": "Anwendungsentwicklung"
     }
@@ -684,7 +684,7 @@
       "7 Tage",
       "14 Tage"
     ],
-    "solution": 4,
+    "solution": 3,
     "category": {
       "text": "WGP"
     }
@@ -699,7 +699,7 @@
       "1 Monat",
       "12 Monaten"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "WGP"
     }
@@ -714,7 +714,7 @@
       "Strom",
       "Material"
     ],
-    "solution": 4,
+    "solution": 3,
     "category": {
       "text": "WGP"
     }
@@ -729,7 +729,7 @@
       "5.000 Euro",
       "30.000 Euro"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "WGP"
     }
@@ -744,7 +744,7 @@
       "2005",
       "2000"
     ],
-    "solution": 2,
+    "solution": 1,
     "category": {
       "text": "WGP"
     }
