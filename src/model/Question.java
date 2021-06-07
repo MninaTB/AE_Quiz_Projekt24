@@ -69,7 +69,7 @@ public class Question implements Cloneable {
 	 * Ueberschreibt Schwierigkeitsgrad
 	 * 
 	 */
-	public void getDifficulty(int d) {
+	public void setDifficulty(int d) {
 		this.difficulty = d;
 	}
 
