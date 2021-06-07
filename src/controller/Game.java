@@ -29,6 +29,11 @@ public class Game implements Controller {
 	private Share share;
 	private int iter;
 	private int levelOffset;
+	
+	private ActionListener al1;
+	private ActionListener al2;
+	private ActionListener al3;
+	private ActionListener al4;
 
 	public Game(Switcher s, QuestionStore store) {
 		this.switcher = s;
@@ -55,7 +60,7 @@ public class Game implements Controller {
 			System.exit(1);
 		}
 		this.state = (State) share.get(key);
-
+		
 		this.next();
 		if (this.question == null) {
 			// TODO: maybe we should allow a screen switch from
@@ -76,6 +81,7 @@ public class Game implements Controller {
 
 	private void next() {
 		this.question = this.state.next();
+		this.initLevelLabel();
 		this.initQuestion(this.share);
 	}
 
@@ -87,6 +93,7 @@ public class Game implements Controller {
 				share.put("KEY_GAME_ITERATION", iter);
 				share.put("KEY_GAME_ITERATION_MAX", 50);
 				share.put("KEY_GAME_LEVEL_FK", state.getLevelfk());
+				share.put("KEY_GAME_WIN", null);
 				switcher.next(Screen.SCREEN_RESULT);
 			}
 		};
@@ -97,6 +104,7 @@ public class Game implements Controller {
 		ActionListener right = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				share.put("KEY_GAME_WIN", new Object());
+				iter++;
 				next();
 				if (question == null) {
 					switcher.next(Screen.SCREEN_RESULT);
@@ -182,7 +190,11 @@ public class Game implements Controller {
 	public void initAnswerNo1Button(String a, ActionListener al) {
 		this.view.getAnswerNo1Button().setText("<html><p style=\"width:300px\">"+a+"</p></html>");
 		this.view.getAnswerNo1Button().setVisible(true);
+		if (this.al1 != null) {
+			this.view.getAnswerNo1Button().removeActionListener(this.al1);						
+		}
 		this.view.getAnswerNo1Button().addActionListener(al);
+		this.al1 = al;
 	}
 
 	/**
@@ -191,7 +203,11 @@ public class Game implements Controller {
 	public void initAnswerNo2Button(String a, ActionListener al) {
 		this.view.getAnswerNo2Button().setText("<html><p style=\"width:300px\">"+a+"</p></html>");
 		this.view.getAnswerNo2Button().setVisible(true);
+		if (this.al2 != null) {
+			this.view.getAnswerNo2Button().removeActionListener(this.al2);						
+		}
 		this.view.getAnswerNo2Button().addActionListener(al);
+		this.al2 = al;
 	}
 
 	/**
@@ -200,7 +216,11 @@ public class Game implements Controller {
 	public void initAnswerNo3Button(String a, ActionListener al) {
 		this.view.getAnswerNo3Button().setText("<html><p style=\"width:300px\">"+a+"</p></html>");
 		this.view.getAnswerNo3Button().setVisible(true);
+		if (this.al3 != null) {
+			this.view.getAnswerNo3Button().removeActionListener(this.al3);						
+		}
 		this.view.getAnswerNo3Button().addActionListener(al);
+		this.al3 = al;
 	}
 
 	/**
@@ -209,7 +229,12 @@ public class Game implements Controller {
 	public void initAnswerNo4Button(String a, ActionListener al) {
 		this.view.getAnswerNo4Button().setText("<html><p style=\"width:300px\">"+a+"</p></html>");
 		this.view.getAnswerNo4Button().setVisible(true);
+		if (this.al4 != null) {
+			this.view.getAnswerNo4Button().removeActionListener(this.al4);						
+		}
 		this.view.getAnswerNo4Button().addActionListener(al);
+		this.al4 = al;
+
 	}
 
 	/**
@@ -233,38 +258,38 @@ public class Game implements Controller {
 		this.view.getLevelLabel().setText(" Level:");
 		int levelfk = this.state.getLevelfk();
 		int iter = this.state.getIter()+this.levelOffset+this.state.getLevelfk();
-		System.out.println(iter);
+		
 		int level5 = 0;
 		int level4 = 0;
 		int level3 = 0;
 		int level2 = 0;
 		int level1 = 0;
 		
-		if (iter > 5*levelfk && iter <= 6*levelfk) {
+		if (iter > 5*levelfk && iter < 6*levelfk) {
 			level5 = iter%levelfk;
 		} else if (iter > 5*levelfk) {
 			level5 = levelfk;
 		}
 		
-		if (iter > 4*levelfk && iter <= 5*levelfk) {
+		if (iter > 4*levelfk && iter < 5*levelfk) {
 			level4 = iter%levelfk;
 		} else if (iter > 4*levelfk) {
 			level4 = levelfk;
 		}
 		
-		if (iter > 3*levelfk && iter <= 4*levelfk) {
+		if (iter > 3*levelfk && iter < 4*levelfk) {
 			level3 = iter%levelfk;
 		} else if (iter > 3*levelfk) {
 			level3 = levelfk;
 		}
 		
-		if (iter > 2*levelfk && iter <= 3*levelfk) {
+		if (iter > 2*levelfk && iter < 3*levelfk) {
 			level2 = iter%levelfk;
 		} else if (iter > 2*levelfk) {
 			level2 = levelfk;
 		}
 
-		if (iter > 1*levelfk && iter <= 2*levelfk) {
+		if (iter > 1*levelfk && iter < 2*levelfk) {
 			level1 = iter%levelfk;
 		} else if (iter > 1*levelfk) {
 			level1 = levelfk;

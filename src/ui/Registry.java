@@ -37,7 +37,7 @@ public class Registry {
 		this.intern.put(Screen.SCREEN_START, (Controller) new Start(s));
 		this.intern.put(Screen.SCREEN_CATEGORY, (Controller) new Category(s, store));
 		this.intern.put(Screen.SCREEN_GAME, (Controller) new Game(s, store));
-		this.intern.put(Screen.SCREEN_RESULT, (Controller) new Result(s, store));
+		this.intern.put(Screen.SCREEN_RESULT, (Controller) new Result(s));
 		this.intern.put(Screen.SCREEN_OPTIONS, (Controller) new Options(s, store));
 		this.intern.put(Screen.SCREEN_EDIT, (Controller) new Edit(s, store));
 		this.intern.put(Screen.SCREEN_CREATE, (Controller) new Create(s, store));
