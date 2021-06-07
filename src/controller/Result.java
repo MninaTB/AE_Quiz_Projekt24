@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import model.Question;
 import questions.QuestionStore;
 
 /**
@@ -28,17 +29,22 @@ public class Result implements Controller {
 	 */
 	public void init(Share share) {
 		this.view = new view.Result();
-		this.initResultLabel();
-		this.initLevelLeftLabel();
-		this.initLevelRightLabel();
-		this.initScoreLeftLabel();
-		this.initScoreRightLabel();
-		this.initQuestionLeftLabel();
-		this.initQuestionRightLabel();
-		this.initPlayerAnswerLeftLabel();
-		this.initPlayerAnswerRightLabel();
-		this.initCorrectAnswerLeftLabel();
-		this.initCorrectAnswerRightLabel();
+		
+		Question q = (Question) share.get("KEY_GAME_QUESTION");
+		boolean win = share.get("KEY_GAME_WIN") != null;
+		this.initResultLabel(win);
+		if (!win) {
+			this.initLevelLeftLabel();
+			this.initLevelRightLabel();
+			this.initScoreLeftLabel();
+			this.initScoreRightLabel();
+			this.initQuestionLeftLabel();
+			this.initQuestionRightLabel(q.getAnswers().get(q.getSolution()));
+			this.initPlayerAnswerLeftLabel();
+			this.initPlayerAnswerRightLabel();
+			this.initCorrectAnswerLeftLabel();
+			this.initCorrectAnswerRightLabel(q.getAnswers().get(q.getSolution()));			
+		}
 		this.initHomeButton();
 		this.initExitButton();
 	}
@@ -46,8 +52,12 @@ public class Result implements Controller {
 	/**
 	 * Initialisiert das Result-Label
 	 */
-	public void initResultLabel() {
-		this.view.getResultLabel().setText("Verloren");
+	public void initResultLabel(boolean win) {
+		this.view.getResultLabel().setText("Verloren!");
+		if (win) {
+			this.view.getResultLabel().setText("Gewonnen!");
+		}
+		
 	}
 
 	/**
@@ -88,8 +98,8 @@ public class Result implements Controller {
 	/**
 	 * Initialisiert das QuestionRight-Label
 	 */
-	public void initQuestionRightLabel() {
-		this.view.getQuestionRightLabel().setText("Wie lautet die erste Frage?");
+	public void initQuestionRightLabel(String question) {
+		this.view.getQuestionRightLabel().setText(question);
 	}
 
 	/**
@@ -116,8 +126,8 @@ public class Result implements Controller {
 	/**
 	 * Initialisiert das CorrectAnswerRight-Label
 	 */
-	public void initCorrectAnswerRightLabel() {
-		this.view.getCorrectAnswerRightLabel().setText("Vierte Antwort");
+	public void initCorrectAnswerRightLabel(String solution) {
+		this.view.getCorrectAnswerRightLabel().setText(solution);
 	}
 
 	/**
