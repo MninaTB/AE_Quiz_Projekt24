@@ -29,23 +29,35 @@ public class Result implements Controller {
 	 */
 	public void init(Share share) {
 		this.view = new view.Result();
+		int levelFK = (int) share.get("KEY_GAME_LEVEL_FK");
 
 		Question q = (Question) share.get("KEY_GAME_QUESTION");
 		boolean win = share.get("KEY_GAME_WIN") != null;
 		this.initResultLabel(win);
 		if (!win) {
+			int iter = (int) share.get("KEY_GAME_ITERATION");
+			int iterMax = (int) share.get("KEY_GAME_ITERATION_MAX");
+			int level = 0;
+			if (iter > 0) {
+				level = iterMax / iter * levelFK;
+			} else {
+				level++;
+			}
 			this.initLevelLeftLabel();
-			this.initLevelRightLabel();
+			this.initLevelRightLabel(level, iterMax/levelFK);
 			this.initScoreLeftLabel();
-			this.initScoreRightLabel();
-			this.initQuestionLeftLabel();
-			this.initQuestionRightLabel(q.getAnswers().get(q.getSolution()));
+			this.initScoreRightLabel(iter, iterMax);
+			this.initQuestionLeftLabel(iter + 1);
+			this.initQuestionRightLabel(q.getQuestion());
 			this.initPlayerAnswerLeftLabel();
-			this.initPlayerAnswerRightLabel();
+
+			int playerAnswer = (int) share.get("KEY_GAME_YOUR_ANSWER");
+
+			this.initPlayerAnswerRightLabel(q.getAnswers().get(playerAnswer));
 			this.initCorrectAnswerLeftLabel();
 			this.initCorrectAnswerRightLabel(q.getAnswers().get(q.getSolution()));
 		}
-		this.initHomeButton();
+		this.initHomeButton(share);
 		this.initExitButton();
 	}
 
@@ -70,8 +82,8 @@ public class Result implements Controller {
 	/**
 	 * Initialisiert das LevelRight-Label
 	 */
-	public void initLevelRightLabel() {
-		this.view.getLevelRightLabel().setText("3/5");
+	public void initLevelRightLabel(int level, int max) {
+		this.view.getLevelRightLabel().setText(level + "/" + max);
 	}
 
 	/**
@@ -84,15 +96,15 @@ public class Result implements Controller {
 	/**
 	 * Initialisiert das ScoreRight-Label
 	 */
-	public void initScoreRightLabel() {
-		this.view.getScoreRightLabel().setText("35/50");
+	public void initScoreRightLabel(int reached, int max) {
+		this.view.getScoreRightLabel().setText(reached + "/" + max);
 	}
 
 	/**
 	 * Initialisiert das QuestionLeft-Label
 	 */
-	public void initQuestionLeftLabel() {
-		this.view.getQuestionLeftLabel().setText(" 36. Frage:");
+	public void initQuestionLeftLabel(int iter) {
+		this.view.getQuestionLeftLabel().setText(" " + iter + ". Frage:");
 	}
 
 	/**
@@ -112,8 +124,8 @@ public class Result implements Controller {
 	/**
 	 * Initialisiert das PlayerAnswerRight-Label
 	 */
-	public void initPlayerAnswerRightLabel() {
-		this.view.getPlayerAnswerRightLabel().setText("Zweite Antwort");
+	public void initPlayerAnswerRightLabel(String answer) {
+		this.view.getPlayerAnswerRightLabel().setText(answer);
 	}
 
 	/**
@@ -133,10 +145,11 @@ public class Result implements Controller {
 	/**
 	 * Initialisiert den Start-Button
 	 */
-	private void initHomeButton() {
+	private void initHomeButton(Share share) {
 		this.view.getHomeButton().setText("Zur Startseite");
 		this.view.getHomeButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				share.put("KEY_GAME_WIN", null);
 				switcher.next(Screen.SCREEN_START);
 			}
 		});

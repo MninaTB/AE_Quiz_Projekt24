@@ -40,6 +40,35 @@ public class State {
 		this.iter++;
 		return q;
 	}
+	
+	/**
+	 * Gibt die Anzahl der verbleibenden Fragen zuruck
+	 */
+	public int getRest() {
+		return this.questions.size() - this.iter;
+	}
+	
+	/**
+	 * Gibt die Anzahl aller Fragen zurueck
+	 */
+	public int getMax() {
+		return this.questions.size();
+	}
+	
+	/**
+	 * Gibt aktuelle iteration zurueck
+	 */	
+	public int getIter() {
+		return this.iter;
+	}
+	
+
+	/**
+	 * Gibt gewaehlten level faktor zurueck
+	 */	
+	public int getLevelfk() {
+		return this.levelfk;
+	}
 
 	/**
 	 * Methode sagt aus in welchem Level man momentan ist
