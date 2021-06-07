@@ -3,9 +3,6 @@ package questions;
 import model.Question;
 import model.Category;
 
-/**
- * @author Roger
- */
 
 import java.sql.*;
 import java.util.ArrayList;

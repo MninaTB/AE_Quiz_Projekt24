@@ -18,8 +18,6 @@ import questions.QuestionStore;
 /**
  * Registry wird zur verwaltung von Screens genutzt.
  * 
- * @author nina
- *
  */
 public class Registry {
 	private HashMap<Screen, Controller> intern;

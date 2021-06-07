@@ -16,8 +16,6 @@ import java.awt.GridLayout;
  * Game ist ein view, welches JComponents
  * haelt und anbietet.
  * 
- * @author Niklas E.
- *
  */
 public class Game {
 	private JPanel content;
