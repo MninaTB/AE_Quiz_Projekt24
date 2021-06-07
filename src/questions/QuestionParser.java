@@ -153,14 +153,10 @@ public class QuestionParser implements QuestionStore {
 	public void update(Question qu) {
 		for (int i = 0; i < this.questions.size(); i++) {
 			if (this.questions.get(i).getID() == qu.getID()) {
-				Question newQuestion;
-				try {
-					newQuestion = (Question) qu.clone();
-				} catch (CloneNotSupportedException e) {
-					e.printStackTrace();
-					continue;
-				}
-				this.questions.add(i, newQuestion);
+				this.questions.get(i).setQuestion(qu.getQuestion());
+				this.questions.get(i).setSolution(qu.getSolution());
+				this.questions.get(i).setAnswers(qu.getAnswers());
+				this.questions.get(i).setCategory(qu.getCategory());
 				return;
 			}
 		}
