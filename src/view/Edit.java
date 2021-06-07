@@ -26,10 +26,10 @@ public class Edit {
 	private JTextField questionTextField;
 	private JPanel questionPanel;
 	private JLabel categoryLabel;
-	private JComboBox categoryComboBox;
+	private JComboBox<Object> categoryComboBox;
 	private JPanel categoryPanel;
 	private JLabel levelLabel;
-	private JComboBox levelComboBox;
+	private JComboBox<Object> levelComboBox;
 	private JPanel levelPanel;
 	private JPanel categoryLevelPanel;
 	private JRadioButton answerNo1Button;
@@ -91,7 +91,7 @@ public class Edit {
 		this.categoryLabel.setFont(ARIAL_PLAIN_50);
 		this.categoryLabel.setForeground(STANDARD_COLOR);
 
-		this.categoryComboBox = new JComboBox();
+		this.categoryComboBox = new JComboBox<Object>();
 		this.categoryComboBox.setPreferredSize(new Dimension(350, 50));
 		this.categoryComboBox.setFont(ARIAL_PLAIN_50);
 		this.categoryComboBox.setForeground(STANDARD_COLOR);
@@ -110,7 +110,7 @@ public class Edit {
 		this.levelLabel.setFont(ARIAL_PLAIN_50);
 		this.levelLabel.setForeground(STANDARD_COLOR);
 
-		this.levelComboBox = new JComboBox();
+		this.levelComboBox = new JComboBox<Object>();
 		this.levelComboBox.setPreferredSize(new Dimension(100, 50));
 		this.levelComboBox.setFont(ARIAL_PLAIN_50);
 		this.levelComboBox.setForeground(STANDARD_COLOR);
@@ -319,7 +319,7 @@ public class Edit {
 	 * 
 	 * @return JComboBox
 	 */
-	public JComboBox getCategoryComboBox() {
+	public JComboBox<?> getCategoryComboBox() {
 		return this.categoryComboBox;
 	}
 
@@ -337,7 +337,7 @@ public class Edit {
 	 * 
 	 * @return JComboBox
 	 */
-	public JComboBox getLevelComboBox() {
+	public JComboBox<?> getLevelComboBox() {
 		return this.levelComboBox;
 	}
 

@@ -10,7 +10,6 @@ import controller.Game;
 import controller.Options;
 import controller.Result;
 import controller.Screen;
-import controller.Share;
 import controller.Start;
 import controller.Switcher;
 import questions.QuestionStore;
@@ -22,14 +21,11 @@ import questions.QuestionStore;
 public class Registry {
 	private HashMap<Screen, Controller> intern;
 
-	private Share share;
-
 	/**
 	 * Konstruktor initialisiert interne map.
 	 */
 	public Registry() {
 		this.intern = new HashMap<Screen, Controller>();
-		this.share = new Share();
 	}
 
 	/**
