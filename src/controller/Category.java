@@ -47,6 +47,7 @@ public class Category implements Controller {
 		this.actionContinue = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				share.put("KEY_GAME_STATE", gameState);
+				selectedCategories = new ArrayList<model.Category>();
 				switcher.next(Screen.SCREEN_GAME);
 			}
 		};
@@ -163,7 +164,7 @@ public class Category implements Controller {
 	}
 
 	private void updateStartButton(Share share) {
-		final int levelFK = 9;
+		final int levelFK = 10;
 		final int maxLevel = 5;
 		StateBuilder s = new StateBuilder(store);
 		if (s.verify(this.selectedCategories, levelFK, maxLevel, startLevel)) {

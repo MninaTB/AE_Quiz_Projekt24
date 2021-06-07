@@ -27,9 +27,11 @@ public class Game implements Controller {
 	private State state;
 	private Question question;
 	private Share share;
+	private int iter;
 
 	public Game(Switcher s, QuestionStore store) {
 		this.switcher = s;
+		this.iter = 0;
 	}
 
 	/**
@@ -63,17 +65,25 @@ public class Game implements Controller {
 		this.initExitButton();
 		this.initCategoryLabel();
 		this.initLevelLabel();
-		this.initLevelNo1Label();
-		this.initLevelNo2Label();
-		this.initLevelNo3Label();
-		this.initLevelNo4Label();
-		this.initLevelNo5Label();
 		this.initJokerButton();
 	}
 
 	private void next() {
 		this.question = this.state.next();
 		this.initQuestion(this.share);
+	}
+
+	private ActionListener AnswerWrong(int idx) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				share.put("KEY_GAME_QUESTION", question);
+				share.put("KEY_GAME_YOUR_ANSWER", idx);
+				share.put("KEY_GAME_ITERATION", iter);
+				share.put("KEY_GAME_ITERATION_MAX", 50);
+				share.put("KEY_GAME_LEVEL_FK", state.getLevelfk());
+				switcher.next(Screen.SCREEN_RESULT);
+			}
+		};
 	}
 
 	private void initQuestion(Share share) {
@@ -88,13 +98,6 @@ public class Game implements Controller {
 			}
 		};
 
-		ActionListener wrong = new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				share.put("KEY_GAME_QUESTION", question);
-				switcher.next(Screen.SCREEN_RESULT);
-			}
-		};
-
 		ArrayList<String> answers = this.question.getAnswers();
 
 		this.initQuestionLabel(this.question.getQuestion());
@@ -103,26 +106,26 @@ public class Game implements Controller {
 		switch (this.question.getSolution()) {
 		case 0:
 			this.initAnswerNo1Button(answers.get(0), right);
-			this.initAnswerNo2Button(answers.get(1), wrong);
-			this.initAnswerNo3Button(answers.get(2), wrong);
-			this.initAnswerNo4Button(answers.get(3), wrong);
+			this.initAnswerNo2Button(answers.get(1), this.AnswerWrong(1));
+			this.initAnswerNo3Button(answers.get(2), this.AnswerWrong(2));
+			this.initAnswerNo4Button(answers.get(3), this.AnswerWrong(3));
 			break;
 		case 1:
-			this.initAnswerNo1Button(answers.get(0), wrong);
+			this.initAnswerNo1Button(answers.get(0), this.AnswerWrong(0));
 			this.initAnswerNo2Button(answers.get(1), right);
-			this.initAnswerNo3Button(answers.get(2), wrong);
-			this.initAnswerNo4Button(answers.get(3), wrong);
+			this.initAnswerNo3Button(answers.get(2), this.AnswerWrong(2));
+			this.initAnswerNo4Button(answers.get(3), this.AnswerWrong(3));
 			break;
 		case 2:
-			this.initAnswerNo1Button(answers.get(0), wrong);
-			this.initAnswerNo2Button(answers.get(1), wrong);
+			this.initAnswerNo1Button(answers.get(0), this.AnswerWrong(0));
+			this.initAnswerNo2Button(answers.get(1), this.AnswerWrong(1));
 			this.initAnswerNo3Button(answers.get(2), right);
-			this.initAnswerNo4Button(answers.get(3), wrong);
+			this.initAnswerNo4Button(answers.get(3), this.AnswerWrong(3));
 			break;
 		case 3:
-			this.initAnswerNo1Button(answers.get(0), wrong);
-			this.initAnswerNo2Button(answers.get(1), wrong);
-			this.initAnswerNo3Button(answers.get(2), wrong);
+			this.initAnswerNo1Button(answers.get(0), this.AnswerWrong(0));
+			this.initAnswerNo2Button(answers.get(1), this.AnswerWrong(1));
+			this.initAnswerNo3Button(answers.get(2), this.AnswerWrong(2));
 			this.initAnswerNo4Button(answers.get(3), right);
 			break;
 		default:
@@ -222,41 +225,47 @@ public class Game implements Controller {
 	 */
 	public void initLevelLabel() {
 		this.view.getLevelLabel().setText(" Level:");
-	}
+		int solved = this.state.getIter();
+		while (solved > 1*this.state.getLevelfk()) {
+			solved -= this.state.getLevelfk();
+		}
+		this.view.getLevelNo1Label().setText("  1. Level " + solved + "/" + this.state.getLevelfk());
+		
+		solved = 0;
+		if (this.state.getIter() > 2*this.state.getLevelfk()) {
+			solved = this.state.getIter();
+		}
+		while (solved > 2*this.state.getLevelfk()) {
+			solved -= this.state.getLevelfk();
+		}
+		this.view.getLevelNo2Label().setText("  2. Level " + solved + "/" + this.state.getLevelfk());
 
-	/**
-	 * Initialisiert das LevelNo1-Label
-	 */
-	public void initLevelNo1Label() {
-		this.view.getLevelNo1Label().setText("  1. Level 10/10");// TODO muss automatisiert werden mit Frage laden
-	}
+		solved = 0;
+		if (this.state.getIter() > 3*this.state.getLevelfk()) {
+			solved = this.state.getIter();
+		}
+		while (solved > 3*this.state.getLevelfk()) {
+			solved -= this.state.getLevelfk();
+		}
+		this.view.getLevelNo3Label().setText("  3. Level " + solved + "/" + this.state.getLevelfk());
 
-	/**
-	 * Initialisiert das LevelNo2-Label
-	 */
-	public void initLevelNo2Label() {
-		this.view.getLevelNo2Label().setText("  2. Level 10/10");// TODO muss automatisiert werden mit Frage laden
-	}
+		solved = 0;
+		if (this.state.getIter() > 4*this.state.getLevelfk()) {
+			solved = this.state.getIter();
+		}
+		while (solved > 4*this.state.getLevelfk()) {
+			solved -= this.state.getLevelfk();
+		}
+		this.view.getLevelNo4Label().setText("  4. Level " + solved + "/" + this.state.getLevelfk());
 
-	/**
-	 * Initialisiert das LevelNo3-Label
-	 */
-	public void initLevelNo3Label() {
-		this.view.getLevelNo3Label().setText("  3. Level 5/10");// TODO muss automatisiert werden mit Frage laden
-	}
-
-	/**
-	 * Initialisiert das LevelNo4-Label
-	 */
-	public void initLevelNo4Label() {
-		this.view.getLevelNo4Label().setText("  4. Level 0/10");// TODO muss automatisiert werden mit Frage laden
-	}
-
-	/**
-	 * Initialisiert das LevelNo5-Label
-	 */
-	public void initLevelNo5Label() {
-		this.view.getLevelNo5Label().setText("  5. Level 0/10");// TODO muss automatisiert werden mit Frage laden
+		solved = 0;
+		if (this.state.getIter() > 5*this.state.getLevelfk()) {
+			solved = this.state.getIter();
+		}
+		while (solved > 5*this.state.getLevelfk()) {
+			solved -= this.state.getLevelfk();
+		}
+		this.view.getLevelNo5Label().setText("  5. Level " + solved + "/" + this.state.getLevelfk());
 	}
 
 	/**
