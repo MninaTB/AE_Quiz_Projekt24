@@ -54,6 +54,7 @@ public class QuestionParser implements QuestionStore {
 				this.nextID = current + 1;
 			}
 		}
+		this.nextID++;
 	}
 
 	/**
