@@ -162,7 +162,7 @@ public class Category implements Controller {
 	}
 
 	private void updateStartButton(Share share) {
-		final int levelFK = 10;
+		final int levelFK = 9;
 		final int maxLevel = 5;
 		StateBuilder s = new StateBuilder(store);
 		if (s.verify(this.selectedCategories, levelFK, maxLevel, startLevel)) {

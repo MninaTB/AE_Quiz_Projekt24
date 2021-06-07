@@ -25,6 +25,9 @@ public class Game implements Controller {
 
 	private Switcher switcher;
 	private view.Game view;
+	private State state;
+	private Question question;
+	private Share share;
 
 	public Game(Switcher s, QuestionStore store) {
 		this.switcher = s;
@@ -34,6 +37,7 @@ public class Game implements Controller {
 	 * Initialisiert das Start view element
 	 */
 	public void init(Share share) {
+		this.share = share;
 		this.view = new view.Game();
 		
 		final String key = "KEY_GAME_STATE";
@@ -43,28 +47,22 @@ public class Game implements Controller {
 			System.out.println("missing game state");
 			System.exit(1);
 		}
-		State s = (State) share.get(key);
+		this.state = (State) share.get(key);
 
-		Question q = s.next();
-		if (q == null) {
+		this.next();
+		if (this.question == null) {
 			// TODO: maybe we should allow a screen switch from
 			// the init func.
 			System.out.println("game: question is null");
 			System.exit(1);
 		}
-		ArrayList<String> answers = q.getAnswers();
 		
+		this.initQuestion(share);
 		
 		this.initHomeButton();
 		this.initTitleLabel();
 		this.initExitButton();
-		this.initQuestionLabel();
-		this.initAnswerNo1Button(answers.get(0));
-		this.initAnswerNo2Button(answers.get(1));
-		this.initAnswerNo3Button(answers.get(2));
-		this.initAnswerNo4Button(answers.get(3));
 		this.initCategoryLabel();
-		this.initCurrentCategoryLabel();
 		this.initLevelLabel();
 		this.initLevelNo1Label();
 		this.initLevelNo2Label();
@@ -72,6 +70,65 @@ public class Game implements Controller {
 		this.initLevelNo4Label();
 		this.initLevelNo5Label();
 		this.initJokerButton();
+	}
+	
+	private void next() {
+		this.question = this.state.next();
+		this.initQuestion(this.share);
+	}
+	
+	private void initQuestion(Share share) {
+		
+		ActionListener right = new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				share.put("KEY_GAME_WIN", new Object());
+				next();
+				if (question == null) {
+					switcher.next(Screen.SCREEN_RESULT);	
+				}
+			}
+		};
+		
+		ActionListener wrong = new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				share.put("KEY_GAME_QUESTION", question);
+				switcher.next(Screen.SCREEN_RESULT);
+			}
+		};
+
+		
+		ArrayList<String> answers = this.question.getAnswers();
+		
+		this.initQuestionLabel(this.question.getQuestion());
+
+		this.initCurrentCategoryLabel(this.question.getCategory().toString());
+		switch (this.question.getSolution()) {
+		case 0:
+			this.initAnswerNo1Button(answers.get(0), right);
+			this.initAnswerNo2Button(answers.get(1), wrong);
+			this.initAnswerNo3Button(answers.get(2), wrong);
+			this.initAnswerNo4Button(answers.get(3), wrong);
+			break;
+		case 1:
+			this.initAnswerNo1Button(answers.get(0), wrong);
+			this.initAnswerNo2Button(answers.get(1), right);
+			this.initAnswerNo3Button(answers.get(2), wrong);
+			this.initAnswerNo4Button(answers.get(3), wrong);
+			break;
+		case 2:
+			this.initAnswerNo1Button(answers.get(0), wrong);
+			this.initAnswerNo2Button(answers.get(1), wrong);
+			this.initAnswerNo3Button(answers.get(2), right);
+			this.initAnswerNo4Button(answers.get(3), wrong);
+			break;
+		case 3:
+			this.initAnswerNo1Button(answers.get(0), wrong);
+			this.initAnswerNo2Button(answers.get(1), wrong);
+			this.initAnswerNo3Button(answers.get(2), wrong);
+			this.initAnswerNo4Button(answers.get(3), right);
+			break;
+		default:		
+		}
 	}
 
 	/**
@@ -82,13 +139,6 @@ public class Game implements Controller {
 		this.view.getHomeButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switcher.next(Screen.SCREEN_START);
-
-				// Reaktiviert Joker Button wenn man zurueck zum Start Screen geht und spiel neu
-				// startet
-				// Dies muss auch am Ende eines Spiels passieren also immer wenn man Game Screen
-				// verlaesst
-				view.getJokerButton().setEnabled(true);
-				view.getJokerButton().setText("50/50");
 			}
 		});
 	}
@@ -115,60 +165,44 @@ public class Game implements Controller {
 	/**
 	 * Initialisiert das Question-Label
 	 */
-	public void initQuestionLabel() {
-		this.view.getQuestionLabel().setText("Wie lautet die erste Frage?");// TODO muss automatisiert werden mit Frage
-																			// laden
+	public void initQuestionLabel(String q) {
+		this.view.getQuestionLabel().setText(q);
 	}
 
 	/**
 	 * Initialisiert den AnswerNo1-Button
 	 */
-	public void initAnswerNo1Button(String a) {
+	public void initAnswerNo1Button(String a, ActionListener al) {
 		this.view.getAnswerNo1Button().setText(a);
-		this.view.getAnswerNo1Button().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Temporaer Result-Screen auf AnswerNo1-Button gelegt zum Testen, wieder
-				// entfernen bei Spiel-Implementation
-				switcher.next(Screen.SCREEN_RESULT);
-				// TODO hier Spielfunktion am besten auf eine gemeinsame Methode implementieren
-			}
-		});
+		this.view.getAnswerNo1Button().setVisible(true);
+		this.view.getAnswerNo1Button().addActionListener(al);
 	}
 
 	/**
 	 * Initialisiert den AnswerNo2-Button
 	 */
-	public void initAnswerNo2Button(String a) {
+	public void initAnswerNo2Button(String a, ActionListener al) {
 		this.view.getAnswerNo2Button().setText(a);
-		this.view.getAnswerNo2Button().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// TODO hier Spielfunktion am besten auf eine gemeinsame Methode implementieren
-			}
-		});
+		this.view.getAnswerNo2Button().setVisible(true);
+		this.view.getAnswerNo2Button().addActionListener(al);
 	}
 
 	/**
 	 * Initialisiert den AnswerNo3-Button
 	 */
-	public void initAnswerNo3Button(String a) {
+	public void initAnswerNo3Button(String a, ActionListener al) {
 		this.view.getAnswerNo3Button().setText(a);
-		this.view.getAnswerNo3Button().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// TODO hier Spielfunktion am besten auf eine gemeinsame Methode implementieren
-			}
-		});
+		this.view.getAnswerNo3Button().setVisible(true);
+		this.view.getAnswerNo3Button().addActionListener(al);
 	}
 
 	/**
 	 * Initialisiert den AnswerNo4-Button
 	 */
-	public void initAnswerNo4Button(String a) {
+	public void initAnswerNo4Button(String a, ActionListener al) {
 		this.view.getAnswerNo4Button().setText(a);
-		this.view.getAnswerNo4Button().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// TODO hier Spielfunktion am besten auf eine gemeinsame Methode implementieren
-			}
-		});
+		this.view.getAnswerNo4Button().setVisible(true);
+		this.view.getAnswerNo4Button().addActionListener(al);
 	}
 
 	/**
@@ -181,8 +215,8 @@ public class Game implements Controller {
 	/**
 	 * Initialisiert das CurrentCategory-Label
 	 */
-	public void initCurrentCategoryLabel() {
-		this.view.getCurrentCategoryLabel().setText("  WGP");// TODO muss automatisiert werden mit Frage laden
+	public void initCurrentCategoryLabel(String c) {
+		this.view.getCurrentCategoryLabel().setText("  " + c);
 	}
 
 	/**
@@ -231,11 +265,29 @@ public class Game implements Controller {
 	 * Initialisiert den Joker-Button
 	 */
 	public void initJokerButton() {
+		this.view.getJokerButton().setEnabled(true);
 		this.view.getJokerButton().setText("50/50");
 		this.view.getJokerButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO hier Jokerfunktion implementieren
-
+				switch (question.getSolution()) {
+				case 0:
+					view.getAnswerNo3Button().setVisible(false);
+					view.getAnswerNo4Button().setVisible(false);
+					break;
+				case 1:
+					view.getAnswerNo3Button().setVisible(false);
+					view.getAnswerNo4Button().setVisible(false);
+					break;
+				case 2:
+					view.getAnswerNo1Button().setVisible(false);
+					view.getAnswerNo4Button().setVisible(false);
+					break;
+				case 3:
+					view.getAnswerNo1Button().setVisible(false);
+					view.getAnswerNo2Button().setVisible(false);
+					break;
+				default:
+				}
 				view.getJokerButton().setEnabled(false);
 				view.getJokerButton().setText("X");
 				view.getJokerButton().setFont(new Font("Arial", Font.BOLD, 150));
