@@ -36,7 +36,9 @@ public class Edit implements Controller {
 		this.initQuestionLabel();
 		this.initQuestionTextField();
 		this.initCategoryLabel();
+		this.initCategoryComboBox();
 		this.initLevelLabel();
+		this.initLevelComboBox();
 		this.initAnswerNo1Label();
 		this.initAnswerNo1TextField();
 		this.initAnswerNo2Label();
@@ -45,6 +47,7 @@ public class Edit implements Controller {
 		this.initAnswerNo3TextField();
 		this.initAnswerNo4Label();
 		this.initAnswerNo4TextField();
+		this.initSolutionSelect();
 		this.initSaveButton();
 		this.initCancelButton();
 	}
@@ -69,12 +72,39 @@ public class Edit implements Controller {
 	public void initCategoryLabel() {
 		this.view.getCategoryLabel().setText("Kategorie:");
 	}
+	
+	/**
+	 * Initialisiert die Category-ComboBox
+	 */
+	public void initCategoryComboBox() {
+		this.view.getCategoryComboBox().addItem("");
+		for (model.Category category : this.store.getCategories()) {
+			model.Category c = category;
+			if (c.toString() != "unknown" && c.toString() != "fun") {
+				this.view.getCategoryComboBox().addItem(c.toString());
+			}
+		}
+		this.view.getCategoryComboBox().setSelectedItem(this.question.getCategory().toString());
+	}
 
 	/**
 	 * Initialisiert das Level-Label
 	 */
 	public void initLevelLabel() {
 		this.view.getLevelLabel().setText("Level:");
+	}
+	
+	/**
+	 * Initialisiert die Level-ComboBox
+	 */
+	public void initLevelComboBox() {
+		this.view.getLevelComboBox().addItem("1");
+		this.view.getLevelComboBox().addItem("2");
+		this.view.getLevelComboBox().addItem("3");
+		this.view.getLevelComboBox().addItem("4");
+		this.view.getLevelComboBox().addItem("5");
+		
+		this.view.getLevelComboBox().setSelectedItem(String.valueOf(this.question.getDifficulty()));
 	}
 
 	/**
@@ -132,6 +162,26 @@ public class Edit implements Controller {
 	public void initAnswerNo4TextField() {
 		this.view.getAnswerNo4TextField().setText(this.question.getAnswers().get(3));
 	}
+	
+	public void initSolutionSelect() {
+		switch(this.question.getSolution()) {
+        case 0:
+        	this.view.getAnswerNo1Button().setSelected(true);
+            break;
+        case 1:
+        	this.view.getAnswerNo2Button().setSelected(true);
+            break;
+        case 2:
+        	this.view.getAnswerNo3Button().setSelected(true);
+            break;
+        case 3:
+        	this.view.getAnswerNo4Button().setSelected(true);
+            break;
+        default:
+            System.out.println("Fehler: Keine Solution vorhanden");
+            break;
+        }
+	}
 
 	/**
 	 * Initialisiert den Save-Button
@@ -139,6 +189,9 @@ public class Edit implements Controller {
 	public void initSaveButton() {
 		this.view.getSaveButton().setText("Frage speichern");
 		this.view.getSaveButton().addActionListener(new ActionListener() {
+			
+			
+			
 			@SuppressWarnings("serial")
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<String> aw = new ArrayList<String>() {
@@ -149,9 +202,19 @@ public class Edit implements Controller {
 						add(view.getAnswerNo4TextField().getText());
 					}
 				};
-				// TODO: update difficutly, solution and category
-				question.setAnswers(aw);
 				question.setQuestion(view.getQuestionTextField().getText());
+				question.setDifficulty(Integer.parseInt(view.getLevelComboBox().getSelectedItem().toString()));
+				question.setAnswers(aw);
+				question.setSolution(Integer.parseInt(view.getButtonGroup().getSelection().getActionCommand()));
+				model.Category c;
+				String cString = view.getCategoryComboBox().getSelectedItem().toString();
+				if(cString == "") {
+					c = new model.Category("unknown");
+				}
+				else {
+					c = new model.Category(cString);
+				}
+				question.setCategory(c);
 
 				store.update(question);
 				switcher.next(Screen.SCREEN_OPTIONS);
