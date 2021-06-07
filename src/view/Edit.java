@@ -26,10 +26,10 @@ public class Edit {
 	private JTextField questionTextField;
 	private JPanel questionPanel;
 	private JLabel categoryLabel;
-	private JComboBox<Object> categoryComboBox;
+	private JComboBox<String> categoryComboBox;
 	private JPanel categoryPanel;
 	private JLabel levelLabel;
-	private JComboBox<Object> levelComboBox;
+	private JComboBox<String> levelComboBox;
 	private JPanel levelPanel;
 	private JPanel categoryLevelPanel;
 	private JRadioButton answerNo1Button;
@@ -91,7 +91,7 @@ public class Edit {
 		this.categoryLabel.setFont(ARIAL_PLAIN_50);
 		this.categoryLabel.setForeground(STANDARD_COLOR);
 
-		this.categoryComboBox = new JComboBox<Object>();
+		this.categoryComboBox = new JComboBox<String>();
 		this.categoryComboBox.setPreferredSize(new Dimension(350, 50));
 		this.categoryComboBox.setFont(ARIAL_PLAIN_50);
 		this.categoryComboBox.setForeground(STANDARD_COLOR);
@@ -110,7 +110,7 @@ public class Edit {
 		this.levelLabel.setFont(ARIAL_PLAIN_50);
 		this.levelLabel.setForeground(STANDARD_COLOR);
 
-		this.levelComboBox = new JComboBox<Object>();
+		this.levelComboBox = new JComboBox<String>();
 		this.levelComboBox.setPreferredSize(new Dimension(100, 50));
 		this.levelComboBox.setFont(ARIAL_PLAIN_50);
 		this.levelComboBox.setForeground(STANDARD_COLOR);
@@ -126,6 +126,7 @@ public class Edit {
 
 		this.answerNo1Button = new JRadioButton();
 		this.answerNo1Button.setBackground(BACKGROUND_COLOR);
+		this.answerNo1Button.setActionCommand("0");
 
 		this.answerNo1Label = new JLabel();
 		this.answerNo1Label.setFont(ARIAL_PLAIN_50);
@@ -144,6 +145,7 @@ public class Edit {
 
 		this.answerNo2Button = new JRadioButton();
 		this.answerNo2Button.setBackground(BACKGROUND_COLOR);
+		this.answerNo2Button.setActionCommand("1");
 
 		this.answerNo2Label = new JLabel();
 		this.answerNo2Label.setFont(ARIAL_PLAIN_50);
@@ -162,6 +164,7 @@ public class Edit {
 
 		this.answerNo3Button = new JRadioButton();
 		this.answerNo3Button.setBackground(BACKGROUND_COLOR);
+		this.answerNo3Button.setActionCommand("2");
 
 		this.answerNo3Label = new JLabel();
 		this.answerNo3Label.setFont(ARIAL_PLAIN_50);
@@ -180,6 +183,7 @@ public class Edit {
 
 		this.answerNo4Button = new JRadioButton();
 		this.answerNo4Button.setBackground(BACKGROUND_COLOR);
+		this.answerNo4Button.setActionCommand("3");
 
 		this.answerNo4Label = new JLabel();
 		this.answerNo4Label.setFont(ARIAL_PLAIN_50);
@@ -319,7 +323,7 @@ public class Edit {
 	 * 
 	 * @return JComboBox
 	 */
-	public JComboBox<?> getCategoryComboBox() {
+	public JComboBox<String> getCategoryComboBox() {
 		return this.categoryComboBox;
 	}
 
@@ -337,7 +341,7 @@ public class Edit {
 	 * 
 	 * @return JComboBox
 	 */
-	public JComboBox<?> getLevelComboBox() {
+	public JComboBox<String> getLevelComboBox() {
 		return this.levelComboBox;
 	}
 
