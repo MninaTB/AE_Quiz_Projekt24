@@ -71,7 +71,7 @@ class StateBuilderTest {
 				{
 					add(category);
 				}
-			}, 1, expect, 0);
+			}, 1, expect, 1);
 		} catch (Exception e) {
 			fail(e);
 		}
@@ -87,7 +87,7 @@ class StateBuilderTest {
 				{
 					add(category);
 				}
-			}, 1, expect, 0);
+			}, 1, expect, 1);
 		} catch (Exception e) {
 			fail(e);
 		}

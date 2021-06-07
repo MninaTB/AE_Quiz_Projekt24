@@ -90,12 +90,12 @@ public class StateBuilder {
 		int currentLevel = customLevel;
 		int lastDifficulty = -1;
 
-		for (int i = currentLevel; i < input.size() && currentLevel < levelMax; i++) {
+		for (int i = currentLevel; i < input.size() && currentLevel <= levelMax; i++) {
 			Question q = input.get(i);
 
 			int newDifficulty = q.getDifficulty();
 			if (newDifficulty > lastDifficulty) {
-				if (counter < levelfk && i != 0) {
+				if (counter < levelfk && i != currentLevel) {
 					throw new MissingQuestionsException();
 				}
 				counter = 0;
