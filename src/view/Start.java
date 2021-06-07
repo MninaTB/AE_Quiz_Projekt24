@@ -15,8 +15,6 @@ import java.awt.BorderLayout;
  * Start ist ein view, welches JComponents
  * haelt und anbietet.
  * 
- * @author nina, niklas e.
- *
  */
 public class Start {
 	private JPanel content;

@@ -10,8 +10,6 @@ import javax.swing.JPanel;
  * Start.java Start ist ein Controller zur verwaltung von aktionen des start
  * screens.
  * 
- * @author Nina, Niklas E.
- * @since 24-05-2021
  */
 public class Start implements Controller {
 

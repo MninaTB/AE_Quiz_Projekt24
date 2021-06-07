@@ -4,8 +4,6 @@ package controller;
  * 
  * Screen.java Enum zum identifizieren verschiedener screens.
  * 
- * @author Nina
- * @since 24-05-2021
  */
 public enum Screen {
 	SCREEN_START("start"),

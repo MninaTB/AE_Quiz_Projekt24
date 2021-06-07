@@ -15,8 +15,6 @@ import controller.Switcher;
  * Wird genutzt um verschiedene JPanel zu laden. Ein Screen wechsel ist
  * threadsafe.
  * 
- * @author nina
- *
  */
 public class Router {
 

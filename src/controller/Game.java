@@ -18,7 +18,6 @@ import questions.QuestionStore;
  * Game.java Game ist ein Controller zur verwaltung von aktionen des game
  * screens.
  * 
- * @author Niklas E.
  * 
  */
 public class Game implements Controller {
