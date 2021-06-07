@@ -107,14 +107,18 @@ public class Options {
 		this.centerPanel.setOpaque(false);
 
 		this.centerScrollPane = new JScrollPane(centerPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		this.centerScrollPane.setOpaque(false);
 		this.centerScrollPane.getViewport().setOpaque(false);
-		this.centerScrollPane.getVerticalScrollBar().setOpaque(false);
 		this.centerScrollPane.setBorder(null);
+		this.centerScrollPane.getVerticalScrollBar().setOpaque(false);
 		this.centerScrollPane.getVerticalScrollBar().setBorder(null);
 		this.centerScrollPane.getVerticalScrollBar().getComponent(0).setBackground(STANDARD_COLOR);
 		this.centerScrollPane.getVerticalScrollBar().getComponent(1).setBackground(STANDARD_COLOR);
+		this.centerScrollPane.getHorizontalScrollBar().setOpaque(false);
+		this.centerScrollPane.getHorizontalScrollBar().setBorder(null);
+		this.centerScrollPane.getHorizontalScrollBar().getComponent(0).setBackground(STANDARD_COLOR);
+		this.centerScrollPane.getHorizontalScrollBar().getComponent(1).setBackground(STANDARD_COLOR);
 
 		this.addButton = new JButton();
 		this.addButton.setFont(ARIAL_BOLD_50);
