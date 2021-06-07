@@ -28,6 +28,7 @@ public class Game implements Controller {
 	private Question question;
 	private Share share;
 	private int iter;
+	private int levelOffset;
 
 	public Game(Switcher s, QuestionStore store) {
 		this.switcher = s;
@@ -40,7 +41,12 @@ public class Game implements Controller {
 	public void init(Share share) {
 		this.share = share;
 		this.view = new view.Game();
-
+		Object offset = share.get("KEY_GAME_START_ITER");
+		if (offset != null) {
+			this.levelOffset = (int) share.get("KEY_GAME_START_ITER");			
+		} else {
+			this.levelOffset = 0;
+		}
 		final String key = "KEY_GAME_STATE";
 		if (!share.entryExists(key)) {
 			// TODO: maybe we should allow a screen switch from
@@ -225,47 +231,50 @@ public class Game implements Controller {
 	 */
 	public void initLevelLabel() {
 		this.view.getLevelLabel().setText(" Level:");
-		int solved = this.state.getIter();
-		while (solved > 1*this.state.getLevelfk()) {
-			solved -= this.state.getLevelfk();
-		}
-		this.view.getLevelNo1Label().setText("  1. Level " + solved + "/" + this.state.getLevelfk());
+		int levelfk = this.state.getLevelfk();
+		int iter = this.state.getIter()+this.levelOffset+this.state.getLevelfk();
+		System.out.println(iter);
+		int level5 = 0;
+		int level4 = 0;
+		int level3 = 0;
+		int level2 = 0;
+		int level1 = 0;
 		
-		solved = 0;
-		if (this.state.getIter() > 2*this.state.getLevelfk()) {
-			solved = this.state.getIter();
+		if (iter > 5*levelfk && iter <= 6*levelfk) {
+			level5 = iter%levelfk;
+		} else if (iter > 5*levelfk) {
+			level5 = levelfk;
 		}
-		while (solved > 2*this.state.getLevelfk()) {
-			solved -= this.state.getLevelfk();
+		
+		if (iter > 4*levelfk && iter <= 5*levelfk) {
+			level4 = iter%levelfk;
+		} else if (iter > 4*levelfk) {
+			level4 = levelfk;
 		}
-		this.view.getLevelNo2Label().setText("  2. Level " + solved + "/" + this.state.getLevelfk());
+		
+		if (iter > 3*levelfk && iter <= 4*levelfk) {
+			level3 = iter%levelfk;
+		} else if (iter > 3*levelfk) {
+			level3 = levelfk;
+		}
+		
+		if (iter > 2*levelfk && iter <= 3*levelfk) {
+			level2 = iter%levelfk;
+		} else if (iter > 2*levelfk) {
+			level2 = levelfk;
+		}
 
-		solved = 0;
-		if (this.state.getIter() > 3*this.state.getLevelfk()) {
-			solved = this.state.getIter();
+		if (iter > 1*levelfk && iter <= 2*levelfk) {
+			level1 = iter%levelfk;
+		} else if (iter > 1*levelfk) {
+			level1 = levelfk;
 		}
-		while (solved > 3*this.state.getLevelfk()) {
-			solved -= this.state.getLevelfk();
-		}
-		this.view.getLevelNo3Label().setText("  3. Level " + solved + "/" + this.state.getLevelfk());
-
-		solved = 0;
-		if (this.state.getIter() > 4*this.state.getLevelfk()) {
-			solved = this.state.getIter();
-		}
-		while (solved > 4*this.state.getLevelfk()) {
-			solved -= this.state.getLevelfk();
-		}
-		this.view.getLevelNo4Label().setText("  4. Level " + solved + "/" + this.state.getLevelfk());
-
-		solved = 0;
-		if (this.state.getIter() > 5*this.state.getLevelfk()) {
-			solved = this.state.getIter();
-		}
-		while (solved > 5*this.state.getLevelfk()) {
-			solved -= this.state.getLevelfk();
-		}
-		this.view.getLevelNo5Label().setText("  5. Level " + solved + "/" + this.state.getLevelfk());
+		
+		this.view.getLevelNo1Label().setText("  1. Level " + level1 + "/" + this.state.getLevelfk());
+		this.view.getLevelNo2Label().setText("  2. Level " + level2 + "/" + this.state.getLevelfk());
+		this.view.getLevelNo3Label().setText("  3. Level " + level3 + "/" + this.state.getLevelfk());
+		this.view.getLevelNo4Label().setText("  4. Level " + level4 + "/" + this.state.getLevelfk());
+		this.view.getLevelNo5Label().setText("  5. Level " + level5 + "/" + this.state.getLevelfk());
 	}
 
 	/**
